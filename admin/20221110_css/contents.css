@@ -1,0 +1,144 @@
+@charset "utf-8";
+
+span.fn_gray {display:inline-block; margin-bottom:10px; font-size:14px}
+
+.boardlist {margin-bottom:40px}
+.boardlist:last-child {margin-bottom:0}
+.boardlist table {width:100%; border-top:1px solid #000}
+.boardlist table tbody th {height:45px; padding:0 10px; border-bottom:1px solid #eaeaea; background:#f7f7f7; color:#000; font-size:14px; font-weight:700}
+.boardlist table tbody td {height:45px; padding:0 10px; border-bottom:1px solid #eaeaea; color:#666; text-align:center; font-size:13px; font-weight:200}
+.boardlist table tbody td > b {color:#f46610; font-weight:700}
+.boardlist table tbody td > strong {color:#666; font-weight:700}
+.boardlist table tbody td > em {color:#ed1a3c; font-size:inherit; font-weight:700}
+.boardlist table tbody td .searchbox {position:relative}
+.boardlist table tbody td .searchbox .optionbox {float:left; width:100px; margin-right:6px}
+.boardlist table tbody td .searchbox .inpbox {float:none; overflow:hidden; width:auto; margin-right:74px}
+.boardlist table tbody td .searchbox > button {position:absolute; top:50%; right:0; width:64px; height:32px; margin-top:-16px}
+.boardlist table tbody td.text-center {text-align:center !important}
+.boardlist table tbody td button.btn-edit {width:14px; height:14px; background:url('../images/icon_edit_01.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.boardlist:not(.search) table thead th {height:45px; padding:0 10px; border-bottom:1px solid #eaeaea; background:#f7f7f7; color:#000; font-size:14px; font-weight:700}
+
+.boardlist:not(.search) table tbody tr:hover {background:#fcf6f7;}
+.boardlist:not(.search) table tbody tr.on {background:#fcf6f7;}
+/*
+.boardlist:not(.search) table tbody tr:hover {background:#fcf6f7; cursor:pointer}
+.boardlist:not(.search) table tbody tr.on {background:#fcf6f7; cursor:pointer}
+*/
+
+.boardlist.search table tbody td {text-align:left}
+.boardlist.search table tbody td .iradiobox {float:left}
+.boardlist.search table tbody td > a {color:navy; text-decoration:underline}
+.boardlist.calendar table {border-top:0}
+.boardlist.calendar table tbody tr:hover {background:none}
+.boardlist.calendar > table > thead > tr > th {border:1px solid #eaeaea}
+.boardlist.calendar > table > thead > tr:first-child th {height:80px; font-size:24px}
+.boardlist.calendar > table > tbody > tr > th {text-align:center}
+.boardlist.calendar > table > tbody > tr > td {height:auto; padding:10px; border:1px solid #eaeaea; text-align:left}
+.boardlist.calendar > table > tbody > tr > td:hover {background:#fcf6f7}
+.boardlist.calendar > table > tbody > tr > td table tbody td {height:auto; padding:0; border-bottom:0; text-align:left}
+
+
+.boardwrite {margin-bottom:40px;}
+.boardwrite:last-child {margin-bottom:0}
+.boardwrite>table {width:100%; border-top:1px solid #000}
+.boardwrite>table>tbody>tr>th {height:45px; padding:0 10px; border-bottom:1px solid #eaeaea; background:#f7f7f7; color:#000; font-size:14px; font-weight:700}
+.boardwrite>table>tbody>tr>td {padding:5px 10px; border-bottom:1px solid #eaeaea; color:#666; text-align:left; font-size:13px; font-weight:200}
+.boardwrite>table>tbody>tr>td > strong {color:#666; font-weight:700}
+.boardwrite>table>tbody>tr>td > b {display:inline-block; margin-left:20px; vertical-align:middle; color:#f46610; font-size:inherit; font-weight:700}
+.boardwrite>table>tbody>tr>td .inpbox {display:inline-block; width:100%; vertical-align:middle}
+.boardwrite>table>tbody>tr>td .textareabox {display:block; width:100%; height:150px; margin:10px 0; border:1px solid #dfdfdf}
+.boardwrite>table>tbody>tr>td .textareabox textarea {display:block; width:100%; height:100%; border:0}
+.boardwrite>table>tbody>tr>td.address {position:relative}
+.boardwrite>table>tbody>tr>td.address .post {display:block; float:left; width:10%; margin-right:10px}
+.boardwrite>table>tbody>tr>td.address .address {display:block; float:none; overflow:hidden; width:auto; margin-right:110px}
+.boardwrite>table>tbody>tr>td.address > button {position:absolute; top:6px; right:10px; width:100px; height:32px}
+.boardwrite textarea {display:block; width:100%; height:80px; border:1px solid #dfdfdf}
+
+table.calendar-paging  tbody td a {margin:0 10px; font-size:16px}
+
+.menu-contact .btnleft {margin-bottom:10px}
+.menu-contact .btnleft button {width:67px}
+
+.menu-holiday .btnleft {margin-bottom:10px}
+.menu-holiday .btnleft .btnset {display:inline-block; overflow:hidden; border-radius:2px; font-size:0}
+.menu-holiday .btnleft button {position:relative; width:90px; border-radius:0; margin-left:-1px; z-index:0}
+.menu-holiday .btnleft button:hover {border-color:#ed1a3c; color:#ed1a3c; z-index:1}
+.menu-holiday .btnleft button.on {border-color:#ed1a3c; color:#ed1a3c; z-index:1}
+.menu-holiday .btnleft button:first-child {margin-left:0}
+
+.menu-planner #calendar {position:relative; width:1453px}
+.menu-planner .btnset {position:absolute; top:0; left:50%; width:200px; margin-left:-100px}
+.menu-planner .btnset .btn-prev {float:left; width:40px; height:40px; border:0; background:url('../images/icon_arr_03.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.menu-planner .btnset .btn-next {float:right; width:40px; height:40px; border:0; background:url('../images/icon_arr_04.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.menu-planner #calendar .fc-scroller-canvas {width:100% !important; min-width:auto !important}
+.menu-planner #calendar .fc-toolbar h2 {display:inline-block; margin:0 20px; vertical-align:middle; color:#000; font-size:24px}
+.menu-planner #calendar .fc-toolbar h2:after {display:inline-block; color:#000; font-size:24px; content:"년"}
+.menu-planner #calendar .fc-body .fc-resource-area .fc-cell-content {overflow:hidden; width:95%; padding:10px 4px; text-overflow:ellipsis; white-space:nowrap}
+.menu-planner #calendar .fc-timeline {border-top:1px solid #000}
+.menu-planner #calendar .fc-timeline th {height:50px; background:#f7f7f7}
+.menu-planner #calendar .fc-timeline .fc-body .fc-time-area.fc-widget-content > .fc-scroller-clip > .fc-scroller {width:1247px !important; overflow:hidden; height:auto !important}
+.menu-planner #calendar .fc-timeline .fc-body .fc-resource-area.fc-widget-content > .fc-scroller-clip > .fc-scroller {overflow:hidden; height:auto !important}
+.menu-planner #calendar .fc-timeline-event .fc-title {display:block; overflow:hidden; width:100%; line-height:30px; font-size:14px; text-overflow:ellipsis; white-space:nowrap; font-weight:400} 
+.menu-planner #calendar .fc-time-area .fc-rows td > div {min-height:45px}
+.menu-planner #calendar .fc-time-area .fc-cell-text:after {content:"월"}
+.menu-planner #calendar .fc-content:after {right:15px !important; border-left-color:#fff !important; border-right-color:#fff !important; opacity:1 !important}
+.menu-planner #calendar .fc-content:before {left:15px !important; border-left-color:#fff !important; border-right-color:#fff !important; opacity:1 !important}
+.menu-planner #calendar .fc-event .fc-content {text-align:center !important}
+.menu-planner .fc-ltr .fc-timeline-event {height:30px; margin-right:0; border-radius:4px}
+.menu-planner .fc-prev-button {width:40px; height:40px; border:0; background:url('../images/icon_arr_03.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.menu-planner .fc-prev-button:hover, .menu-planner .fc-prev-button:active, .menu-planner .fc-prev-button:focus {background-color:transparent !important; border-color:transparent !important; box-shadow:none !important}
+.menu-planner .fc-next-button {width:40px; height:40px; border:0; background:url('../images/icon_arr_04.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.menu-planner .fc-next-button:hover, .menu-planner .fc-next-button:active, .menu-planner .fc-next-button:focus {background-color:transparent !important; border-color:transparent !important; box-shadow:none !important}
+
+.menu-week .boardtop {position:relative; margin-bottom:20px}
+.menu-week .boardtop h4 {text-align:center; color:#000; font-size:24px}
+.menu-week .boardtop .btnset {position:absolute; top:0; left:50%; width:300px; margin-left:-150px}
+.menu-week .boardtop .btnset .btn-prev {float:left; width:40px; height:40px; border:0; background:url('../images/icon_arr_03.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.menu-week .boardtop .btnset .btn-next {float:right; width:40px; height:40px; border:0; background:url('../images/icon_arr_04.png') no-repeat 50%; vertical-align:middle; font-size:0}
+/*
+.menu-week .boardlist {border-top:1px solid #000}
+.menu-week .boardlist table {border-top:0}
+.menu-week .boardlist:not(.search) table .border-right {border-right:1px solid #eaeaea}
+.menu-week .boardlist:not(.search) table tbody th {background:#fff}
+.menu-week .boardlist:not(.search) table tbody td {padding:0; background:url('../images/btn_popclose_01.png') #2e323f no-repeat 50%}
+.menu-week .boardlist:not(.search) table tbody td > a {display:block; width:100%; height:45px; background:url('../images/icon_file_01.png') #fff no-repeat 50%; font-size:0; text-indent:-99999px}
+*/
+.menu-week .boardlist {border-top:1px solid #000}
+.menu-week .boardlist table {border-top:0}
+.menu-week .boardlist:not(.search) table .border-right {border-right:1px solid #eaeaea}
+.menu-week .boardlist:not(.search) table tbody tr {cursor:default}
+.menu-week .boardlist:not(.search) table tbody th {background:#fff}
+.menu-week .boardlist:not(.search) table tbody td {height:45px; padding:0; background:url('../images/btn_popclose_01.png') #2e323f no-repeat 50%}
+.menu-week .boardlist:not(.search) table tbody td > a {display:block; width:100%; height:45px; background:url('../images/icon_file_01.png') #fff no-repeat 50%; font-size:0; text-indent:-99999px}
+.menu-week .boardlist:not(.search) table tbody tr.add td {padding:0 10px; font-size:0}
+.menu-week .boardlist:not(.search) table tbody tr.add .ipfile {display:block; float:left; width:25px; height:45px}
+.menu-week .boardlist:not(.search) table tbody tr.add .ipfile input {width:0; height:0; opacity:0}
+.menu-week .boardlist:not(.search) table tbody tr.add .ipfile label {display:block; width:100%; height:100%; background:url('../images/icon_upload_01.png') no-repeat 50%; font-size:0; cursor:pointer}
+.menu-week .boardlist:not(.search) table tbody tr.add .ipfile + a {float:right; width:30px; background-color:#fcf6f7}
+.menu-week .boardlist:not(.search) table tbody tr.add:hover {background:none}
+.menu-week .boardlist:not(.search) table tbody tr.add th, .menu-week .boardlist:not(.search) table tbody tr.add td {background:#fcf6f7}
+
+
+.pop-planner p.point {padding-left:22px; margin-bottom:10px; background:url('../images/icon_point_01.png') no-repeat 0 50%; color:#999; font-size:13px} 
+
+.sp1 { height: 1px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp2 { height: 2px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp3 { height: 3px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp4 { height: 4px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp5 { height: 5px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp7 { height: 7px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp8 { height: 8px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp10 { height: 10px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp13 { height: 13px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp15 { height: 15px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp20 { height: 20px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp25 { height: 25px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp30 { height: 30px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp35 { height: 35px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp40 { height: 40px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp45 { height: 45px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp50 { height: 50px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp55 { height: 55px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp60 { height: 60px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp70 { height: 70px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp85 { height: 85px; width:1px; font-size: 0; line-height: 0; clear:both; }

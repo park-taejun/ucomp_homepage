@@ -1,0 +1,356 @@
+
+/**
+ * @type module
+ * @name info-board
+ * @modle a
+ */
+ .info-board.module-a {
+	.board-wrap {
+		.board-head {
+			.board-subject {
+				margin: 0;
+				color: color(base, 090);
+				@include font((outline: head, size: medium, weight: bold)...);
+			}
+
+			.board-summary {
+				margin: 0;
+				color: color(base, 060);
+				@include font((outline: body, size: medium)...);
+
+				.wbr {
+					display: block;
+				}
+			}
+
+			~.board-body {
+				margin-top: 16rem;
+			}
+		}
+
+		.board-body {
+			.para {
+				margin: 0;
+				color: color(base, 030);
+				@include font((outline: body, size: small)...);
+
+				+.para {
+					margin-top: 16rem;
+				}
+			}
+		}
+
+		.board-util {
+			margin-top: 28rem;
+			width: 100%;
+
+			// laptop
+			@include respond-above(x-large) {
+				margin-top: 48rem;
+			}
+
+			.button-area {
+				// mobile
+				@include respond-below(x-large) {
+					.btn {
+						flex-grow: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&[class*="attr-"] {
+		.board-wrap {
+			&::before {
+				content: '';
+				display: block;
+				width: 120rem;
+				height: 120rem;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 100%;
+			}
+		}
+	}
+
+	&.attr-done {
+		.board-wrap::before {
+			background-image: url(./../images/svg/infoboard-done.svg);
+		}
+	}
+
+	&.type-c { 
+		display: flex;
+		justify-content: center;
+
+		.board-wrap {
+			display: flex;
+			flex-wrap: wrap;
+			flex-flow: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+	}
+}
+
+/*
+* @ mark module accent
+*
+* @ $text-color
+* @ $border-color
+* @ $background-color
+*/
+$noti-board-module-accent: (
+	'normal-00': (
+		'none' color(base, 100) transparent transparent,
+		'line' color(base, 100) color(base, 100) color(base, 000),
+		'fill' color(base, 000) color(base, 100) color(base, 100),
+	),
+	'normal-01': (
+		'none' color(base, 100) transparent transparent,
+		'line' color(base, 80) color(base, 80) color(base, 000),
+		'fill' color(base, 000) color(base, 80) color(base, 80),
+	),
+	'normal-02': (
+		'none' color(base, 050) transparent transparent,
+		'line' color(base, 050) color(base, 050) color(base, 000),
+		'fill' color(base, 050) color(base, 010) color(base, 010),
+	),
+	'accent-01': (
+		'none' color(primary, 050) transparent transparent,
+		'line' color(primary, 050) color(primary, 005) color(primary, 000),
+		'fill' color(primary, 040) color(primary, 005) color(primary, 005),
+	),
+	'accent-02': (
+		'none' color(secondary, 010) transparent transparent,
+		'line' color(secondary, 010) color(secondary, 010) color(base, 000),
+		'fill' color(base, 000) color(secondary, 010) color(secondary, 010),
+	),
+	'accent-03': (
+		'none' color(secondary, 030) transparent transparent,
+		'line' color(secondary, 030) color(secondary, 030) color(base, 000),
+		'fill' color(base, 000) color(secondary, 030) color(secondary, 030),
+	)
+);
+
+/*
+ * module-a outline
+ *
+ * @ $padding
+ * @ $line-height
+ * @ $font-size
+ * @ $font-weight
+ * @ $border-width
+ */  
+ $noti-board-module-a-outline: (
+	'x-small'		12rem 18rem 1.50 700 1rem,
+	'small'			12rem 20rem 1.50 700 1rem,
+	'medium'		14rem 24rem 1.50 700 1rem,
+	'large'			16rem 28rem 1.50 700 1rem,
+	'x-large'		18rem 32rem 1.50 700 1rem,
+);
+
+/**
+ * @type module
+ * @name noti-board
+ * @modle a
+ */
+.noti-board.module-a {
+	.board-wrap {
+		.board-head {
+			.board-subject {
+				display: flex;
+				margin: 0;
+			}
+		}
+
+		.board-body {
+
+		}
+	}
+
+	&[class*=style-] {
+		border-style: solid;
+	}
+	
+	&.type-c { 
+		display: flex;
+		justify-content: center;
+
+		.board-wrap {
+			display: flex;
+			flex-wrap: wrap;
+			flex-flow: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	&[class*=attr-] .board-subject::before {
+		content: '';
+		flex-shrink: 0;
+		display: block;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+
+
+
+	// accent
+	@each $accent-name in $noti-board-module-accent {
+		&.#{nth($accent-name, 1)} {
+			@each $type-name, $color, $border-color, $background-color in map-get($noti-board-module-accent, nth($accent-name, 1)) {
+				&.type-#{$type-name} {
+					background-color: $background-color;
+					border-color: $border-color;		
+					.board-wrap {
+						.board-head {
+							.board-name {
+								color: $color;
+							}
+						}
+						.board-body {
+							
+						}
+					}
+
+					&[class*=attr-caution] .board-subject::before {background-image: icon(fill-circle-caution, $color);}
+					&[class*=attr-information] .board-subject::before {background-image: icon(fill-circle-information, $color);}
+				}
+			}
+		}
+	}
+
+
+	// outline
+	@each $name, $padding, $line-height, $font-size, $font-weight, $border-width in $noti-board-module-a-outline {
+		&.#{$name} {
+			line-height: $line-height;
+			font-size: calc($line-height / $font-size);
+
+			&[class*=style-] {
+				padding: $padding;
+				border-width: $border-width;
+			}
+
+			&.style-b {
+				border-radius: $padding * 0.4;
+			}
+	
+			&.style-c {
+				border-radius: $line-height * 0.5;
+			}
+
+			&[class*=attr-] .board-subject::before {
+				margin-right: $line-height * 0.1;
+				width: $line-height;
+				height: $line-height;
+			}
+
+			.board-wrap {
+				.board-head {
+					.board-subject {
+						font-weight: $font-weight;
+					}
+
+					~.board-body {
+						margin-top: $line-height * 0.8;
+					}
+				}
+		
+				.board-body {
+					.para {
+
+					}
+				}
+			}
+		}
+	}	
+}
+
+/**
+ * @type module
+ * @name info-board
+ * @modle b
+ */
+.info-board.module-b {
+	&.type-c {
+		.board-head {
+			text-align: center;
+		}
+		.board-body {
+			text-align: center;
+		}
+	}
+
+	.board-head {
+		.board-summary {
+			@include font((outline: body, size: small)...);
+		}
+	}
+	.board-body {
+		@include font((outline: body, size: small)...);
+	}
+
+	.board-wrap {
+		position: relative;
+
+		.board-head {
+			.board-summary {
+				margin: 0;
+				color: color(base, 070);
+			}
+		}
+	
+		.board-body {
+			color: color(base, 050);
+			.para {margin: 8rem 0;}
+		}
+
+		.board-util {
+			margin-top: 12rem;
+		}
+	}
+}
+
+
+/**
+ * @type module
+ * @name info-board
+ * @modle c
+ */
+ .info-board.module-c {
+	&.type-c {
+		.board-head {
+			text-align: center;
+		}
+		.board-body {
+			text-align: center;
+		}
+	}
+	
+	.board-wrap {
+		position: relative;
+		
+		.board-head {
+			.board-summary {
+				margin: 0;
+				@include font((outline: body, size: medium)...);
+				color: color(base, 040);
+			}
+		}
+	
+		.board-body {
+			color: color(base, 050);
+			.para {margin: 8rem 0;}
+		}
+
+		.board-util {
+			margin-top: 12rem;
+		}
+	}
+}

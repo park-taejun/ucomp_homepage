@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Basic User Interface</title>
+<link rel="shortcut icon" href="./../../assets/images/bui/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/module.global.css" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/bui.page.snippet.css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+<script type="text/javascript" src='https://unpkg.com/focus-within-polyfill/dist/focus-within-polyfill.js'></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/bash.min.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+<!-- <script type="text/javascript" src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script> -->
+<!-- <script type="text/javascript" src="./../../assets/js/polyfill.js"></script> -->
+
+<script type="text/javascript" src="./../../assets/js/bui.js"></script>
+<script type="text/javascript" src="./../../assets/js/bui.template.js" defer></script>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var currentPage = function(pageItem, pageName) {
+			var localItems = document.querySelectorAll(pageItem);
+			Array.prototype.forEach.call(localItems, function(localItem, index) {
+				var localName = localItem.querySelector(pageName).getAttribute('href');
+				if (localName.substring(localName.lastIndexOf('/') + 1) === document.URL.substring(document.URL.lastIndexOf('/') + 1)) {
+					localItem.classList.add('current');
+				}
+			});
+		}
+		currentPage('#tableOfContent .lnb-item', '.lnb-name');		
+	});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<!--page-head-->
+		<div class="page-head" id="head">
+			<h1 class="page-title" title="UCOMP"><a class="page-name" href="/"><abbr title="Basic User Interpace">BUI</abbr></a></h1>
+			<!--page-control-->
+			<div class="page-control">
+				<div class="control-list">
+					<span class="control-item"><a class="control-name" href="#aside" onclick="layoutPageSide.active('aside');"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>Go to Table of Content</title><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></a></span>
+				</div>
+			</div>
+		</div>
+		<!--//page-head-->
+		<!--page-side-->
+		<div class="page-side" id="aside" data-bui-toggle="layoutPageSide">
+			<!--aside-body-->
+			<div class="aside-body">
+				<!--section-->
+				<div class="section toc" id="tableOfContent">
+					<div class="section-head">
+						<h2 class="section-title"><span class="section-name">Table of Content</span></h2>
+					</div>
+					<div class="section-body">
+						<ul class="gnb-list">
+							<li class="gnb-item"><span class="gnb-name">preview</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../preview/front.html">front</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../preview/admin.html">admin</a></li> -->
+								</ul>
+							</li>
+							<li class="gnb-item"><span class="gnb-name">snippet</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/color.html">color</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/font.html">font</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/icon.html">icon</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/button.html">button</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/mark.html">mark</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/form.html">form</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/table.html">table</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/list.html">list</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/board.html">board</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/fieldset.html">fieldset</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/tab.html">tab</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/post.html">post</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/tooltip.html">tooltip</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/interaction.html">interaction</a></li><!-- bui.js -->
+									
+									<!-- 해야 하는것 -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/utility.html">utility</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/popup.html">popup</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/goods.html">goods</a></li> -->
+
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--//section-->
+			</div>
+			<!--//aside-body-->
+		</div>
+		<!--//page-side-->
+		<script type="text/javascript">
+			const layoutPageSide = new buiToggle('[data-bui-toggle="layoutPageSide"]', {
+				inactiveButton: true,
+				inactiveButtonText: '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>닫기</title><path d="M10.5382 12L3 4.46179L4.46179 3L12 10.5382L19.5382 3L21 4.46179L13.4618 12L21 19.5382L19.5382 21L12 13.4618L4.46179 21L3 19.5382L10.5382 12Z"></path></svg>',
+				inactiveButtonClass: 'btn close',
+				reactTarget: 'html',
+				reactTargetActiveClass: 'active-page-side',
+			});
+			document.addEventListener('DOMContentLoaded', function() {
+
+				// var pageSide = new buiToggle('[data-bui-toggle="pageSide"]', {
+				// 	close: true,
+				// 	closeButtonClass: 'btn close',
+				// 	closeButtonText: '<svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" width="24" height="24"><title>닫기</title><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
+				// 	focusin: true,
+				// 	focusout: true,
+				// });	
+			});
+		</script>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-title" id="localTitle"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<h3 class="content-title" id="contentTitle"><span class="content-name">color</span></h3>
+					<p class="para">웹 페이지의 컬러는 사용자에게 이정표와 같은 역할을 하므로 일관성 없이 남용된 컬러의 사용은 사용자에게 혼란을 주게 됩니다.<br />본 프로젝트의 컬러 시스템을 아래와 같이 정의하며, 반드시 약속된 값을 사용합니다.</p>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section color-variation">
+						<div class="section-head">
+							<h4 class="section-title"><span class="section-name">color system</span></h4>
+							<p class="para">Base는 총 11가지의 Variants를 포함하며, Accent Color는 Primary, Secondary가 존재합니다.</p>
+						</div>
+						<div class="section-body">
+							<div class="subsection base">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">base</span></h5></div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item" style="background-color: #000000"><span class="data-name">base, 100</span> <span class="data-code">#000000</span></li>
+										<li class="data-item" style="background-color: #101316"><span class="data-name">base, 090</span> <span class="data-code">#101316</span></li>
+										<li class="data-item" style="background-color: #21262d"><span class="data-name">base, 080</span> <span class="data-code">#21262d</span></li>
+										<li class="data-item" style="background-color: #313943"><span class="data-name">base, 070</span> <span class="data-code">#313943</span></li>
+										<li class="data-item" style="background-color: #555d64"><span class="data-name">base, 060</span> <span class="data-code">#555d64</span></li>
+										<li class="data-item" style="background-color: #798184"><span class="data-name">base, 050</span> <span class="data-code">#798184</span></li>
+										<li class="data-item" style="background-color: #99a2a5"><span class="data-name">base, 040</span> <span class="data-code">#99a2a5</span></li>
+										<li class="data-item" style="background-color: #b4bcc0"><span class="data-name">base, 030</span> <span class="data-code">#b4bcc0</span></li>
+										<li class="data-item" style="background-color: #cfd6da"><span class="data-name">base, 020</span> <span class="data-code">#cfd6da</span></li>
+										<li class="data-item" style="background-color: #e8eced"><span class="data-name">base, 010</span> <span class="data-code">#e8eced</span></li>
+										<li class="data-item" style="background-color: #f5f5f5"><span class="data-name">base, 005</span> <span class="data-code">#f5f5f5</span></li>
+										<li class="data-item" style="background-color: #ffffff"><span class="data-name">base, 000</span> <span class="data-code">#ffffff</span></li>
+									</ul>
+								</div>
+							</div>
+							<!-- <div class="subsection base">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">navy</span></h5></div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item" style="background-color: #000000"><span class="data-name">navy, 100</span> <span class="data-code">#000000</span></li>
+										<li class="data-item" style="background-color: #172445"><span class="data-name">navy, 090</span> <span class="data-code">#172445</span></li>
+										<li class="data-item" style="background-color: #223668"><span class="data-name">navy, 080</span> <span class="data-code">#223668</span></li>
+										<li class="data-item" style="background-color: #344972"><span class="data-name">navy, 070</span> <span class="data-code">#344972</span></li>
+										<li class="data-item" style="background-color: #506681"><span class="data-name">navy, 060</span> <span class="data-code">#506681</span></li>
+										<li class="data-item" style="background-color: #62798b"><span class="data-name">navy, 050</span> <span class="data-code">#62798b</span></li>
+										<li class="data-item" style="background-color: #a3b2b8"><span class="data-name">navy, 040</span> <span class="data-code">#a3b2b8</span></li>
+										<li class="data-item" style="background-color: #bac5ca"><span class="data-name">navy, 030</span> <span class="data-code">#bac5ca</span></li>
+										<li class="data-item" style="background-color: #e7eaed"><span class="data-name">navy, 020</span> <span class="data-code">#e7eaed</span></li>
+										<li class="data-item" style="background-color: #e8eced"><span class="data-name">navy, 010</span> <span class="data-code">#e8eced</span></li>
+										<li class="data-item" style="background-color: #f3f5f6"><span class="data-name">navy, 005</span> <span class="data-code">#f3f5f6</span></li>
+										<li class="data-item" style="background-color: #ffffff"><span class="data-name">navy, 000</span> <span class="data-code">#ffffff</span></li>
+									</ul>
+								</div>
+							</div> -->
+							<div class="subsection base">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">primary</span></h5></div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item" style="background-color: #000000"><span class="data-name">primary, 100</span> <span class="data-code">#000000</span></li>
+										<li class="data-item" style="background-color: #31040d"><span class="data-name">primary, 090</span> <span class="data-code">#31040d</span></li>
+										<li class="data-item" style="background-color: #62091a"><span class="data-name">primary, 080</span> <span class="data-code">#62091a</span></li>
+										<li class="data-item" style="background-color: #920d27"><span class="data-name">primary, 070</span> <span class="data-code">#920d27</span></li>
+										<li class="data-item" style="background-color: #c31234"><span class="data-name">primary, 060</span> <span class="data-code">#c31234</span></li>
+										<li class="data-item" style="background-color: #ed1a3b"><span class="data-name">primary, 050</span> <span class="data-code">#ed1a3b</span></li>
+										<li class="data-item" style="background-color: #f64768"><span class="data-name">primary, 040</span> <span class="data-code">#f64768</span></li>
+										<li class="data-item" style="background-color: #f9778f"><span class="data-name">primary, 030</span> <span class="data-code">#f9778f</span></li>
+										<li class="data-item" style="background-color: #fba8b6"><span class="data-name">primary, 020</span> <span class="data-code">#fba8b6</span></li>
+										<li class="data-item" style="background-color: #fed9dd"><span class="data-name">primary, 010</span> <span class="data-code">#fed9dd</span></li>
+										<li class="data-item" style="background-color: #fff1f0"><span class="data-name">primary, 005</span> <span class="data-code">#fff1f0</span></li>
+										<li class="data-item" style="background-color: #ffffff"><span class="data-name">primary, 000</span> <span class="data-code">#ffffff</span></li>
+									</ul>
+								</div>
+							</div>
+							<div class="subsection primary">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">secondary</span></h5></div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item" style="background-color: #223668"><span class="data-name">secondary, 010</span> <span class="data-code">#223668</span></li>
+										<li class="data-item" style="background-color: #3ab8ff"><span class="data-name">secondary, 020</span> <span class="data-code">#3ab8ff</span></li>
+										<li class="data-item" style="background-color: #ffab2d"><span class="data-name">secondary, 030</span> <span class="data-code">#ffab2d</span></li>
+										<li class="data-item" style="background-color: #ffc328"><span class="data-name">secondary, 040</span> <span class="data-code">#ffc328</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //section -->
+
+					<!-- section -->
+					<div class="section color-variation">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">SCSS usage</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">argument</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js"><code class="scss">color($theme, $variant, $opacity);</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">example</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="scss">color: color(base, 020);
+border-color: color(base, 060);
+background-color: color(base, 000, 0.6);</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<!--page-foot-->
+		<div class="page-foot" id="foot">
+			<p class="copyright">&copy; Copyright <a href="mailto:codenamic@gmail.com">codenamic</a></p>
+		</div>
+		<!--//page-foot-->
+		<div class="page-baseline" id="pageBaseline"></div>
+		<div class="page-grid" id="pageGrid">
+			<div class="grid-list"><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span></div>
+		</div>
+		<!--//page-control-->
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function() {
+		var buttons = document.querySelectorAll('.bui-button-area .btn');
+		Array.prototype.forEach.call(buttons, function(button) {
+			button.addEventListener('click', function(e) {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+</body>
+</html>

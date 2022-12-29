@@ -1,0 +1,321 @@
+/*
+ * @name submit-form
+ * 서식 전소용 UIO
+ * 1. label 유무
+ * 2. label과 입력 폼의 배치
+ * 3. 아이템과 form-area의 여백
+ */
+
+.submit-form.module-a {
+	margin: 0;
+	padding: 0;
+	border: hidden;
+
+	legend {
+		@include hidden;
+	}
+	
+	+.submit-form.module-a {
+		margin-top: 16rem;
+	}
+	
+	.form-list {
+		.form-item {
+			.form-wrap {
+				.form-head {
+					display: flex;
+					align-items: center;
+
+					.form-name {
+						display: block;
+					}
+				}
+
+				.form-body {
+					.form-area {
+
+					}
+				}
+			}
+		}
+	}
+
+	// type none
+	&:not([class*="type-"]) {
+		.form-head {
+			@include hidden();
+		}
+	}
+
+	// type-a
+	&.type-a {
+		.form-list {
+			.form-item {
+				.form-wrap {
+					display: flex;
+					align-items: flex-start;
+				}
+			}
+		}
+	}
+
+	&.medium {
+		.form-list {
+			.form-item {
+				+.form-item {
+					margin-top: 8rem;
+				}
+				.form-wrap {
+					.form-head {
+						flex-shrink: 0;
+						margin-right: 8rem;
+						width: 56rem;
+						min-height: 40rem;
+						@include font((outline: body, size: small)...);
+					}
+					.form-body {
+						flex: 1 1 100%;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	&.large {
+		.form-list {
+			.form-item {
+				+.form-item {
+					margin-top: 8rem;
+				}
+				.form-wrap {
+					.form-head {
+						flex-shrink: 0;
+						margin-right: 8rem;
+						width: 56rem;
+						min-height: 48rem;
+						@include font((outline: body, size: small)...);
+					}
+					.form-body {
+						flex: 1 1 100%;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	// form-area
+	.form-area {
+		display: flex;
+
+		.sign {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 16rem;
+			text-align: center;
+			// color: color(base, 060);
+		}
+
+		.form {
+			&:not(.flex) {
+				flex-shrink: 0;
+			}
+			&.flex {
+				flex: 1 1 100%;
+				width: 100%;
+			}
+		}
+
+		.unit {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 16rem;
+			text-align: center;
+			// color: color(base, 060);
+		}	
+
+		.form.medium {
+			&~*,
+			&+* {
+				margin-left: 8rem;
+			}
+		}
+
+		.form.large {
+			&~*,
+			&+* {
+				margin-left: 10rem;
+			}
+		}
+
+		.form.x-large {
+			&~*,
+			&+* {
+				margin-left: 12rem;
+			}
+		}
+	}
+}
+
+.file-upload.module-a {
+	display: flex;
+	position: relative;
+	left: calc(50% - 50vw);
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	min-inline-size: initial;
+	box-sizing: border-box;
+	border: hidden;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	
+	legend {
+		display: none;
+		@include hidden;
+	}
+	
+	.upload-wrap {
+		display: flex;
+		padding-top: 10rem;
+		padding-bottom: 2rem;
+		padding-right: $container-gap;
+		padding-left: $container-gap;
+
+		.upload-head {
+			position: relative;
+			height: 56rem;
+			width: 56rem;	
+
+			.file-to-upload {
+				position: absolute;
+				left: 0;
+				top: 0;
+				margin: 0;
+				
+				.file-elem {
+					padding: 0;
+					width: 56rem;
+					height: 56rem;
+					border: hidden;
+					border-radius: 0;
+					color: transparent;
+					background-color: transparent;
+					appearance: none;
+		
+					&::-webkit-file-upload-button {
+						opacity: 0;
+					}
+		
+					&::file-selector-button {
+						opacity: 0;
+					}
+				}
+			}
+			
+			.uploaded-files {
+				.head {
+					@include hidden;
+				}
+				.body {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+	
+					height: 56rem;
+					width: 56rem;
+	
+					border-radius: 16rem;
+					border: 2rem solid color(base, 010);
+					box-sizing: border-box;
+					background-color: color(base, 000);
+					color: color(base, 030);
+	
+					@include font((outline: head, size: xx-small)...);
+	
+					&::before {
+						content: '';
+						flex-shrink: 0;
+						display: block;
+						width: 24rem;
+						height: 18rem;
+						background: icon(fill-camera, color(base, 030)) no-repeat center/cover;
+					}
+				}
+			}
+		}
+	
+		.upload-body {
+			margin-left: 16rem;
+
+			.file-list {
+				display: flex;
+
+				.file-item {
+					position: relative;
+					width: 56rem;
+					height: 56rem;
+					border-radius: 16rem;
+					box-shadow: inset 0 0 0 1rem rgba(0,0,0,0.1);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: cover;
+					background-image: var(--thumbnail-image);
+
+					+.file-item {
+						margin-left: 16rem;
+					}
+	
+					.file-name {
+						@include hidden;
+					}
+	
+					.btn.file-delete {
+						position: absolute;
+						top: -8rem;
+						right: -8rem;
+						width: 24rem;
+						height: 24rem;
+						border-radius: 50%;
+						box-shadow: 0 0 0 2rem color(base, 000);
+						background: color(base, 030) icon(fill-close, color(base, 000)) no-repeat center/16rem auto;
+
+						.btn-text {
+							@include hidden();
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.style-a {
+		.upload-body {
+			
+		}
+
+	}
+}
+
+
+.option-list.module-a {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	.option-item {
+		display: block;
+		margin-right: 16rem;
+		padding: 8rem 0;
+	}
+}

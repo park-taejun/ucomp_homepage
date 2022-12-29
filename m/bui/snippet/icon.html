@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Basic User Interface</title>
+<link rel="shortcut icon" href="./../../assets/images/bui/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/module.global.css" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/bui.page.snippet.css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+<script type="text/javascript" src='https://unpkg.com/focus-within-polyfill/dist/focus-within-polyfill.js'></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/bash.min.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+<!-- <script type="text/javascript" src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script> -->
+<!-- <script type="text/javascript" src="./../../assets/js/polyfill.js"></script> -->
+
+<script type="text/javascript" src="./../../assets/js/bui.js"></script>
+<script type="text/javascript" src="./../../assets/js/bui.template.js" defer></script>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var currentPage = function(pageItem, pageName) {
+			var localItems = document.querySelectorAll(pageItem);
+			Array.prototype.forEach.call(localItems, function(localItem, index) {
+				var localName = localItem.querySelector(pageName).getAttribute('href');
+				if (localName.substring(localName.lastIndexOf('/') + 1) === document.URL.substring(document.URL.lastIndexOf('/') + 1)) {
+					localItem.classList.add('current');
+				}
+			});
+		}
+		currentPage('#tableOfContent .lnb-item', '.lnb-name');		
+	});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<!--page-head-->
+		<div class="page-head" id="head">
+			<h1 class="page-title" title="UCOMP"><a class="page-name" href="/"><abbr title="Basic User Interpace">BUI</abbr></a></h1>
+			<!--page-control-->
+			<div class="page-control">
+				<div class="control-list">
+					<span class="control-item"><a class="control-name" href="#aside" onclick="layoutPageSide.active('aside');"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>Go to Table of Content</title><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></a></span>
+				</div>
+			</div>
+		</div>
+		<!--//page-head-->
+		<!--page-side-->
+		<div class="page-side" id="aside" data-bui-toggle="layoutPageSide">
+			<!--aside-body-->
+			<div class="aside-body">
+				<!--section-->
+				<div class="section toc" id="tableOfContent">
+					<div class="section-head">
+						<h2 class="section-title"><span class="section-name">Table of Content</span></h2>
+					</div>
+					<div class="section-body">
+						<ul class="gnb-list">
+							<li class="gnb-item"><span class="gnb-name">preview</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../preview/front.html">front</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../preview/admin.html">admin</a></li> -->
+								</ul>
+							</li>
+							<li class="gnb-item"><span class="gnb-name">snippet</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/color.html">color</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/font.html">font</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/icon.html">icon</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/button.html">button</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/mark.html">mark</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/form.html">form</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/table.html">table</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/list.html">list</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/board.html">board</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/fieldset.html">fieldset</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/tab.html">tab</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/post.html">post</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/tooltip.html">tooltip</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/interaction.html">interaction</a></li><!-- bui.js -->
+									
+									<!-- 해야 하는것 -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/utility.html">utility</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/popup.html">popup</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/goods.html">goods</a></li> -->
+
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--//section-->
+			</div>
+			<!--//aside-body-->
+		</div>
+		<!--//page-side-->
+		<script type="text/javascript">
+			const layoutPageSide = new buiToggle('[data-bui-toggle="layoutPageSide"]', {
+				inactiveButton: true,
+				inactiveButtonText: '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>닫기</title><path d="M10.5382 12L3 4.46179L4.46179 3L12 10.5382L19.5382 3L21 4.46179L13.4618 12L21 19.5382L19.5382 21L12 13.4618L4.46179 21L3 19.5382L10.5382 12Z"></path></svg>',
+				inactiveButtonClass: 'btn close',
+				reactTarget: 'html',
+				reactTargetActiveClass: 'active-page-side',
+			});
+			document.addEventListener('DOMContentLoaded', function() {
+
+				// var pageSide = new buiToggle('[data-bui-toggle="pageSide"]', {
+				// 	close: true,
+				// 	closeButtonClass: 'btn close',
+				// 	closeButtonText: '<svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" width="24" height="24"><title>닫기</title><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
+				// 	focusin: true,
+				// 	focusout: true,
+				// });	
+			});
+		</script>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-title" id="localTitle"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<h3 class="content-title" id="contentTitle"><span class="content-name">icon</span></h3>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">SVG icon</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"&gt;
+	&lt;title&gt;Text alternatives for non-text content&lt;/title&gt;
+	&lt;path d="..."&gt;&lt;/path&gt;
+&lt;/svg&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">SCSS</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js"><code class="scss">background-image: icon($name, $color);</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">example</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js"><code class="scss">background-image: icon(info, color(base, 00));</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">menu</span></h6></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">line-calendar-today</span></li>
+												<li class="data-item"><span class="data-name">line-description</span></li>
+												<li class="data-item"><span class="data-name">line-home</span></li>
+												<li class="data-item"><span class="data-name">line-notice</span></li>
+												<li class="data-item"><span class="data-name">line-profile</span></li>
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">action</span></h6></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">fill-arrow-back</span></li>
+												<li class="data-item"><span class="data-name">fill-camera</span></li>
+												<li class="data-item"><span class="data-name">fill-caret-down</span></li>
+												<li class="data-item"><span class="data-name">fill-caret-up</span></li>
+												<li class="data-item"><span class="data-name">fill-check</span></li>
+												<li class="data-item"><span class="data-name">fill-chevron-down</span></li>
+												<li class="data-item"><span class="data-name">fill-chevron-left</span></li>
+												<li class="data-item"><span class="data-name">fill-chevron-right</span></li>
+												<li class="data-item"><span class="data-name">fill-chevron-up</span></li>
+												<li class="data-item"><span class="data-name">fill-circle-caution</span></li>
+												<li class="data-item"><span class="data-name">fill-circle-delete</span></li>
+												<li class="data-item"><span class="data-name">fill-circle-information</span></li>
+												<li class="data-item"><span class="data-name">fill-circle-more</span></li>
+												<li class="data-item"><span class="data-name">fill-close</span></li>
+												<li class="data-item"><span class="data-name">fill-download</span></li>
+												<li class="data-item"><span class="data-name">fill-notice</span></li>
+												<li class="data-item"><span class="data-name">fill-plus</span></li>
+												<li class="data-item"><span class="data-name">fill-search</span></li>
+												<li class="data-item"><span class="data-name">fill-write</span></li>
+												<li class="data-item"><span class="data-name">line-time</span></li>
+												<li class="data-item"><span class="data-name">line-bag</span></li>
+												
+
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">social</span></h6></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">line-comment</span></li>
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">bullet</span></h6></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">bullet-dash</span></li>
+												<li class="data-item"><span class="data-name">bullet-dot</span></li>
+												<li class="data-item"><span class="data-name">bullet-square</span></li>
+												<li class="data-item"><span class="data-name">bullet-star</span></li>
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">lamp</span></h6></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">lamp-dot</span></li>
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<!--page-foot-->
+		<div class="page-foot" id="foot">
+			<p class="copyright">&copy; Copyright <a href="mailto:codenamic@gmail.com">codenamic</a></p>
+		</div>
+		<!--//page-foot-->
+		<div class="page-baseline" id="pageBaseline"></div>
+		<div class="page-grid" id="pageGrid">
+			<div class="grid-list"><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span></div>
+		</div>
+		<!--//page-control-->
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var svgIcons = document.querySelectorAll('.svg-icon .data-name');
+		Array.prototype.forEach.call(svgIcons, function(icon) {
+			icon.parentElement.classList.add(icon.textContent);
+		});
+	});
+</script>
+</body>
+</html>

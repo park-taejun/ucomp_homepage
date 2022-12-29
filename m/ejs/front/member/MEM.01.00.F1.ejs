@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'front',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.front.ejs', {
+			current: '4',
+		}) %>
+		<!-- page-body -->
+		<div class="page-body page-intro page-member">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-title" id="localTitle"><span class="local-name">임직원 조회</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-title"><span class="content-name">임직원 조회</span></h3>
+							<!-- data-finder -->
+							<form class="data-finder">
+								<!-- submit-form -->
+								<fieldset class="submit-form module-a">
+									<legend>구성원 검색 서식</legend>
+									<div class="form-list">
+										<div class="form-item">
+											<div class="form-head"><label class="form-name" for="searchScope">검색어</label></div>
+											<div class="form-body">
+												<div class="form-area">
+													<span class="form select module-b style-b type-line normal-04 medium" style="width: 128rem;">
+														<select class="form-elem" id="searchScope">
+															<option>전체</option>
+														</select>
+													</span>
+													<span class="form textfield module-b style-b type-line normal-04 medium flex">
+														<input type="search" class="form-elem" id="searchKeyword" placeholder="이름을 입력해 주세요." onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" />
+														<span class="form-func">
+															<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+														</span>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<!-- //submit-form -->
+							</form>
+							<!-- //data-finder -->
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<div class="content-body">
+							<!-- goods-display -->
+							<div class="goods-display module-a style-a type-a">
+								<!-- goods-info -->
+								<div class="goods-info">
+									<div class="info-list">
+										<div class="info-item">
+											<!-- data-list -->
+											<p class="data-list">
+												<span class="data-item">
+													<span class="head">근무상태</span>
+												</span>
+											</p>
+											<!-- //data-list -->
+										</div>
+										<div class="info-item">
+											<div class="lamp-info">
+												<div class="info-wrap">
+													<div class="info-head"><span class="info-name">근무형태 표시</span></div>
+													<div class="info-body">
+														<ul class="data-list">
+															<li class="data-item">정상근무</li>
+															<li class="data-item">스마트데이</li>
+															<li class="data-item">휴가</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //goods-info -->
+								<%-include('../../front/_mixin/_goods.item.staff.ejs', {
+									itemType: 'a',
+									iteration: '4'
+								}) %>
+							</div>
+							<!-- //goods-display -->
+						</div>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+	<%-include('../_templates/_content.popup.ejs') %>
+</div>
+</body>
+</html>

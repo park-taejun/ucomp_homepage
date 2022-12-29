@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<TITLE>색상선택</TITLE>
+<style>
+body,p,br,table,td,input,textarea,select
+{
+	font-family : 굴림;
+	font-size : 9pt;
+}
+</style>
+</HEAD>
+<BODY style="background: threedface; color: windowtext; margin: 2px; BORDER-STYLE: none" scroll=no>
+
+<script>
+function putColor()
+{
+	window.returnValue = document.getElementById('color_id').value;
+	window.close();
+}
+function tdover(ths,color)
+{
+	ths.style.backgroundColor='#444444';
+	document.getElementById('color_id').value = color;
+	document.getElementById('color_bg').style.backgroundColor = color;
+}
+function tdout(ths)
+{
+	ths.style.backgroundColor='#FFFFFF';
+}
+
+var colortone = new Array(10);
+colortone[0] = new Array('#FFFFFF','#E5E4E4','#D9D8D8','#C0BDBD','#A7A4A4','#8E8A8B','#827E7F','#767173','#5C585A','#000000');
+colortone[1] = new Array('#FEFCDF','#FEF4C4','#FEED9B','#FEE573','#FFED43','#F6CC0B','#E0B800','#C9A601','#AD8E00','#8C7301');
+colortone[2] = new Array('#FFDED3','#FFC4B0','#FF9D7D','#FF7A4E','#FF6600','#E95D00','#D15502','#BA4B01','#A44201','#8D3901');
+colortone[3] = new Array('#FFD2D0','#FFBAB7','#FE9A95','#FF7A73','#FF483F','#FE2419','#F10B00','#D40A00','#940000','#6D201B');
+colortone[4] = new Array('#FFDAED','#FFB7DC','#FFA1D1','#FF84C3','#FF57AC','#FD1289','#EC0078','#D6006D','#BB005F','#9B014F');
+colortone[5] = new Array('#FCD6FE','#FBBCFF','#F9A1FE','#F784FE','#F564FE','#F546FF','#F328FF','#D801E5','#C001CB','#8F0197');
+colortone[6] = new Array('#E2F0FE','#C7E2FE','#ADD5FE','#92C7FE','#6EB5FF','#48A2FF','#2690FE','#0162F4','#013ADD','#0021B0');
+colortone[7] = new Array('#D3FDFF','#ACFAFD','#7CFAFF','#4AF7FE','#1DE6FE','#01DEFF','#00CDEC','#01B6DE','#00A0C2','#0084A0');
+colortone[8] = new Array('#EDFFCF','#DFFEAA','#D1FD88','#BEFA5A','#A8F32A','#8FD80A','#79C101','#3FA701','#307F00','#156200');
+colortone[9] = new Array('#D4C89F','#DAAD88','#C49578','#C2877E','#AC8295','#C0A5C4','#969AC2','#92B7D7','#80ADAF','#9CA53B');
+
+var str = "";
+str += "<TABLE cellpadding=0 cellspacing=0 border=0 style='border:solid 1px #CFBE8A'>";
+
+for (var i=0; i<10; i++){
+	str += "<TR>";
+	for(var j=9; j>=0; j--){
+		str += "<TD onmouseover=tdover(this,'" + colortone[j][i] + "') onmouseout=tdout(this)>";
+		str += "<TABLE cellpadding=0 cellspacing=1 border=0><TR><TD bgcolor='" + colortone[j][i] + "' onclick='putColor();' width=20 height=11></TD></TR></TABLE></TD>";
+	}   
+	str += "</TR>";
+}
+
+str += "</TABLE>";
+
+document.write(str);
+</script>
+
+<TABLE WIDTH=100% CELLSPACING=1 CELLPADDING=0 style='border:solid 1px #CFBE8A'>
+<TR>
+<TD ALIGN=RIGHT ID='color_bg'>
+
+<INPUT TYPE=TEXT ID='color_id' SIZE=7 STYLE='border:solid 1px #CFBE8A' VALUE='#000000' readonly>
+
+</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>

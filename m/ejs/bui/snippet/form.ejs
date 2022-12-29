@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<div class="local-title"><h2 class="local-name" id="localName">snippet</h2></div>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<div class="content-title"><%- include('../_mixin/_title.content.ejs', {name: 'form'}) %></div>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'form System'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js"><code class="html">&lt;span class="form"&gt;&lt;element class="form-elem" /&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>xx-small, x-small, small, medium, x-large, xx-large, xxx-large, xxxx-large</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-01 to normal-05, accent-01 to accent-02</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'style'}) %></div>
+										<div class="subsubsection-body">
+											<!-- highlight-js -->
+											<pre class="highlight-js">
+<code class="html">&lt;span class="form module-a style-a"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a style-b"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a style-c"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;</code></pre>
+											<!-- //highlight-js -->
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+																<span class="form textfield module-b style-b type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+																<span class="form textfield module-b style-c type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type'}) %></div>
+										<div class="subsubsection-body">
+											<!-- highlight-js -->
+											<pre class="highlight-js">
+<code class="html">&lt;span class="form module-a type-none"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a type-line"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a type-fill"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;</code></pre>
+											<!-- //highlight-js -->
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<legend>전송 서식</legend>
+												<!-- submit-list -->
+												<div class="form-list">
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+																<span class="form textfield module-b style-a type-fill normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'outline'}) %></div>
+										<div class="subsubsection-body">
+											<!-- highlight-js -->
+											<pre class="highlight-js">
+<code class="html">&lt;span class="form module-a type-none"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a type-line"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a type-fill"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;</code></pre>
+											<!-- //highlight-js -->
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<legend>전송 서식</legend>
+												<!-- submit-list -->
+												<div class="form-list">
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 large flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 x-large flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'Accent line'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<legend>전송 서식</legend>
+												<!-- submit-list -->
+												<div class="form-list">
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line normal-01 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line normal-02 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line normal-03 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line normal-04 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line accent-01 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'Accent fill'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<legend>전송 서식</legend>
+												<!-- submit-list -->
+												<div class="form-list">
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill normal-01 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill normal-02 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill normal-03 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill normal-04 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill accent-01 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'textfield'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form textfield"&gt;&lt;input class="form-elem" type="text" placeholder="#" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'line'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-b type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<span class="form textfield module-b style-b type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="readonly" readonly="readonly" /></span>
+																<span class="form textfield module-b style-b type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="disabled" disabled="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'fill'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<span class="form textfield module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="readonly" readonly="readonly" /></span>
+																<span class="form textfield module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="disabled" disabled="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'search'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form search"&gt;
+	&lt;input class="form-elem" type="search" placeholder="#" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /&gt;
+	&lt;span class="form-util"&gt;
+		&lt;button type="button" class="btn"&gt;&lt;svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"&gt;&lt;title&gt;검색&lt;/title&gt;&lt;path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/button&gt;&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'line'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="readonly" readonly="readonly" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="disabled" disabled="disabled" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'fill'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="readonly" readonly="readonly" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="disabled" disabled="disabled" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'date'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form date"&gt;&lt;input class="form-elem" type="date" placeholder="#" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'line'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="date" class="form-elem" value="normal" /></span>
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="date" class="form-elem" value="readonly" readonly="readonly" /></span>
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" value="disabled" disabled="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'fill'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="date" class="form-elem" value="normal" /></span>
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="date" class="form-elem" value="readonly" readonly="readonly" /></span>
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" value="disabled" disabled="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'select'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form select"&gt;
+	&lt;select class="form-elem"&gt;
+		&lt;option&gt;first items&lt;/option&gt;
+		&lt;option&gt;second items&lt;/option&gt;
+		&lt;option&gt;third items&lt;/option&gt;
+		&lt;option&gt;fourth items&lt;/option&gt;
+		&lt;option&gt;fifth items&lt;/option&gt;
+		&lt;option&gt;sixth items&lt;/option&gt;
+		&lt;option&gt;sventh items&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'line'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form select module-b style-b type-line normal-04 medium flex">
+																	<select class="form-elem">
+																		<option>first item</option>
+																		<option>second item</option>
+																		<option>third item</option>
+																		<option>fourth item</option>
+																		<option>fifth item</option>
+																		<option>sixth item</option>
+																		<option>sventh item</option>
+																	</select>
+																</span>
+																<span class="form select module-b style-b type-line normal-04 medium flex">
+																	<select class="form-elem" disabled="disabled">
+																		<option>first item</option>
+																		<option>second item</option>
+																		<option>third item</option>
+																		<option>fourth item</option>
+																		<option>fifth item</option>
+																		<option>sixth item</option>
+																		<option>sventh item</option>
+																	</select>
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'textarea'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form textarea"&gt;
+	&lt;textarea class="form-elem" rows="8" placeholder="#"&gt;&lt;/textarea&gt;
+&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'class options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-01 to normal-05, accent-01 to accent-02</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'line'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textarea module-b style-b type-line normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+																<span class="form textarea module-b style-b type-line normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급" readonly="readonly">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+																<span class="form textarea module-b style-b type-line normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급" disabled="disabled">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'fill'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textarea module-b style-b type-fill normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+																<span class="form textarea module-b style-b type-fill normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급" readonly="readonly">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+																<span class="form textarea module-b style-b type-fill normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급" disabled="disabled">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'auto resize'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textarea module-b style-b type-line normal-04 medium flex" data-bui-form-value>
+																	<textarea class="form-elem" rows="1" placeholder="내용을 입력해주세요." oninput="buiFormResize(this);"></textarea>
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'radio'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form radio"&gt;&lt;input class="form-elem" type="radio" name="#" checked="checked" /&gt;&lt;/span&gt;
+&lt;span class="form radio"&gt;&lt;input class="form-elem" type="radio" name="#" /&gt;&lt;/span&gt;
+
+&lt;label class="form radio"&gt;&lt;input class="form-elem" type="radio" name="#" checked="checked" /&gt; &lt;span class="form-text"&gt;radio option 1&lt;/span&gt;&lt;/label&gt;
+&lt;label class="form radio"&gt;&lt;input class="form-elem" type="radio" name="#" /&gt; &lt;span class="form-text"&gt;radio option 2&lt;/span&gt;&lt;/label&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'style'}) %></div>
+								<div class="subsection-body">
+									<p class="para">style-c</p>
+									<!-- submit-form -->
+									<fieldset class="submit-form module-bui">
+										<legend>전송 서식</legend>
+										<!-- submit-form -->
+										<div class="form-list">
+											<!-- submit-item -->
+											<div class="form-item">
+												<div class="form-body">
+													<div class="form-area">
+														<div class="option-list">
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" checked="checked" /> <span class="form-text">radio option 1</span></label></span>
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" /> <span class="form-text">radio option 2</span></label></span>
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" /> <span class="form-text">radio option 3</span></label></span>
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" /> <span class="form-text">radio option 4</span></label></span>
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" /> <span class="form-text">radio option 5</span></label></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- //submit-item -->
+										</div>
+										<!-- //form-list -->
+									</fieldset>
+									<!-- //submit-form -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'checkbox'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form radio"&gt;&lt;input class="form-elem" type="radio" /&gt;&lt;/span&gt;
+&lt;span class="form radio"&gt;&lt;input class="form-elem" type="radio" checked="checked" /&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'style'}) %></div>
+								<div class="subsection-body">
+									<p class="para">style-b</p>
+									<!-- submit-form -->
+									<fieldset class="submit-form module-bui">
+										<legend>전송 서식</legend>
+										<!-- submit-list -->
+										<div class="form-list">
+											<!-- submit-item -->
+											<div class="form-item">
+												<div class="form-body">
+													<div class="form-area">
+														<div class="option-list">
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">checkbox option 1</span></label></span>
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 2</span></label></span>
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 3</span></label></span>
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 4</span></label></span>
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 5</span></label></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- //submit-item -->
+										</div>
+										<!-- //form-list -->
+									</fieldset>
+									<!-- //submit-form -->
+									<p class="para">style-c</p>
+									<!-- submit-form -->
+									<fieldset class="submit-form module-bui">
+										<legend>전송 서식</legend>
+										<!-- submit-list -->
+										<div class="form-list">
+											<!-- submit-item -->
+											<div class="form-item">
+												<div class="form-body">
+													<div class="form-area">
+														<div class="option-list">
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">checkbox option 1</span></label></span>
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 2</span></label></span>
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 3</span></label></span>
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 4</span></label></span>
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 5</span></label></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- //submit-item -->
+										</div>
+										<!-- //form-list -->
+									</fieldset>
+									<!-- //submit-form -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'switch'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form switch"&gt;&lt;input class="form-elem" type="checkbox" checked="checked" /&gt;&lt;/span&gt;
+&lt;span class="form switch"&gt;&lt;input class="form-elem" type="checkbox" /&gt;&lt;/span&gt;
+
+&lt;label class="form switch"&gt;&lt;input class="form-elem" type="checkbox" checked="checked" /&gt; &lt;span class="form-text"&gt;radio option 1&lt;/span&gt;&lt;/label&gt;
+&lt;label class="form switch"&gt;&lt;input class="form-elem" type="checkbox" /&gt; &lt;span class="form-text"&gt;radio option 2&lt;/span&gt;&lt;/label&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<p class="para">default</p>
+									<!-- submit-form -->
+									<fieldset class="submit-form module-bui">
+										<legend>전송 서식</legend>
+										<!-- submit-form -->
+										<div class="form-list">
+											<!-- submit-item -->
+											<div class="form-item">
+												<div class="form-body">
+													<div class="form-area">
+														<div class="option-list">
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">switch option 1</span></label></span>
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" /> <span class="form-text">switch option 2</span></label></span>
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" /> <span class="form-text">switch option 3</span></label></span>
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" /> <span class="form-text">switch option 4</span></label></span>
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" /> <span class="form-text">switch option 5</span></label></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- //submit-item -->
+										</div>
+										<!-- //form-list -->
+									</fieldset>
+									<!-- //submit-form -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'Unit Symbols'}) %></div>
+						<div class="section-body">
+							<!-- data-table -->
+							<div class="data-table module-bui type-a">
+								<table>
+									<colgroup>
+										<col style="width: 128rem;">
+										<col>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">&#215;</th>
+											<td>&amp;#215;</code></td>
+										</tr>
+										<tr>
+											<th scope="row">&#8725;</th>
+											<td>&amp;#8725;</code></td>
+										</tr>
+										<tr>
+											<th scope="row">&#13213;</th>
+											<td>&amp;#13213; </td>
+										</tr>
+										<tr>
+											<th scope="row">&#109;</th>
+											<td>&amp;#109;</td>
+										</tr>
+										<tr>
+											<th scope="row">&#13217;</th>
+											<td>&amp;#13217;</td>
+										</tr>
+										<tr>
+											<th scope="row">&#13206;</th>
+											<td>&amp;#13206;</td>
+										</tr>
+										<tr>
+											<th scope="row">&#8467;</th>
+											<td>&amp;#8467;</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- //data-table -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- //content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!--//page-->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+<script type="text/javascript">
+	// datepicker options setup
+	Datepicker.locales.en = {
+		days: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+		daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+		daysMin: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+		months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+		monthsShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+		today: "오늘",
+		clear: "삭제",
+		titleFormat: "y.mm",
+		weekStart: 0
+	};
+	
+	// var datepickers = document.querySelectorAll('.form.datepicker .form-elem:not(:read-only)');
+	// datepickers.forEach(function(datepickerSelector) {	
+	// 	var datepicker = new Datepicker(datepickerSelector, {
+	// 		format: "yyyy-mm-dd",
+	// 		prevArrow: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>전월</title><path d="M15.52,6.37a1.24,1.24,0,0,1,0,1.76L11.65,12l3.87,3.87a1.25,1.25,0,1,1-1.77,1.76L8.12,12l5.63-5.63A1.25,1.25,0,0,1,15.52,6.37Z"></path></svg>',
+	// 		nextArrow: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>차월</title><path d="M8.48,17.63a1.24,1.24,0,0,1,0-1.76L12.35,12,8.48,8.13a1.25,1.25,0,1,1,1.77-1.76L15.88,12l-5.63,5.63A1.25,1.25,0,0,1,8.48,17.63Z"></path></svg>',
+	// 		weekStart: 1,
+	// 		autohide: true,
+	// 		todayHighlight: true,
+	// 	}); 
+	// });
+
+const datepicker = new Datepicker(document.getElementById('datepickerInline'), {
+	format: "yyyy-mm-dd",
+	prevArrow: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>전월</title><path d="M15.52,6.37a1.24,1.24,0,0,1,0,1.76L11.65,12l3.87,3.87a1.25,1.25,0,1,1-1.77,1.76L8.12,12l5.63-5.63A1.25,1.25,0,0,1,15.52,6.37Z"></path></svg>',
+	nextArrow: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>차월</title><path d="M8.48,17.63a1.24,1.24,0,0,1,0-1.76L12.35,12,8.48,8.13a1.25,1.25,0,1,1,1.77-1.76L15.88,12l-5.63,5.63A1.25,1.25,0,0,1,8.48,17.63Z"></path></svg>',
+	weekStart: 1,
+	autohide: true,
+	todayHighlight: true,
+});
+
+</script>
+
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>U: 유컴패니온 인트라넷</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="keywords" content="U: 유컴패니온 인트라넷" />
+	<link rel="shortcut icon" href="./../../assets/images/app/favicon.ico" />
+
+	<link rel="stylesheet" type="text/css" href="./../../assets/css/module.global.css" />
+	<link rel="stylesheet" type="text/css" href="./../../assets/css/layout.front.css">
+	<link rel="stylesheet" type="text/css" href="./../../assets/css/page.front.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+	<script type="text/javascript" src="./../../assets/js/bui.js"></script>
+	<script type="text/javascript" src="./../../assets/js/bui.template.js" defer></script>
+	
+<style>
+	body {margin: 24rem;}
+	body>.button-display {margin: 0 auto; max-width: 480rem;}
+	body>.button-display + .button-display  {margin-top: 16rem;}
+</style>
+</head>
+<body>
+<h1>공통 팝업</h1>
+<div class="button-display module-a style-b type-d">
+	<span class="button-area">
+		<a href="#signoffForm" class="btn module-b style-a type-fill accent-01 large flex" onclick="toastPopup.active('signoffForm');"><span class="btn-text">총 #개 결재하기</span></a>
+	</span>
+</div>
+<div class="button-display module-a style-b type-d">
+	<span class="button-area">
+		<a href="#schedule" class="btn module-b style-a type-fill normal-02 large flex" onclick="contentsPopup.active('schedule');"><span class="btn-text">임직원 근무 현황 상세</span></a>
+	</span>
+</div>
+<div class="button-display module-a style-b type-d">
+	<span class="button-area">
+		<a href="#imageEnlarge" class="btn module-b style-a type-fill normal-04 large flex" onclick="imageEnlarge.active('imageEnlarge');"><span class="btn-text">이미지 크게 보기</span></a>
+	</span>
+</div>
+<hr />
+<hr />
+
+<!-- 결재 상태 변경 -->
+<!-- toast-popup -->
+<div class="toast-popup module-a style-b type-a medium" id="signoffForm" data-bui-toggle="toastPopup">
+	<div class="popup-page-body">
+		<!-- popup-local -->
+		<div class="popup-local">
+			<!-- popup-local-head -->
+			<div class="popup-local-head">
+				<h2 class="popup-local-title"><span class="popup-local-name">결재 상태 변경</span></h2>
+			</div>
+			<!-- //popup-local-head -->
+			<!-- popup-local-body -->
+			<div class="popup-local-body">
+				<div class="popup-content">
+					<!-- popup-content-body -->
+					<div class="popup-content-body">
+						<!-- section -->
+						<div class="section module-a style-a type-a">
+							<div class="section-head"><h3 class="section-title"><span class="section-name">결재 상태 변경</span></h3></div>
+							<div class="section-body">
+								<!-- submit-form -->
+								<fieldset class="submit-form module-a type-a medium">
+									<legend>결제 상태 입력 서식</legend>
+									<div class="form-list">
+										<div class="form-item">
+											<div class="form-wrap">
+												<div class="form-head"><label class="form-name" for="expensesType">결제위치</label></div>
+												<div class="form-body">
+													<div class="form-area">
+														<span class="form select module-b style-b type-line normal-04 medium flex">
+															<select class="form-elem" id="expensesType">
+																<option>선택</option>
+																<option>한수진[대표이사]</option>
+															</select>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-item">
+											<div class="form-wrap">
+												<div class="form-head"><label class="form-name" for="expensesType">결제상태</label></div>
+												<div class="form-body">
+													<div class="form-area">
+														<span class="form select module-b style-b type-line normal-04 medium flex">
+															<select class="form-elem" id="expensesType">
+																<option>선택</option>
+															</select>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-item">
+											<div class="form-wrap">
+												<div class="form-head"><label class="form-name" for="expensesProjectName">사유</label></div>
+												<div class="form-body">
+													<div class="form-area">
+														<span class="form textfield module-b style-b type-line normal-04 medium flex">
+															<input type="text" class="form-elem" id="expensesProjectName" placeholder="프로젝트명을 입력해주세요." value="UCOMP 인트라넷" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" />
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<!-- //submit-form -->
+							</div>
+						</div>
+						<!-- //section -->
+					</div>
+					<!-- //popup-content-body -->
+				</div>
+			</div>
+			<!-- //popup-local-body -->
+			<!-- popup-local-util -->
+			<div class="popup-local-util">
+				<div class="button-display module-a style-b type-d">
+					<span class="button-area">
+						<button type="submit" class="btn module-b style-a type-fill accent-01 x-large flex"><span class="btn-text">총 #개 결재하기</span></button>
+					</span>
+				</div>
+			</div>
+			<!-- //popup-local-util -->
+		</div>
+		<!-- //popup-local -->
+	</div>
+</div>
+<!-- //toast-popup -->
+
+
+<!-- 임직원 근무 현황 상세 -->
+<!-- content-popup -->
+<div class="content-popup module-a style-a type-a small" id="schedule" data-bui-toggle="contentsPopup">
+	<div class="popup-page-body">
+		<!-- popup-local -->
+		<div class="popup-local">
+			<!-- popup-local-head -->
+			<div class="popup-local-head">
+				<h2 class="popup-local-title"><span class="popup-local-name">임직원 근무 현황</span></h2>
+			</div>
+			<!-- //popup-local-head -->
+			<!-- popup-local-body -->
+			<div class="popup-local-body">
+				<div class="popup-content">
+					<!-- popup-content-body -->
+					<div class="popup-content-body">
+						<!-- goods-display -->
+						<div class="goods-display module-a style-b type-a">
+							<div class="goods-list">
+								<div class="goods-item">
+									<div class="goods-wrap">
+										<div class="goods-inform">
+											<div class="goods-head">
+												<p class="goods-title">
+													<span class="goods-name">홍길순</span>
+													<span class="goods-position">선임</span>
+													<span class="goods-department">경영기획팀</span>
+													<span class="goods-team">재무/회계</span>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //goods-display -->
+						<!-- data-display -->
+						<div class="data-display module-a style-a type-a small">
+							<ul class="data-list">
+								<li class="data-item">
+									<div class="data-wrap">
+										<div class="data-head"><span class="data-name">일자</span></div>
+										<div class="data-body">2022-03-07</div>
+									</div>
+								</li>
+								<li class="data-item">
+									<div class="data-wrap">
+										<div class="data-head"><span class="data-name">업무연락</span></div>
+										<div class="data-body">전화, 팀즈, 이메일</div>
+									</div>
+								</li>
+								<li class="data-item">
+									<div class="data-wrap">
+										<div class="data-head"><span class="data-name">업무내역</span></div>
+										<div class="data-body">인트라넷 모바일 작업, 운영업무 대응</div>
+									</div>
+								</li>
+								<li class="data-item">
+									<div class="data-wrap">
+										<div class="data-head"><span class="data-name">연락처</span></div>
+										<div class="data-body">010-2729-5982</div>
+									</div>
+								</li>
+								<li class="data-item">
+									<div class="data-wrap">
+										<div class="data-head"><span class="data-name">사유</span></div>
+										<div class="data-body">오미크론 확산으로 인한 동선 최소화 재택 근무 격주 시행</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!-- //data-display -->
+					</div>
+					<!-- //popup-content-body -->
+				</div>
+			</div>
+			<!-- //popup-local-body -->
+		</div>
+		<!-- //popup-local -->
+	</div>
+</div>
+<!-- //content-popup -->
+
+<!-- 이미지 크게 보기 -->
+<!-- content-popup -->
+<div class="image-popup module-a style-a type-a medium" id="imageEnlarge" data-bui-toggle="imageEnlarge">
+	<div class="popup-page-body">
+		<!-- popup-local -->
+		<div class="popup-local">
+			<!-- popup-local-head -->
+			<div class="popup-local-head">
+				<h2 class="popup-local-title"><span class="popup-local-name">이미지 크게 보기</span></h2>
+			</div>
+			<div class="popup-local-body">
+				<div class="popup-content">
+					<img src="./../../assets/images/@temp/img_receipt_01_enlarge.png" alt="" />
+				</div>
+			</div>
+			<!-- //popup-local-body -->
+		</div>
+		<!-- //popup-local -->
+	</div>
+</div>
+<!-- //content-popup -->
+<script stype="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		// imageEnlarge.active('imageEnlarge');
+	});
+</script>
+</body>
+</html>

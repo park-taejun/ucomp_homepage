@@ -1,0 +1,272 @@
+/*
+ * tooltip system
+ */
+button.tooltip-btn {
+	overflow: visible;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	border: hidden;
+	background-color: transparent;
+	appearance: none;
+}
+
+.tooltip-btn svg {
+	display: block;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+/*
+* @ module-a accent
+*
+* @ $text-color
+* @ $border-color
+* @ $background-color
+ */
+$tooltip-module-a-accent: (
+	'normal-00': (
+		'none' color(base, 100) transparent transparent,
+		'line' color(base, 100) color(base, 100) color(base, 000),
+		'fill' color(base, 000) color(base, 100) color(base, 100),
+	),
+	'normal-01': (
+		'none' color(base, 100) transparent transparent,
+		'line' color(base, 80) color(base, 80) color(base, 000),
+		'fill' color(base, 000) color(base, 80) color(base, 80),
+	),
+	'normal-02': (
+		'none' color(base, 070) transparent transparent,
+		'line' color(base, 070) color(base, 070) color(base, 000),
+		'fill' color(base, 000) color(base, 070) color(base, 070),
+	),
+	'normal-03': (
+		'none' color(base, 060) transparent transparent,
+		'line' color(base, 040) color(base, 030) color(base, 000),
+		'fill' color(base, 000) color(base, 030) color(base, 060),
+	),
+	'normal-04': (
+		'none' color(base, 040) transparent transparent,
+		'line' color(base, 040) color(base, 010) color(base, 000),
+		'fill' color(base, 050) color(base, 010) color(base, 020),
+	),
+	'accent-01': (
+		'none' color(primary, 050) transparent transparent,
+		'line' color(primary, 050) color(primary, 050) color(primary, 000),
+		'fill' color(primary, 000) color(primary, 050) color(primary, 050),
+	),
+);
+
+/*
+ * module-a outline
+ *
+ * @ $line-height
+ * @ $font-size
+ * @ $font-weight
+ * @ $border-width
+ * @ $margin
+ */
+$tooltip-module-a-outline: (
+	'xx-small'		16rem 1.25 400 1rem 4rem,
+	'x-small'		18rem 1.25 400 1rem 4.5rem,
+	'small'			20rem 1.25 400 1rem 5rem,
+	'medium'		24rem 1.25 400 1rem 5rem,
+	'large'			28rem 1.25 400 1rem 5rem,
+	'x-large'		32rem 1.25 400 1rem 5rem,
+);
+
+
+.tooltip-board.module-a {
+	// general
+	display: inline-flex;
+	position: relative;
+	@include font((family: default)...);
+	border-style: solid;
+	box-sizing: border-box;
+	
+
+	&[class*=cursor-]::before {
+		content: '';
+		position: absolute;
+		display: block;
+		box-sizing: border-box;
+
+		border-style: solid;
+		border-color: transparent;
+		// transform: rotate(45deg) translateX(50%);
+
+	}
+	
+
+	.tooltip-wrap {
+		display: inline-flex;
+		justify-content: center;
+		// align-items: center;
+		.tooltip-body {
+			margin: 0;
+			padding: 0;
+			.para {
+				margin: 0;
+			}
+		}
+		.tooltip-btn {
+			.tooltip-text {
+				@include hidden;
+			}
+		}
+	}
+
+	// icon
+	// 1. 아이콘의 유무는 특정 클래스명으로 한다.
+	// 2. 아이콘의 위치는 특정 클래스명으로 한다.
+	// 3. 아이콘의 종류는 지정한 아이콘셋(클래스명)으로 한다.
+	// 4. 아이콘의 사이즈는 outline별로 달라야 한다.
+	//		1) 행간에 맞춘다.
+	//		2) 별도의 사이즈를 지정한다.
+	// 5. 무조건 중앙에 또는 상단 기준을 택일
+	// 6. accent에 따라 컬러를 다르게 한다.
+
+	
+
+	// accent
+	@each $accent-name in $tooltip-module-a-accent {
+		&.#{nth($accent-name, 1)} {
+			// @debug "divider offset: #{nth($accent-name, 1)}";
+			@each $type-name, $color, $border-color, $background-color in map-get($tooltip-module-a-accent, nth($accent-name, 1)) {
+				&.type-#{$type-name} {
+					color: $color;
+					border-color: $border-color;
+					background-color: $background-color;
+					
+					@each $icon-name, $icon in $symbol-list {
+						.tooltip-btn {
+							&.symbol-ltr-#{$icon-name},
+							&.symbol-rtl-#{$icon-name} {background-image: icon($icon-name, $color);}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// outline
+	@each $name, $line-height, $font-size, $font-weight, $border-width, $margin in $tooltip-module-a-outline {
+		&.#{$name} {
+			min-height: $line-height * 2;
+			padding: calc($line-height /2 ) $line-height ;
+			font-weight: $font-weight;
+			line-height: $line-height;
+			font-size: calc($line-height / $font-size);
+			border-width: $border-width;
+
+			&.style-b {
+				border-radius: $line-height * .5;
+			}
+			&.style-c {
+				border-radius: $line-height * 2;
+			}
+
+			&[class*=cursor-]::before {
+				border-width: $line-height - 4;
+				border-radius:  $line-height * .125;
+			}
+			&.cursor-right::before {
+				top: $margin;
+				right: $line-height * -1.25;
+				border-left-color: #000;
+			}
+
+			&.cursor-left::before {
+				top: $margin;
+				left: $line-height * -1.25;
+				border-right-color: #000;
+			}
+			&.cursor-top::before {
+				top: $line-height * -1.5;
+				border-bottom-color: #000;
+			}
+			&.cursor-bottom::before {
+				bottom: $line-height * -1.5;
+				border-top-color: #000;
+			}
+
+			// icon
+			.tooltip-btn {
+				&[class*=symbol-ltr-] ,
+				&[class*=symbol-rtl-] {
+					width: $line-height;
+					min-width: $line-height;
+					height: $line-height;
+				}
+				&[class*=symbol-ltr-] {
+					margin-right: $line-height * .125;
+				}
+				&[class*=symbol-rtl-] {
+					margin-left: $line-height * .125;	
+				}
+			}
+		}
+	}
+}
+
+/**
+ * @component	tooltip
+ * @moudle		module-a
+ * @name		common
+ * @update		2022-03-27
+ */
+.tooltip.module-a {
+	&.type-b {
+		.tooltip-wrap {
+			border-radius: 16rem;
+		}
+	}
+	
+	.tooltip-wrap {
+		padding: 16rem 16rem;
+		box-shadow: 0 4rem 12rem 0 rgba(0,0,0,0.12);
+		background-color: color(base, 000);
+
+		.tooltip-head {
+			@include hidden;
+		}
+
+		.tooltip-body {
+			.data-list {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+
+				.data-item {
+					@include font((outline: body, size: x-small)...);
+					color: color(base, 050);
+
+					+.data-item {
+						margin-top: 8rem;
+					}
+
+					a {
+						display: flex;
+						color: inherit;
+
+						.file-name {
+							overflow: hidden;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+
+						}
+
+						.extension {
+							display: block;
+							flex-shrink: 0;
+						}
+
+						&:not(:hover) {
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}

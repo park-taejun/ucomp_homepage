@@ -1,0 +1,907 @@
+.form {
+	position: relative;
+
+	.form-elem {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		border-radius: 0;
+		background-color: transparent;
+		appearance: none;
+
+		&::-webkit-search-cancel-button {
+			display: none;
+		}
+
+		&::-ms-clear{
+			display: none;
+		}
+	}
+}
+
+label.form {
+	display: inline-flex;
+	vertical-align: top;
+}
+
+
+
+/*
+ * form module-b system
+ */
+.form.module-a {
+	display: inline-flex;
+	position: relative;
+
+	.form-elem {
+		position: relative;
+		box-sizing: border-box;
+	}
+
+	&.radio {
+		.form-elem {
+			width: 24rem;
+			height: 24rem;
+			border: 1rem solid color(base, 010);
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-color: color(base, 000);
+
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 12rem;
+				height: 12rem;
+				border-radius: calc(20rem * 0.5);
+				background-color: #fff;
+				transform: translate(-50%, -50%);
+			}			
+
+			&:checked {
+				border-color: color(primary, 050);
+				background-color: color(primary, 050);
+			}
+		}
+
+		&.style-b {
+			.form-elem {
+				border-radius: 4rem;
+			}
+		}
+
+		&.style-c {
+			.form-elem {
+				border-radius: 50%;
+			}
+		}
+
+		.form-text {
+			@include font((outline: body, size: medium)...);
+		}
+
+		.form-text~.form-elem,
+		.form-elem~.form-text {
+			margin-left: 4rem;
+		}
+	}
+
+
+	&.checkbox {
+		.form-elem {
+			width: 24rem;
+			height: 24rem;
+			border: 1rem solid color(base, 020);
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-color: color(base, 000);
+			background-size: 16rem 16rem;
+			background-image: icon(fill-check, color(base, 020));
+
+			&:checked {
+				border-color: color(primary, 050);
+				background-color: color(primary, 050);
+				background-image: icon(fill-check, color(base, 000));
+			}
+		}
+
+		&.style-b {
+			.form-elem {
+				border-radius: 4rem;
+			}
+		}
+
+		&.style-c {
+			.form-elem {
+				border-radius: 50%;
+			}
+		}
+
+		.form-text {
+			@include font((outline: body, size: medium)...);
+		}
+
+		.form-text~.form-elem,
+		.form-elem~.form-text {
+			margin-left: 4rem;
+		}
+	}
+
+
+	&.switch {
+		.form-elem {
+			padding: 2rem;
+			width: 36rem;
+			height: 20rem;
+			border-radius: calc(20rem * 0.5);
+			background-color: color(base, 010);
+			transition: background-color 0.1s ease-out;
+			
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 16rem;
+				height: 16rem;
+				border-width: 2rem;
+				border-style: solid;
+				border-color: color(base, 010);
+				border-radius: calc(20rem * 0.5);
+				background-color: color(base, 000);
+				transition: left 0.1s ease-out, border-color 0.1s ease-out;
+			}
+
+			&:checked {
+				background-color: color(primary, 050);
+				&::after {
+					left: calc(100% - 20rem);
+					border-color: color(primary, 050);
+				}
+			}
+		}
+
+		.form-text {
+			@include font((outline: body, size: small)...);
+			color: color(base, 040);
+		}
+
+		.form-text~.form-elem,
+		.form-elem~.form-text {
+			margin-left: 4rem;
+		}
+	}
+}
+
+
+
+/*
+ * form module-b system
+ */
+
+/**
+ * @ module-b accent
+ *
+ * @ $color
+ * @ $color-unit
+ * @ $color-placeholder
+ * @ $color-disabled
+ *
+ * @ $border-color
+ *
+ * @ $background-readonly
+ * @ $background-disabled
+ * @ $background-color
+ */
+ $form-module-b-accent: (
+	'normal-00': (
+		'none' color(base, 100) color(base, 030) color(base, 030) color(base, 020)				transparent				transparent transparent transparent,
+		'line' color(base, 100) color(base, 030) color(base, 030) color(base, 020)				color(base, 100)		color(base, 005) color(base, 010) color(base, 000),
+		'fill' color(base, 000) color(base, 000) color(base, 000) color(base, 020)				color(base, 100)		color(base, 010) color(base, 010) color(base, 100),
+	),
+	'normal-01': (
+		'none' color(base, 070) color(base, 030) color(base, 030) color(base, 020)				transparent				transparent transparent transparent,
+		'line' color(base, 070) color(base, 030) color(base, 030) color(base, 020)				color(base, 090)		color(base, 005) color(base, 010) color(base, 000),
+		'fill' color(base, 000) color(base, 000) color(base, 000) color(base, 070)				color(base, 100)		color(base, 090) color(base, 090) color(base, 100),
+	),
+	'normal-02': (
+		'none' color(base, 070) color(base, 030) color(base, 030) color(base, 020)				transparent				transparent transparent transparent,
+		'line' color(base, 070) color(base, 030) color(base, 030) color(base, 020)				color(base, 070)		color(base, 005) color(base, 010) color(base, 000),
+		'fill' color(base, 000) color(base, 000) color(base, 000) color(base, 050)				color(base, 070)		color(base, 070) color(base, 070) color(base, 070),
+	),
+	'normal-03': (
+		'none' color(base, 070) color(base, 030) color(base, 030) color(base, 020)				transparent				transparent transparent transparent,
+		'line' color(base, 070) color(base, 030) color(base, 030) color(base, 020)				color(base, 030)		color(base, 005) color(base, 010) color(base, 000),
+		'fill' color(base, 000) color(base, 000) color(base, 000) color(base, 020)				color(base, 030)		color(base, 030) color(base, 030) color(base, 030),
+	),
+	'normal-04': (
+		'none' color(base, 070) color(base, 030) color(base, 030)  color(base, 030)				transparent				transparent transparent transparent,
+		'line' color(base, 070) color(base, 030) color(base, 030)  color(base, 030)				color(base, 010)		color(base, 005) color(base, 010) color(base, 000),
+		'fill' color(base, 030) color(base, 030) color(base, 030)  color(base, 030)				color(base, 010)		color(base, 010) color(base, 010) color(base, 010),
+	),
+	'accent-01': (
+		'none' color(base, 070) color(base, 030) color(base, 030) color(base, 020)				transparent				transparent transparent transparent,
+		'line' color(base, 070) color(base, 030) color(base, 030) color(base, 020)				color(primary, 050)		color(base, 005) color(base, 010) color(base, 000),
+		'fill' color(base, 000) color(base, 000, 0.75) color(base, 000, 0.75) color(base, 000, 0.25)	color(primary, 050)		color(primary, 050) color(primary, 050) color(primary, 050),
+	),
+);
+
+/*
+ * module-b outline
+ *
+ * @ $height
+ * @ $line-height
+ * @ $font-size
+ * @ $font-weight
+ * @ $border-width
+ */  
+
+
+$form-module-b-outline: (
+	'x-small'		24rem 16rem 1.5 300 1rem,
+	'small'			32rem 18rem 1.5 300 1rem,
+	'medium'		40rem 20rem 1.5 300 1rem,
+	'large'			48rem 20rem 1.5 300 1rem,
+	'x-large'		56rem 24rem 1.5 300 1rem,
+);
+
+.form.module-b {
+	display: inline-flex;
+	position: relative;
+
+	.form-elem {
+		position: relative;
+		box-sizing: border-box;
+	}
+
+	&.textarea,
+	&.select,
+	&.checkbox,
+	&.radio,
+	&.datepicker,
+	&.date,
+	&.search,
+	&.textfield {
+		.form-elem {
+			flex: 1 1 100%;
+			width: 100%;
+			border-style: solid;
+		}
+	}
+
+	.form-elem[type=date]::-webkit-inner-spin-button,
+	.form-elem[type=date]::-webkit-calendar-picker-indicator {
+		display: none;
+		-webkit-appearance: none;
+	}
+
+	// select
+	&.select,
+	&.checkbox,
+	&.datepicker,
+	&.radio,
+	&.date {
+		.form-elem {
+			text-overflow: ellipsis;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&.checkbox,
+	&.radio {
+		.form-text {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			box-sizing: border-box;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+	}
+
+	// textarea
+	&.textarea {
+		.form-elem {
+			resize: none;
+			overflow: auto;
+			@include overflow-scroll(default, dark);
+		}
+
+		&[data-bui-form-value] {
+			.form-elem {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				resize: none;
+				overflow: hidden;
+
+				white-space: pre-wrap;
+				word-break: break-all;
+				word-wrap: break-word;
+			}
+
+			&::before {
+				content: attr(data-bui-form-value) " ";
+				flex-grow: 1;
+				display: block;
+				opacity: 0;
+				pointer-events: none;
+				white-space: pre-wrap;
+				word-break: break-all;
+				word-wrap: break-word;
+			}
+		}
+	}
+
+	// textfield
+	&.search,
+	&.textfield {
+		.form-elem {
+			text-overflow: ellipsis;
+			font-weight: 300;
+		}
+	
+
+		.form-func {
+			display: flex;
+			align-items: center;
+
+			position: absolute;
+			top: 50%;
+			right: 0;
+			height: 0;
+			overflow: visible;
+
+			.form-cancel {
+				display: block;
+				opacity: 0;
+				pointer-events: none;
+				background-repeat: no-repeat;
+				background-position: 0 0;
+				background-size: cover;
+			}
+			.btn {
+				svg {
+					display: block;
+					color: color(base,070);
+				}	
+			}
+		}
+
+		.form-elem.typed:focus~.form-func,
+		.form-elem.typed:hover~.form-func {
+			.form-cancel {
+				opacity: 1;
+			}
+		}
+	}
+
+	// accent
+	@each $accent-name in $form-module-b-accent {
+		&.#{nth($accent-name, 1)} {
+			// @debug "divider offset: #{nth($accent-name, 1)}";
+			@each $type-name, $color, $color-unit, $color-placeholder, $color-disabled, $border-color, $background-readonly, $background-disabled, $background-color  in map-get($form-module-b-accent, nth($accent-name, 1)) {
+				&.type-#{$type-name} {
+					// common
+					&.textarea,
+					&.select,
+					&.datepicker,
+					&.date,
+					&.search,
+					&.textfield {
+						.form-text {
+							color: $color;
+						}
+						.form-elem {
+							color: $color;
+							border-color: $border-color;
+							background-color: $background-color;
+
+							&::placeholder {
+								color: $color-unit;
+							}
+
+							&.invalid {
+								border-color: red;
+							}
+
+							&:read-only:disabled {
+								color: $color-disabled;
+								background-color: $background-disabled;
+							}
+						}
+
+						.form-func {
+							.form-cancel {
+								background-image: icon(cancel, $color-unit);
+							}
+						}
+					}
+
+					// readonly
+					&.textarea,
+					&.datepicker,
+					&.date,
+					&.search,
+					&.textfield {
+						.form-elem:read-only {
+							color: $color;
+							border-color: $border-color;
+							background-color: $background-readonly;
+						}
+					}
+
+					&.search,
+					&.textfield {
+						.form-elem {
+							&::placeholder {
+								color: $color-placeholder;
+							}
+						}
+
+						.form-func {
+							.form-cancel {
+								background-image: icon(fill-circle-delete, $color-unit);
+							}
+
+							.form-search {
+								svg {
+									fill: $color;
+								}	
+							}
+						}
+					}
+
+					// radio, checkbox
+					&.checkbox,
+					&.radio {
+						.form-text {
+							color: $color-unit;
+							background-image: icon(fill-check, $color-unit);
+						}
+						.form-elem {
+							border-color: $border-color;
+							background-color: $background-color;
+
+							&:read-only:disabled {
+								background-color: $background-disabled;
+
+								~.form-text {
+									color: $color-disabled;
+								}
+							}
+
+							&:checked {
+								~.form-text {
+									color: $color;
+									background-image: icon(fill-check, $color);
+								}
+							}
+						}
+					}
+
+					// select
+					&.select {
+						.form-elem {
+							background-image: icon(fill-caret-down, $color);
+						}
+					}
+
+					// datepicker
+					&.datepicker,
+					&.date {
+						.form-elem {
+							background-image: icon(line-calendar-today, $color);
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	// outline
+	@each $name, $height, $line-height, $font-size, $font-weight, $border-width in $form-module-b-outline {
+		&.#{$name} {
+			// common
+			&.textarea,
+			&.select,
+			&.datepicker,
+			&.date,
+			&.search,
+			&.textfield {
+				&.style-b {
+					.form-elem {
+						border-radius: $height * 0.2;
+					}
+				}
+	
+				&.style-c {
+					.form-elem {
+						border-radius: $height * 0.5;
+					}
+				}
+				
+				.form-elem {
+					line-height: $line-height;
+					font-size: calc($line-height / $font-size);
+					@include font((family: default)...);
+					border-width: $border-width;
+				}
+			}
+			
+			// textfield
+			&.search,
+			&.textfield {
+				.form-elem {
+					height: $height;
+					padding-right: $line-height * 0.8;
+					text-indent: $line-height * 0.8;
+				}
+
+				.form-func {
+					padding: 0 $line-height * 0.6 + $border-width;
+
+					* + * {
+						margin-left: $line-height * 0.4;
+					}
+
+					.form-cancel {
+						width: $line-height;
+						height: $line-height;
+					}
+
+					.btn {
+						svg {
+							width: $line-height;
+							height: $line-height;
+						}
+					}
+				}
+			}
+
+			// textarea
+			&.textarea {
+				.form-elem {
+					padding: $line-height * 0.5 $line-height * 0.8;
+				}
+
+				&[data-bui-form-value] {
+					line-height: $line-height;
+					font-size: calc($line-height / $font-size);
+					@include font((family: default)...);
+					border-width: $border-width;
+					padding: $line-height * 0.5 $line-height * 0.8;
+				}
+			}
+
+			// select
+			&.select,
+			&.datepicker,
+			&.date {
+				.form-elem {
+					padding-left: $line-height * 0.8;
+					padding-right: $line-height * 1.6;
+					height: $height;
+					background-size: $line-height $line-height;
+					background-position: calc(100% - ($line-height * 0.6)) 50%;
+				}
+			}
+
+			// radio, checkbox
+			&.checkbox,
+			&.radio {
+				&.style-b {
+					.form-elem {
+						border-radius: $height * 0.2;
+					}
+				}
+	
+				&.style-c {
+					.form-elem {
+						border-radius: $height * 0.5;
+					}
+				}
+
+				.form-elem {
+					height: $height;
+					border-width: $border-width;
+				}
+
+				.form-text {
+					padding-left: $line-height * 0.8;
+					padding-right: $line-height * 1.6;
+					background-size: $line-height $line-height;
+					background-position: calc(100% - ($line-height * 0.6)) 50%;
+				}
+			}
+		}
+	}
+}
+
+
+.form.module-c {
+	display: inline-flex;
+	position: relative;
+
+	.form-elem {
+		position: relative;
+		box-sizing: border-box;
+		font-weight: 700;
+	}
+
+	&.textarea,
+	&.datepicker,
+	&.select,
+	&.textfield {
+		.form-elem {
+			flex: 1 1 100%;
+			width: 100%;
+			border-style: solid;
+		}
+	}
+
+	// select
+	&.datepicker,
+	&.select {
+		.form-elem {
+			text-overflow: ellipsis;
+			background-repeat: no-repeat;
+		}
+	}
+
+
+	// textarea
+	&.textarea {
+		.form-elem {
+			resize: none;
+			overflow: auto;
+			@include overflow-scroll(default, dark);
+		}
+
+		&[data-bui-form-value] {
+			.form-elem {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				resize: none;
+				overflow: hidden;
+
+				white-space: pre-wrap;
+				word-break: break-all;
+				word-wrap: break-word;
+			}
+
+			&::before {
+				content: attr(data-bui-form-value) " ";
+				flex-grow: 1;
+				display: block;
+				opacity: 0;
+				pointer-events: none;
+				white-space: pre-wrap;
+				word-break: break-all;
+				word-wrap: break-word;
+			}
+		}
+	}
+
+	// textfield
+	&.textfield {
+		.form-elem {
+			text-overflow: ellipsis;
+		}
+
+		.form-func {
+			display: flex;
+			align-items: center;
+
+			position: absolute;
+			top: 50%;
+			right: 0;
+			height: 0;
+			overflow: visible;
+
+			.form-cancel {
+				display: block;
+				opacity: 0;
+				pointer-events: none;
+				background-repeat: no-repeat;
+				background-position: 0 0;
+				background-size: cover;
+			}
+			.btn {
+				svg {
+					display: block;
+				}	
+			}
+		}
+
+		.form-elem.typed:focus~.form-func,
+		.form-elem.typed:hover~.form-func {
+			.form-cancel {
+				opacity: 1;
+			}
+		}
+	}
+
+	// accent
+	@each $accent-name in $form-module-b-accent {
+		&.#{nth($accent-name, 1)} {
+			// @debug "divider offset: #{nth($accent-name, 1)}";
+			@each $type-name, $color, $color-unit, $color-placeholder, $color-disabled, $border-color, $background-readonly, $background-disabled, $background-color  in map-get($form-module-b-accent, nth($accent-name, 1)) {
+				&.type-#{$type-name} {
+					// common
+					&.textarea,
+					&.datepicker,
+					&.select,
+					&.textfield {
+						.form-elem {
+							color: $color;
+							border-color: $border-color;
+							background-color: $background-color;
+
+							&::placeholder {
+								color: $color-unit;
+							}
+
+							&.invalid {
+								border-color: red;
+							}
+
+							&:not(select):read-only {
+								color: $color;
+								border-color: $border-color;
+								background-color: $background-readonly;
+							}
+
+							&:read-only:disabled {
+								color: $color-disabled;
+								background-color: $background-disabled;
+							}
+						}
+
+						.form-func {
+							.form-cancel {
+								background-image: icon(cancel, $color-unit);
+							}
+						}
+					}
+
+					// textfield
+					&.textfield {
+						.form-elem {
+							&::placeholder {
+								color: $color-unit;
+							}
+						}
+
+						.form-func {
+							.form-cancel {
+								background-image: icon(fill-circle-delete, $color-unit);
+							}
+
+							.form-search {
+								svg {
+									fill: $color;
+								}	
+							}
+						}
+					}
+
+					// select
+					&.select {
+						.form-elem {
+							background-image: icon(fill-caret-down, $color);
+						}
+					}
+
+					// datepicker
+					&.datepicker {
+						.form-elem {
+							background-image: icon(line-calendar-today, $color);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// outline
+	@each $name, $height, $line-height, $font-size, $font-weight, $border-width in $form-module-b-outline {
+		&.#{$name} {
+			// common
+			&.textarea,
+			&.datepicker,
+			&.select,
+			&.textfield {
+				&.style-b {
+					.form-elem {
+						border-radius: $height * 0.2;
+					}
+				}
+	
+				&.style-c {
+					.form-elem {
+						border-radius: $height * 0.5;
+					}
+				}
+
+				.form-elem {
+					line-height: $line-height;
+					font-size: calc($line-height / $font-size);
+					@include font((family: default)...);
+					border-width: $border-width * 2;
+				}
+			}
+			
+			// textfield
+			&.textfield {
+				.form-elem {
+					height: $height;
+					padding-right: $line-height * 0.8;
+					text-indent: $line-height * 0.8;
+				}
+
+				.form-func {
+					padding: 0 $line-height * 0.6 + $border-width;
+
+					* + * {
+						margin-left: $line-height * 0.4;
+					}
+
+					.form-cancel {
+						width: $line-height;
+						height: $line-height;
+					}
+
+					.btn {
+						svg {
+							width: $line-height;
+							height: $line-height;
+						}
+					}
+				}
+			}
+
+			// textarea
+			&.textarea {
+				.form-elem {
+					padding: $line-height * 0.5 $line-height * 0.8;
+				}
+
+				&[data-bui-form-value] {
+					line-height: $line-height;
+					font-size: calc($line-height / $font-size);
+					@include font((family: default)...);
+					border-width: $border-width;
+					padding: $line-height * 0.5 $line-height * 0.8;
+				}
+			}
+
+			// select
+			&.datepicker,
+			&.select {
+				.form-elem {
+					padding-left: $line-height * 0.8;
+					padding-right: $line-height * 1.6;
+					height: $height;
+					background-size: $line-height $line-height;
+					background-position: calc(100% - ($line-height * 0.6)) 50%;
+				}
+			}
+		}
+	}
+}

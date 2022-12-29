@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('./../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.intro.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<!-- page-head -->
+		<div class="page-head" id="head">
+			<h1 class="page-title" title="유컴패니온 인트라넷"><a class="page-name" href="/"><abbr title="Basic User Interpace">BUI</abbr></a></h1>
+		</div>
+		<!-- //page-head -->
+
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- info-board -->
+					<div class="info-board type-c">
+						<div class="board-wrap">
+							<div class="board-head"></div>
+							<div class="board-body">
+								<p class="para"><strong>유컴패니온 인트라넷</strong> 구축을 위한 BUI(Basic User Interface)입니다.</p>
+								<p class="para">BUI(Basic User Interface)의 목적은 마크업 개발자가 지켜야 할 기준을 제시함으로써, <br />협력 부서 간의 이해도를 높여 프로젝트의 원활한 진행을 돕고 더욱 높은 수준의 결과물을 내는 것입니다.</p>
+								<p class="para">말하자면 BUI(Basic User Interface)에서 정의한 규칙에 따라 생산되는 결과물은, <br />일관성 있고 최적화된 코드로 불필요한 자원을 줄이게 됩니다.</p>
+								<p class="para">또한, 향후 유지관리 시 작업능률 향상과 생산성 제고를 극대화할 것입니다.</p>
+							</div>
+							<div class="board-util">
+								<!-- button-area -->
+								<div class="button-display module-a style-a type-c">
+									<span class="button-area">
+										<a class="btn module-b style-a type-fill normal-00 large" href="./../preview/front.html" target="_blank"><span class="btn-text">FRONT 바로가기</span></a>
+									</span>
+								</div>
+								<!-- //button-area -->
+							</div>
+						</div>
+					</div>
+					<!-- //info-board -->
+				</div>
+				<!-- //content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('./../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+</body>
+</html>

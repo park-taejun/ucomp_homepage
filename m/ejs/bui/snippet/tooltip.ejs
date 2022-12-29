@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+
+<style>
+	.tooltip-board + .tooltip-board {margin-left: 30rem;}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-title" id="localTitle"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head"><%- include('../_mixin/_title.content.ejs', {name: 'tooltip'}) %></div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section : tooltip System-->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'label system'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="tooltip module-a style-a"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>module-*</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>xx-small, x-small, small, large, large, x-large, xx-large, xx-large</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">symbols</th>
+													<td>symbol-ltr-*, symbol-rtl-*</td>
+												</tr>
+												<tr>
+													<th scope="row">options</th>
+													<td>disabled</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'style'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="tooltip module-a style-a"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a style-b"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a style-c"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;</code></pre>
+									<!-- //highlight-js -->
+									<div class="bui-tooltip-area tooltip-area">
+										<div class="tooltip module-a style-a type-line normal-00 medium"><span class="tooltip-text">tooltip style-a</span></div>
+										<div class="tooltip module-a style-b type-line normal-00 medium"><span class="tooltip-text">tooltip style-b</span></div>
+										<div class="tooltip module-a style-c type-line normal-00 medium"><span class="tooltip-text">tooltip style-c</span></div>
+									</div>
+								</div>
+							</div>
+							<div class="subsection">
+								<!-- tpye:fill / tpye:line/outline/empty -->
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'type'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="tooltip module-a type-line"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a type-fill"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;</code></pre>
+									<!-- //highlight-js -->
+									<div class="bui-tooltip-area tooltip-area">
+										<div class="tooltip module-a style-a type-line normal-00 medium"><span class="tooltip-text">tooltip type-line</span></div>
+										<div class="tooltip module-a style-a type-fill normal-00 medium"><span class="tooltip-text">tooltip type-fill</span></div>
+									</div>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'accent'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="tooltip module-a normal-01"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a normal-02"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a normal-03"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+									<!-- //highlight-js -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-none'}) %></div>
+										<!-- border 색 기준 -->
+										<div class="subsubsection-body">
+											<div class="bui-tooltip-area tooltip-area">
+												<div class="tooltip module-a style-a type-none normal-01 medium"><span class="tooltip-text">tooltip normal-01</span></div>
+												<div class="tooltip module-a style-a type-none normal-02 medium"><span class="tooltip-text">tooltip normal-02</span></div>
+												<div class="tooltip module-a style-a type-none normal-03 medium"><span class="tooltip-text">tooltip normal-03</span></div>
+											</div>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-line'}) %></div>
+										<!-- border 색 기준 -->
+										<div class="subsubsection-body">
+											<div class="bui-tooltip-area tooltip-area">
+												<div class="tooltip module-a style-a type-line normal-01 medium"><span class="tooltip-text">tooltip normal-01</span></div>
+												<div class="tooltip module-a style-a type-line normal-02 medium"><span class="tooltip-text">tooltip normal-02</span></div>
+												<div class="tooltip module-a style-a type-line normal-03 medium"><span class="tooltip-text">tooltip normal-03</span></div>
+											</div>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-fill'}) %></div>
+										<div class="subsubsection-body">
+											<div class="bui-tooltip-area tooltip-area">
+												<div class="tooltip module-a style-a type-fill normal-01 medium"><span class="tooltip-text">tooltip normal-01</span></div>
+												<div class="tooltip module-a style-a type-fill normal-02 medium"><span class="tooltip-text">tooltip normal-02</span></div>
+												<div class="tooltip module-a style-a type-fill normal-03 medium"><span class="tooltip-text">tooltip normal-03</span></div>
+											</div>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<!-- outline - size of heading tag -->
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'outline'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">
+&lt;span class="tooltip module-a style-a x-large"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a style-a large"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a style-a medium"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a style-a small"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+									<!-- //highlight-js -->
+									<div class="bui-tooltip-area tooltip-area">
+										<div class="tooltip module-a style-a type-line normal-00 medium"><span class="tooltip-text">medium</span></div>
+									</div>
+									<div class="bui-tooltip-area tooltip-area">
+										<div class="tooltip module-a style-a type-line normal-00 small"><span class="tooltip-text">small</span></div>
+									</div>
+									<div class="bui-tooltip-area tooltip-area">
+										<div class="tooltip module-a style-a type-line normal-00 x-small"><span class="tooltip-text">x-small</span></div>
+									</div>
+									<div class="bui-tooltip-area tooltip-area">
+										<div class="tooltip module-a style-a type-line normal-00 xx-small"><span class="tooltip-text">xx-small</span></div>
+									</div>
+								</div>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'cursor-right'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="tooltip module-a symbol-ltr-*"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a symbol-rtl-*"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;</code></pre>
+									<!-- //highlight-js -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 xx-small cursor-right">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 x-small cursor-right">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 small cursor-right">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 medium cursor-right">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 large cursor-right">
+										<div class="tooltip-wrap">
+											<button type="button" class="tooltip-btn symbol-ltr-fill-close"><span class="tooltip-text">close</span></button>
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 x-large cursor-right">
+										<div class="tooltip-wrap">
+											<button type="button" class="tooltip-btn symbol-ltr-fill-close"><span class="tooltip-text">close</span></button>
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<p class="para">버튼 모듈에 사용되는 아이콘의 이름은 <a href="./../snippet/icon.html">snippet/icon.html</a> 참조하세요</p>
+								</div>
+							</div>
+							<!-- //subsection -->
+							
+							
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'symbols'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">
+
+</code></pre>
+									<!-- //highlight-js -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 xx-small cursor-left">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 x-small cursor-left">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 small cursor-left">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 large cursor-left">
+										<div class="tooltip-wrap">
+											<button type="button" class="tooltip-btn symbol-ltr-fill-close"><span class="tooltip-text">close</span></button>
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 x-large cursor-left">
+										<div class="tooltip-wrap">
+											<button type="button" class="tooltip-btn symbol-ltr-fill-close"><span class="tooltip-text">close</span></button>
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<p class="para">버튼 모듈에 사용되는 아이콘의 이름은 <a href="./../snippet/icon.html">snippet/icon.html</a> 참조하세요</p>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'cursor-top'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="tooltip module-a symbol-ltr-*"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a symbol-rtl-*"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;</code></pre>
+									<!-- //highlight-js -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 xx-small cursor-top">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 x-small cursor-top">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 small cursor-top">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 medium cursor-top">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 large cursor-top">
+										<div class="tooltip-wrap">
+											<button type="button" class="tooltip-btn symbol-ltr-fill-close"><span class="tooltip-text">close</span></button>
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 x-large cursor-top">
+										<div class="tooltip-wrap">
+											<button type="button" class="tooltip-btn symbol-ltr-fill-close"><span class="tooltip-text">close</span></button>
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<p class="para">버튼 모듈에 사용되는 아이콘의 이름은 <a href="./../snippet/icon.html">snippet/icon.html</a> 참조하세요</p>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'cursor-bottom'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="tooltip module-a symbol-ltr-*"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a symbol-rtl-*"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;</code></pre>
+									<!-- //highlight-js -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 xx-small cursor-bottom">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 x-small cursor-bottom">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 small cursor-bottom">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 medium cursor-bottom">
+										<div class="tooltip-wrap">
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+											<button type="button" class="tooltip-btn symbol-rtl-fill-close"><span class="tooltip-text">close</span></button>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 large cursor-bottom">
+										<div class="tooltip-wrap">
+											<button type="button" class="tooltip-btn symbol-ltr-fill-close"><span class="tooltip-text">close</span></button>
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									
+									<!-- tooltip-area -->
+									<div class="tooltip-board module-a style-c type-fill normal-00 x-large cursor-bottom">
+										<div class="tooltip-wrap">
+											<button type="button" class="tooltip-btn symbol-ltr-fill-close"><span class="tooltip-text">close</span></button>
+											<div class="tooltip-body">
+												<p class="para">내용이 들어갑니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- //tooltip-area -->
+									<p class="para">버튼 모듈에 사용되는 아이콘의 이름은 <a href="./../snippet/icon.html">snippet/icon.html</a> 참조하세요</p>
+								</div>
+							</div>
+							<!-- //subsection -->
+							
+							
+						</div>
+					</div>
+					<!-- //section : tooltip System-->
+
+					<!-- section : Module A-->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'tooltip module a - Label'}) %></div>
+						<div class="section-body">
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'accent'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="tooltip module-a accent-02"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a accent-01"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a normal-01"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a normal-02"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="tooltip module-a normal-03"&gt;&lt;span class="tooltip-text"&gt;tooltip Text&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+									<!-- //highlight-js -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-none'}) %></div>
+										<div class="subsubsection-body">
+											<div class="bui-tooltip-area tooltip-area">
+												<div class="tooltip module-a style-a type-none accent-01 large"><span class="tooltip-text">tooltip accent-01</span></div>
+												<div class="tooltip module-a style-a type-none normal-01 large"><span class="tooltip-text">tooltip normal-01</span></div>
+												<div class="tooltip module-a style-a type-none normal-02 large"><span class="tooltip-text">tooltip normal-02</span></div>
+												<div class="tooltip module-a style-a type-none normal-03 large"><span class="tooltip-text">tooltip normal-03</span></div>
+											</div>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-line'}) %></div>
+										<div class="subsubsection-body">
+											<div class="bui-tooltip-area tooltip-area">
+												<div class="tooltip module-a style-a type-line accent-03 large"><span class="tooltip-text">tooltip accent-03</span></div>
+												<div class="tooltip module-a style-a type-line accent-02 large"><span class="tooltip-text">tooltip accent-02</span></div>
+												<div class="tooltip module-a style-a type-line accent-01 large"><span class="tooltip-text">tooltip accent-01</span></div>
+												<div class="tooltip module-a style-a type-line normal-00 large"><span class="tooltip-text">tooltip normal-00</span></div>
+												<div class="tooltip module-a style-a type-line normal-01 large"><span class="tooltip-text">tooltip normal-01</span></div>
+												<div class="tooltip module-a style-a type-line normal-02 large"><span class="tooltip-text">tooltip normal-02</span></div>
+												<div class="tooltip module-a style-a type-line normal-03 large"><span class="tooltip-text">tooltip normal-03</span></div>
+											</div>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-fill'}) %></div>
+										<div class="subsubsection-body">
+											<div class="bui-tooltip-area tooltip-area">
+												<div class="tooltip module-a style-a type-fill accent-03 large"><span class="tooltip-text">tooltip accent-03</span></div>
+												<div class="tooltip module-a style-a type-fill accent-02 large"><span class="tooltip-text">tooltip accent-02</span></div>
+												<div class="tooltip module-a style-a type-fill accent-01 large"><span class="tooltip-text">tooltip accent-01</span></div>
+												<div class="tooltip module-a style-a type-fill accent-00 large"><span class="tooltip-text">tooltip accent-00</span></div>
+												<div class="tooltip module-a style-a type-fill normal-01 large"><span class="tooltip-text">tooltip normal-01</span></div>
+												<div class="tooltip module-a style-a type-fill normal-02 large"><span class="tooltip-text">tooltip normal-02</span></div>
+												<div class="tooltip module-a style-a type-fill normal-03 large"><span class="tooltip-text">tooltip normal-03</span></div>
+											</div>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function() {
+		var buttons = document.querySelectorAll('.bui-tooltip-area .tooltip');
+		Array.prototype.forEach.call(buttons, function(button) {
+			button.addEventListener('click', function(e) {
+				e.preventDefault();
+			});
+		});
+
+		var forTest = ['a', 'b', 'c', 'd'];
+
+		for(var i = 0; i < forTest.length; i++) {
+			console.log(forTest[i]);
+		}
+
+		// for (const [key, value] of Object.entries(object1)) {
+		// 	console.log(value);
+		// }
+
+
+
+
+
+		var temp = document.querySelector('body');
+
+		// temp.style.backgroundColor = "blue";
+
+		var object1 = {
+			test1: 'test1',
+			test2: 'test2'
+		}
+
+		
+		for (const [key, value] of Object.entries(object1)) {
+			if (key === 'test2') {
+				console.log(value);
+			}
+		}
+	});
+</script>
+</body>
+</html>

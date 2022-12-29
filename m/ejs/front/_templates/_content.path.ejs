@@ -1,0 +1,25 @@
+			<!-- content-path -->
+			<p class="content-path">
+				<span class="path-head">현재위치 :</span>
+				<span class="path-body">
+					<a class="data-home" href="/">홈</a>
+					<span class="data-flow">&gt;</span>
+					<% if (pageType === 'mgmt') { %>
+					<a class="data-item" href="#">기업 경영 현황/수준</a>
+					<span class="data-flow">&gt;</span>
+					<strong class="data-item current">수익성</strong>
+					<% } %>
+					<% if (pageType === 'product') { %>
+						<a class="data-item" href="#">생산성 분석</a>
+						<span class="data-flow">&gt;</span>
+						<strong class="data-item current">수익성</strong>
+					<% } %>
+
+					<% if (pageType === 'customer') { %>
+						<a class="data-item" href="#">고객만족 조사</a>
+						<span class="data-flow">&gt;</span>
+						<strong class="data-item current">고객만족 조사</strong>
+					<% } %>
+				</span>
+			</p>
+			<!-- //content-path -->

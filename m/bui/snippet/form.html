@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Basic User Interface</title>
+<link rel="shortcut icon" href="./../../assets/images/bui/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/module.global.css" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/bui.page.snippet.css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+<script type="text/javascript" src='https://unpkg.com/focus-within-polyfill/dist/focus-within-polyfill.js'></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/bash.min.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+<!-- <script type="text/javascript" src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script> -->
+<!-- <script type="text/javascript" src="./../../assets/js/polyfill.js"></script> -->
+
+<script type="text/javascript" src="./../../assets/js/bui.js"></script>
+<script type="text/javascript" src="./../../assets/js/bui.template.js" defer></script>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var currentPage = function(pageItem, pageName) {
+			var localItems = document.querySelectorAll(pageItem);
+			Array.prototype.forEach.call(localItems, function(localItem, index) {
+				var localName = localItem.querySelector(pageName).getAttribute('href');
+				if (localName.substring(localName.lastIndexOf('/') + 1) === document.URL.substring(document.URL.lastIndexOf('/') + 1)) {
+					localItem.classList.add('current');
+				}
+			});
+		}
+		currentPage('#tableOfContent .lnb-item', '.lnb-name');		
+	});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<!--page-head-->
+		<div class="page-head" id="head">
+			<h1 class="page-title" title="UCOMP"><a class="page-name" href="/"><abbr title="Basic User Interpace">BUI</abbr></a></h1>
+			<!--page-control-->
+			<div class="page-control">
+				<div class="control-list">
+					<span class="control-item"><a class="control-name" href="#aside" onclick="layoutPageSide.active('aside');"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>Go to Table of Content</title><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></a></span>
+				</div>
+			</div>
+		</div>
+		<!--//page-head-->
+		<!--page-side-->
+		<div class="page-side" id="aside" data-bui-toggle="layoutPageSide">
+			<!--aside-body-->
+			<div class="aside-body">
+				<!--section-->
+				<div class="section toc" id="tableOfContent">
+					<div class="section-head">
+						<h2 class="section-title"><span class="section-name">Table of Content</span></h2>
+					</div>
+					<div class="section-body">
+						<ul class="gnb-list">
+							<li class="gnb-item"><span class="gnb-name">preview</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../preview/front.html">front</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../preview/admin.html">admin</a></li> -->
+								</ul>
+							</li>
+							<li class="gnb-item"><span class="gnb-name">snippet</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/color.html">color</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/font.html">font</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/icon.html">icon</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/button.html">button</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/mark.html">mark</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/form.html">form</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/table.html">table</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/list.html">list</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/board.html">board</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/fieldset.html">fieldset</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/tab.html">tab</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/post.html">post</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/tooltip.html">tooltip</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/interaction.html">interaction</a></li><!-- bui.js -->
+									
+									<!-- 해야 하는것 -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/utility.html">utility</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/popup.html">popup</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/goods.html">goods</a></li> -->
+
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--//section-->
+			</div>
+			<!--//aside-body-->
+		</div>
+		<!--//page-side-->
+		<script type="text/javascript">
+			const layoutPageSide = new buiToggle('[data-bui-toggle="layoutPageSide"]', {
+				inactiveButton: true,
+				inactiveButtonText: '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>닫기</title><path d="M10.5382 12L3 4.46179L4.46179 3L12 10.5382L19.5382 3L21 4.46179L13.4618 12L21 19.5382L19.5382 21L12 13.4618L4.46179 21L3 19.5382L10.5382 12Z"></path></svg>',
+				inactiveButtonClass: 'btn close',
+				reactTarget: 'html',
+				reactTargetActiveClass: 'active-page-side',
+			});
+			document.addEventListener('DOMContentLoaded', function() {
+
+				// var pageSide = new buiToggle('[data-bui-toggle="pageSide"]', {
+				// 	close: true,
+				// 	closeButtonClass: 'btn close',
+				// 	closeButtonText: '<svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" width="24" height="24"><title>닫기</title><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
+				// 	focusin: true,
+				// 	focusout: true,
+				// });	
+			});
+		</script>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<div class="local-title"><h2 class="local-name" id="localName">snippet</h2></div>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<div class="content-title"><h3 class="content-title" id="contentTitle"><span class="content-name">form</span></h3></div>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">form System</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js"><code class="html">&lt;span class="form"&gt;&lt;element class="form-elem" /&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">Class Options</span></h5></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>xx-small, x-small, small, medium, x-large, xx-large, xxx-large, xxxx-large</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-01 to normal-05, accent-01 to accent-02</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">style</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- highlight-js -->
+											<pre class="highlight-js">
+<code class="html">&lt;span class="form module-a style-a"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a style-b"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a style-c"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;</code></pre>
+											<!-- //highlight-js -->
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+																<span class="form textfield module-b style-b type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+																<span class="form textfield module-b style-c type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- highlight-js -->
+											<pre class="highlight-js">
+<code class="html">&lt;span class="form module-a type-none"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a type-line"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a type-fill"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;</code></pre>
+											<!-- //highlight-js -->
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<legend>전송 서식</legend>
+												<!-- submit-list -->
+												<div class="form-list">
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+																<span class="form textfield module-b style-a type-fill normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">outline</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- highlight-js -->
+											<pre class="highlight-js">
+<code class="html">&lt;span class="form module-a type-none"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a type-line"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;
+&lt;span class="form module-a type-fill"&gt;&lt;input type="text" class="form-elem" /&gt;&lt;/a&gt;</code></pre>
+											<!-- //highlight-js -->
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<legend>전송 서식</legend>
+												<!-- submit-list -->
+												<div class="form-list">
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 large flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-00 x-large flex"><input type="text" class="form-elem" placeholder="Placeholder" value="Typed value" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">Accent line</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<legend>전송 서식</legend>
+												<!-- submit-list -->
+												<div class="form-list">
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line normal-01 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line normal-02 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line normal-03 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line normal-04 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-line accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-line accent-01 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-line accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-line accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">Accent fill</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<legend>전송 서식</legend>
+												<!-- submit-list -->
+												<div class="form-list">
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill normal-01 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill normal-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill normal-02 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill normal-02 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill normal-03 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill normal-03 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill normal-04 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+
+															<div class="form-area">
+																<span class="form textfield module-b style-a type-fill accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<!-- <span class="form textfield module-b style-a type-fill accent-01 medium flex"><input type="text" class="form-elem invalid" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="invalid" /></span> -->
+																<span class="form textfield module-b style-a type-fill accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" readonly value="readonly" /></span>
+																<span class="form textfield module-b style-a type-fill accent-01 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" disabled value="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">textfield</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form textfield"&gt;&lt;input class="form-elem" type="text" placeholder="#" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">line</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-b type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<span class="form textfield module-b style-b type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="readonly" readonly="readonly" /></span>
+																<span class="form textfield module-b style-b type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="disabled" disabled="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">fill</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" /></span>
+																<span class="form textfield module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="readonly" readonly="readonly" /></span>
+																<span class="form textfield module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="disabled" disabled="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">search</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form search"&gt;
+	&lt;input class="form-elem" type="search" placeholder="#" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /&gt;
+	&lt;span class="form-util"&gt;
+		&lt;button type="button" class="btn"&gt;&lt;svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"&gt;&lt;title&gt;검색&lt;/title&gt;&lt;path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/button&gt;&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">line</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="readonly" readonly="readonly" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="disabled" disabled="disabled" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">fill</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="normal" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="readonly" readonly="readonly" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+																<span class="form search module-b style-b type-line normal-04 medium flex">
+																	<input type="search" class="form-elem" placeholder="Placeholder" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="disabled" disabled="disabled" />
+																	<span class="form-func">
+																		<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+																	</span>
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">date</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form date"&gt;&lt;input class="form-elem" type="date" placeholder="#" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" /&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">line</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="date" class="form-elem" value="normal" /></span>
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="date" class="form-elem" value="readonly" readonly="readonly" /></span>
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" value="disabled" disabled="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">fill</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="date" class="form-elem" value="normal" /></span>
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="date" class="form-elem" value="readonly" readonly="readonly" /></span>
+																<span class="form date module-b style-b type-fill normal-04 medium flex"><input type="text" class="form-elem" value="disabled" disabled="disabled" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">select</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form select"&gt;
+	&lt;select class="form-elem"&gt;
+		&lt;option&gt;first items&lt;/option&gt;
+		&lt;option&gt;second items&lt;/option&gt;
+		&lt;option&gt;third items&lt;/option&gt;
+		&lt;option&gt;fourth items&lt;/option&gt;
+		&lt;option&gt;fifth items&lt;/option&gt;
+		&lt;option&gt;sixth items&lt;/option&gt;
+		&lt;option&gt;sventh items&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">line</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form select module-b style-b type-line normal-04 medium flex">
+																	<select class="form-elem">
+																		<option>first item</option>
+																		<option>second item</option>
+																		<option>third item</option>
+																		<option>fourth item</option>
+																		<option>fifth item</option>
+																		<option>sixth item</option>
+																		<option>sventh item</option>
+																	</select>
+																</span>
+																<span class="form select module-b style-b type-line normal-04 medium flex">
+																	<select class="form-elem" disabled="disabled">
+																		<option>first item</option>
+																		<option>second item</option>
+																		<option>third item</option>
+																		<option>fourth item</option>
+																		<option>fifth item</option>
+																		<option>sixth item</option>
+																		<option>sventh item</option>
+																	</select>
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">textarea</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form textarea"&gt;
+	&lt;textarea class="form-elem" rows="8" placeholder="#"&gt;&lt;/textarea&gt;
+&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">class options</span></h5></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-01 to normal-05, accent-01 to accent-02</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">line</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textarea module-b style-b type-line normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+																<span class="form textarea module-b style-b type-line normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급" readonly="readonly">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+																<span class="form textarea module-b style-b type-line normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급" disabled="disabled">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">fill</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textarea module-b style-b type-fill normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+																<span class="form textarea module-b style-b type-fill normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급" readonly="readonly">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+																<span class="form textarea module-b style-b type-fill normal-04 medium flex">
+																	<textarea class="form-elem" rows="8" placeholder="최소 5자 이상 입력해주세요.&#13;&#10;일반 리뷰 50P 지급" disabled="disabled">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ratione ipsum, ad ullam enim obcaecati tempore reprehenderit quas aspernatur sit sequi. Nemo molestiae deserunt mollitia commodi ipsum fugiat tenetur veritatis. Necessitatibus, facilis earum. Totam aliquam, soluta similique quibusdam non fuga labore eius provident ea numquam sint accusamus ducimus, in quis saepe. Quas ratione repellat saepe consectetur cumque numquam corrupti sunt! Sequi fuga at necessitatibus, doloribus delectus repellat alias rem. Esse, error explicabo! Enim maxime vitae sapiente aliquam, minima sit sunt. Veritatis itaque autem id expedita voluptates tempore quasi quos dolor! Sapiente nobis eaque laudantium perferendis. Blanditiis fugiat animi nobis recusandae, doloribus ipsa cupiditate pariatur vel repellat voluptate cum voluptatum quibusdam tempore eum aliquid dolores non ab, aliquam fuga molestias quia. Est quam iusto dignissimos officiis perferendis, ipsum tempore nam sapiente ea error doloribus a quis in corporis eveniet deleniti consectetur corrupti quisquam possimus animi debitis facilis maiores quasi. Ratione, vero.</textarea>
+																	<!-- <span class="form-func"><span class="form-cancel"></span><span class="form-data">Unit</span></span> -->
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">auto resize</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form module-bui">
+												<!-- submit-list -->
+												<div class="form-list">
+													<legend>전송 서식</legend>
+													<!-- submit-item -->
+													<div class="form-item">
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textarea module-b style-b type-line normal-04 medium flex" data-bui-form-value>
+																	<textarea class="form-elem" rows="1" placeholder="내용을 입력해주세요." oninput="buiFormResize(this);"></textarea>
+																</span>
+															</div>
+														</div>
+													</div>
+													<!-- //submit-item -->
+												</div>
+												<!-- //form-list -->
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">radio</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form radio"&gt;&lt;input class="form-elem" type="radio" name="#" checked="checked" /&gt;&lt;/span&gt;
+&lt;span class="form radio"&gt;&lt;input class="form-elem" type="radio" name="#" /&gt;&lt;/span&gt;
+
+&lt;label class="form radio"&gt;&lt;input class="form-elem" type="radio" name="#" checked="checked" /&gt; &lt;span class="form-text"&gt;radio option 1&lt;/span&gt;&lt;/label&gt;
+&lt;label class="form radio"&gt;&lt;input class="form-elem" type="radio" name="#" /&gt; &lt;span class="form-text"&gt;radio option 2&lt;/span&gt;&lt;/label&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">Class Options</span></h5></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">style</span></h5></div>
+								<div class="subsection-body">
+									<p class="para">style-c</p>
+									<!-- submit-form -->
+									<fieldset class="submit-form module-bui">
+										<legend>전송 서식</legend>
+										<!-- submit-form -->
+										<div class="form-list">
+											<!-- submit-item -->
+											<div class="form-item">
+												<div class="form-body">
+													<div class="form-area">
+														<div class="option-list">
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" checked="checked" /> <span class="form-text">radio option 1</span></label></span>
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" /> <span class="form-text">radio option 2</span></label></span>
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" /> <span class="form-text">radio option 3</span></label></span>
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" /> <span class="form-text">radio option 4</span></label></span>
+															<span class="option-item"><label class="form module-a style-c radio"><input type="radio" class="form-elem" name="radio-0001" /> <span class="form-text">radio option 5</span></label></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- //submit-item -->
+										</div>
+										<!-- //form-list -->
+									</fieldset>
+									<!-- //submit-form -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">checkbox</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form radio"&gt;&lt;input class="form-elem" type="radio" /&gt;&lt;/span&gt;
+&lt;span class="form radio"&gt;&lt;input class="form-elem" type="radio" checked="checked" /&gt;&lt;/span&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">Class Options</span></h5></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">style</span></h5></div>
+								<div class="subsection-body">
+									<p class="para">style-b</p>
+									<!-- submit-form -->
+									<fieldset class="submit-form module-bui">
+										<legend>전송 서식</legend>
+										<!-- submit-list -->
+										<div class="form-list">
+											<!-- submit-item -->
+											<div class="form-item">
+												<div class="form-body">
+													<div class="form-area">
+														<div class="option-list">
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">checkbox option 1</span></label></span>
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 2</span></label></span>
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 3</span></label></span>
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 4</span></label></span>
+															<span class="option-item"><label class="form module-a style-b checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 5</span></label></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- //submit-item -->
+										</div>
+										<!-- //form-list -->
+									</fieldset>
+									<!-- //submit-form -->
+									<p class="para">style-c</p>
+									<!-- submit-form -->
+									<fieldset class="submit-form module-bui">
+										<legend>전송 서식</legend>
+										<!-- submit-list -->
+										<div class="form-list">
+											<!-- submit-item -->
+											<div class="form-item">
+												<div class="form-body">
+													<div class="form-area">
+														<div class="option-list">
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">checkbox option 1</span></label></span>
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 2</span></label></span>
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 3</span></label></span>
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 4</span></label></span>
+															<span class="option-item"><label class="form module-a style-c checkbox"><input type="checkbox" class="form-elem" /> <span class="form-text">checkbox option 5</span></label></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- //submit-item -->
+										</div>
+										<!-- //form-list -->
+									</fieldset>
+									<!-- //submit-form -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">switch</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;span class="form switch"&gt;&lt;input class="form-elem" type="checkbox" checked="checked" /&gt;&lt;/span&gt;
+&lt;span class="form switch"&gt;&lt;input class="form-elem" type="checkbox" /&gt;&lt;/span&gt;
+
+&lt;label class="form switch"&gt;&lt;input class="form-elem" type="checkbox" checked="checked" /&gt; &lt;span class="form-text"&gt;radio option 1&lt;/span&gt;&lt;/label&gt;
+&lt;label class="form switch"&gt;&lt;input class="form-elem" type="checkbox" /&gt; &lt;span class="form-text"&gt;radio option 2&lt;/span&gt;&lt;/label&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">Class Options</span></h5></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>form</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<p class="para">default</p>
+									<!-- submit-form -->
+									<fieldset class="submit-form module-bui">
+										<legend>전송 서식</legend>
+										<!-- submit-form -->
+										<div class="form-list">
+											<!-- submit-item -->
+											<div class="form-item">
+												<div class="form-body">
+													<div class="form-area">
+														<div class="option-list">
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">switch option 1</span></label></span>
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" /> <span class="form-text">switch option 2</span></label></span>
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" /> <span class="form-text">switch option 3</span></label></span>
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" /> <span class="form-text">switch option 4</span></label></span>
+															<span class="option-item"><label class="form module-a style-a switch"><input type="checkbox" class="form-elem" /> <span class="form-text">switch option 5</span></label></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- //submit-item -->
+										</div>
+										<!-- //form-list -->
+									</fieldset>
+									<!-- //submit-form -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">Unit Symbols</span></h4></div>
+						<div class="section-body">
+							<!-- data-table -->
+							<div class="data-table module-bui type-a">
+								<table>
+									<colgroup>
+										<col style="width: 128rem;">
+										<col>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">&#215;</th>
+											<td>&amp;#215;</code></td>
+										</tr>
+										<tr>
+											<th scope="row">&#8725;</th>
+											<td>&amp;#8725;</code></td>
+										</tr>
+										<tr>
+											<th scope="row">&#13213;</th>
+											<td>&amp;#13213; </td>
+										</tr>
+										<tr>
+											<th scope="row">&#109;</th>
+											<td>&amp;#109;</td>
+										</tr>
+										<tr>
+											<th scope="row">&#13217;</th>
+											<td>&amp;#13217;</td>
+										</tr>
+										<tr>
+											<th scope="row">&#13206;</th>
+											<td>&amp;#13206;</td>
+										</tr>
+										<tr>
+											<th scope="row">&#8467;</th>
+											<td>&amp;#8467;</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- //data-table -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- //content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<!--page-foot-->
+		<div class="page-foot" id="foot">
+			<p class="copyright">&copy; Copyright <a href="mailto:codenamic@gmail.com">codenamic</a></p>
+		</div>
+		<!--//page-foot-->
+		<div class="page-baseline" id="pageBaseline"></div>
+		<div class="page-grid" id="pageGrid">
+			<div class="grid-list"><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span></div>
+		</div>
+		<!--//page-control-->
+	</div>
+	<!--//page-->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+<script type="text/javascript">
+	// datepicker options setup
+	Datepicker.locales.en = {
+		days: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+		daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+		daysMin: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+		months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+		monthsShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+		today: "오늘",
+		clear: "삭제",
+		titleFormat: "y.mm",
+		weekStart: 0
+	};
+	
+	// var datepickers = document.querySelectorAll('.form.datepicker .form-elem:not(:read-only)');
+	// datepickers.forEach(function(datepickerSelector) {	
+	// 	var datepicker = new Datepicker(datepickerSelector, {
+	// 		format: "yyyy-mm-dd",
+	// 		prevArrow: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>전월</title><path d="M15.52,6.37a1.24,1.24,0,0,1,0,1.76L11.65,12l3.87,3.87a1.25,1.25,0,1,1-1.77,1.76L8.12,12l5.63-5.63A1.25,1.25,0,0,1,15.52,6.37Z"></path></svg>',
+	// 		nextArrow: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>차월</title><path d="M8.48,17.63a1.24,1.24,0,0,1,0-1.76L12.35,12,8.48,8.13a1.25,1.25,0,1,1,1.77-1.76L15.88,12l-5.63,5.63A1.25,1.25,0,0,1,8.48,17.63Z"></path></svg>',
+	// 		weekStart: 1,
+	// 		autohide: true,
+	// 		todayHighlight: true,
+	// 	}); 
+	// });
+
+const datepicker = new Datepicker(document.getElementById('datepickerInline'), {
+	format: "yyyy-mm-dd",
+	prevArrow: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>전월</title><path d="M15.52,6.37a1.24,1.24,0,0,1,0,1.76L11.65,12l3.87,3.87a1.25,1.25,0,1,1-1.77,1.76L8.12,12l5.63-5.63A1.25,1.25,0,0,1,15.52,6.37Z"></path></svg>',
+	nextArrow: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>차월</title><path d="M8.48,17.63a1.24,1.24,0,0,1,0-1.76L12.35,12,8.48,8.13a1.25,1.25,0,1,1,1.77-1.76L15.88,12l-5.63,5.63A1.25,1.25,0,0,1,8.48,17.63Z"></path></svg>',
+	weekStart: 1,
+	autohide: true,
+	todayHighlight: true,
+});
+
+</script>
+
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+
+	});
+</script>
+</body>
+</html>

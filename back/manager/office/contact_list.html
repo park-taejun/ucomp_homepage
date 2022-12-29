@@ -1,0 +1,435 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>전국철도노동조합</title>
+<link href="../css/common.css" rel="stylesheet" />
+
+<!--[if IE]>
+<script>
+document.createElement("header");
+document.createElement("footer");
+document.createElement("aside");
+document.createElement("nav");
+document.createElement("article");
+document.createElement("section");
+document.createElement("figure");
+document.createElement("figcaption");
+document.createElement("legend");
+document.createElement("time");
+</script>
+<![endif]-->
+<!--[if IE]> 
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/calendar.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/goods_common.js"></script>
+<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+
+
+<script language="javascript">
+
+	function js_write() {
+		var frm = document.frm;
+		frm.target = "";
+		frm.action = "contact_write.php";
+		frm.submit();
+	}
+
+	function js_view(rn, seq_no) {
+
+		var frm = document.frm;
+		
+		frm.seq_no.value = seq_no;
+		frm.mode.value = "S";
+		frm.target = "";
+		frm.method = "get";
+		frm.action = "contact_write.php";
+		frm.submit();
+		
+	}
+
+	// 조회 버튼 클릭 시 
+	function js_search() {
+		var frm = document.frm;
+		
+		frm.nPage.value = "1";
+		frm.method = "get";
+		frm.target = "";
+		frm.action = "/home2014/manager/office/contact_list.php";
+		frm.submit();
+	}
+
+
+	function js_excel() {
+		
+		var frm = document.frm;
+		
+		frm.nPage.value = "1";
+		frm.target = "";
+		frm.action = "/home2014/manager/office/contact_excel_list.php";
+		frm.submit();
+
+	}
+
+	var preid = -1;
+
+	function js_up(n) {
+	
+		preid = parseInt(n);
+
+		if (preid > 1) {
+		
+			temp1 = document.getElementById("t").rows[preid].innerHTML;
+			temp2 = document.getElementById("t").rows[preid-1].innerHTML;
+
+			var cells1 = document.getElementById("t").rows[preid].cells;
+			var cells2 = document.getElementById("t").rows[preid-1].cells;
+
+			for(var j=0 ; j < cells1.length; j++) {
+			
+				if (j != 0) {
+					var temp = cells2[j].innerHTML;
+
+					cells2[j].innerHTML =cells1[j].innerHTML;
+					cells1[j].innerHTML = temp;
+
+					var tempCode = document.frm.seq_office_no[preid-2].value;
+			
+					document.frm.seq_office_no[preid-2].value = document.frm.seq_office_no[preid-1].value;
+					document.frm.seq_office_no[preid-1].value = tempCode;
+				}
+			}
+		
+			//preid = preid - 1;
+			js_change_order();
+
+		} else {
+			alert("가장 상위에 있습니다. ");
+		}
+	}
+
+
+	function js_down(n) {
+
+		preid = parseInt(n);
+
+		//alert(preid_plus);
+
+		if (preid < document.getElementById("t").rows.length-1) {
+		
+			temp1 = document.getElementById("t").rows[preid].innerHTML;
+			temp2 = document.getElementById("t").rows[preid+1].innerHTML;
+		
+			var cells1 = document.getElementById("t").rows[preid].cells;
+			var cells2 = document.getElementById("t").rows[preid+1].cells;
+		
+			for(var j=0 ; j < cells1.length; j++) {
+
+				if (j != 0) {
+					var temp = cells2[j].innerHTML;
+
+					cells2[j].innerHTML =cells1[j].innerHTML;
+					cells1[j].innerHTML = temp;
+	
+					var tempCode = document.frm.seq_office_no[preid-1].value;
+					document.frm.seq_office_no[preid-1].value = document.frm.seq_office_no[preid].value;
+					document.frm.seq_office_no[preid].value = tempCode;
+				}
+			}
+		
+			//preid = preid + 1;	
+			js_change_order();
+		} else{
+			alert("가장 하위에 있습니다. ");
+		}
+	}
+
+	function js_change_order() {
+	
+		if(document.getElementById("t").rows.length < 2) {
+			alert("순서를 저장할 메뉴가 없습니다");//순서를 저장할 메뉴가 없습니다");
+			return;
+		}
+
+		document.frm.mode.value = "O";
+		document.frm.target = "ifr_hidden";
+		document.frm.action = "office_order_dml.php";
+		document.frm.submit();
+	}
+
+</script>
+</head>
+
+<body>
+
+<div class="wrapper">
+<section id="container">	
+
+	<article class="conLeft">
+		<div class="conTop">
+			<a href="http://krwu.nodong.net">전국철도노동조합</a>l<a href="http://krwu.nodong.net">관리자</a>
+		</div>
+		<div class="conTit">
+		<h1>
+						&nbsp;&nbsp;					</h1>
+		</div>
+<script>
+
+	function js_sub_tree(cntFlag) {
+
+		for (i = 0; i < 62 ; i++) {
+
+			if (cntFlag != i ) {
+				if(document.getElementById('sub_'+i) != null) {
+					document.getElementById('sub_'+i).className = "";
+				}
+			}
+		}
+		
+		if (document.getElementById('sub_'+cntFlag).className == "on" ) {
+			document.getElementById('sub_'+cntFlag).className = "";  
+		} else {
+			document.getElementById('sub_'+cntFlag).className = "on";  
+		}
+	}
+
+</script>
+
+	<nav>
+		<ul><!--li에 클래스 on을 주어 아이콘 변경/ sub메뉴 보이기-->
+			
+					<li  id="sub_0"><a href="javascript:js_sub_tree('0');" class="navIcon"><span class="hidden">목록보기</span></a><a href="javascript:js_sub_tree('0');">회원관리</a>
+				<ul class="sub">
+			
+					<li><p><a href="/home2014/manager/member/member_list.php?menu_cd=0501">회원관리</a></p></li>
+						</ul>
+			</li>
+					<li class='on' id="sub_2"><a href="javascript:js_sub_tree('2');" class="navIcon"><span class="hidden">목록보기</span></a><a href="javascript:js_sub_tree('2');">컨텐츠 관리</a>
+				<ul class="sub">
+			
+					<li><p><a href="/home2014/manager/pages/page_list.php?menu_cd=0301">컨텐츠 관리</a></p></li>
+			
+					<li><p><a href="/home2014/manager/office/contact_list.php?menu_cd=0302">지부 소개</a></p></li>
+						</ul>
+			</li>
+					<li  id="sub_5"><a href="javascript:js_sub_tree('5');" class="navIcon"><span class="hidden">목록보기</span></a><a href="javascript:js_sub_tree('5');">게시판 관리</a>
+				<ul class="sub">
+			
+					<li><p><a href="/home2014/manager/board/board_config_list.php?menu_cd=0401">게시판 생성</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_1&menu_cd=0402">조합원광장</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_2&menu_cd=0403">열린광장</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_3&menu_cd=0404">현장 제보방</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_4&menu_cd=0405">묻고답하기</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_5&menu_cd=0406">정책공모</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_6&menu_cd=0407">선거게시판</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_7&menu_cd=0408">규약규정</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_8&menu_cd=0409">헤드라인뉴스</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_9&menu_cd=0410">알림소식</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_10&menu_cd=0411">투쟁지침</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_11&menu_cd=0412">성명보도자료</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_12&menu_cd=0413">회의/교섭결과</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_13&menu_cd=0414">자료실</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_14&menu_cd=0415">소식지</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_15&menu_cd=0416">동영상</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_16&menu_cd=0417">사진</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_17&menu_cd=0418">공모</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_18&menu_cd=0419">철노웹진</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_19&menu_cd=0420">선전자료</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_20&menu_cd=0421">교육자료실</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_21&menu_cd=0422">회의자료</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_22&menu_cd=0423">위원회자료</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_23&menu_cd=0424">직종자료</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_24&menu_cd=0425">협동조합자료</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_25&menu_cd=0426">공지사항 (서울)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_26&menu_cd=0427">지방본부소식 (서울)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_27&menu_cd=0428">자료실 (서울)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_28&menu_cd=0429">이야기나눔터 (서울)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_29&menu_cd=0430">신협 (서울)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_30&menu_cd=0431">공지사항 (부산)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_31&menu_cd=0432">지방본부소식 (부산)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_32&menu_cd=0433">자료실 (부산)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_33&menu_cd=0434">이야기나눔터 (부산)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_34&menu_cd=0435">신협 (부산)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_35&menu_cd=0436">공지사항 (대전)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_36&menu_cd=0437">지방본부소식 (대전)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_37&menu_cd=0438">자료실 (대전)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_38&menu_cd=0439">이야기나눔터 (대전)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_39&menu_cd=0440">신협 (대전)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_40&menu_cd=0441">공지사항 (영주)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_41&menu_cd=0442">지방본부소식 (영주)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_42&menu_cd=0443">자료실 (영주)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_43&menu_cd=0444">이야기나눔터 (영주)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_44&menu_cd=0445">신협 (영주)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_45&menu_cd=0446">공지사항 (호남)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_46&menu_cd=0447">지방본부소식 (호남)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_47&menu_cd=0448">자료실 (호남)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_48&menu_cd=0449">이야기나눔터 (호남)</a></p></li>
+			
+					<li><p><a href="/home2014/manager/board/board_list.php?b_code=B_1_49&menu_cd=0450">신협 (호남)</a></p></li>
+						</ul>
+			</li>
+					<li  id="sub_56"><a href="javascript:js_sub_tree('56');" class="navIcon"><span class="hidden">목록보기</span></a><a href="javascript:js_sub_tree('56');">관리자 관리</a>
+				<ul class="sub">
+			
+					<li><p><a href="/home2014/manager/admin/admin_list.php?menu_cd=0101">관리자 관리</a></p></li>
+			
+					<li><p><a href="/home2014/manager/admingroup/admingroup_list.php?menu_cd=0102">관리자 그룹 관리</a></p></li>
+			
+					<li><p><a href="/home2014/manager/menu/menu_list.php?menu_cd=0103">관리자 메뉴 관리</a></p></li>
+						</ul>
+			</li>
+					<li  id="sub_60"><a href="javascript:js_sub_tree('60');" class="navIcon"><span class="hidden">목록보기</span></a><a href="javascript:js_sub_tree('60');">시스템 관리</a>
+				<ul class="sub">
+			
+					<li><p><a href="/home2014/manager/syscode/pcode_list.php?menu_cd=0201">코드 관리</a></p></li>
+						</ul>
+			</li>
+		</ul>
+	</nav>
+	</article>
+	<section class="conRight">
+
+		<div class="conTop">
+			<!--<time datetime="2012-05-23">2012-05-23<span class="clock">05:06</span></time>-->
+			<p class="who"><img src="/home2014/manager/images/bu/arrow1.gif" alt="" />관리자님 환영합니다.<a href="/home2014/manager/login/logout.php"><img src="/home2014/manager/images/btn/btn_logout.gif" alt="로그아웃" /></a><!--<a href="/branch/manager/community_admin_manual.zip"><img src="/manager/images/admin/btn_ma_m.gif" alt="관리자메뉴얼" /></a>--></p>
+		</div>		<div class="conTit">
+			<h2>컨텐츠 관리</h2>
+		</div>
+		
+		<section class="conBox">
+
+<form id="bbsList" name="frm" method="post" action="javascript:js_search();">
+<input type="hidden" name="rn" value="">
+<input type="hidden" name="seq_no" value="">
+<input type="hidden" name="mode" value="">
+<input type="hidden" name="type" value="">
+<input type="hidden" name="nPage" value="0">
+<input type="hidden" name="nPageSize" value="20">
+
+				<fieldset>
+				<legend class="conTitle">지부 소개</legend>
+					<table summary="이곳에서 지부 소개 페이지를 관리하실 수 있습니다" class="secTop">
+					<caption>지부 소개 관리</caption>
+						<tbody>
+							<tr class="last">
+								<th>검색조건</th>
+								<td>
+							<select name="search_field" style="width:84px;">
+								<option value="ALL"  >통합검색</option>
+								<option value="NAME"  >이름</option>
+								<option value="ADDRES"  >주소</option>
+							</select>&nbsp;
+
+									<input type="text" value="" name="search_str" size="15"class="txt" />
+									<a href="javascript:js_search();"><img src="../images/btn/btn_search.gif" alt="검색" /></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="expArea">
+						<ul class="fLeft">
+							<li class="total">총 0건</li>
+							<!--<li class="file">파일 저장하기&nbsp;<a href="#"><img src="../images/bu/ic_file.gif" alt="엑셀파일 아이콘" /></a></li>-->
+						</ul>
+
+						<p class="fRight">
+														<a href="javascript:js_write();"><img src="../images/btn/btn_upload.gif" alt="등록" /></a>
+													</p>
+					</div>
+
+					<table summary="이곳에서 지부 소개를 관리하실 수 있습니다" class="secBtm" id='t'>
+					
+					<colgroup>
+						<col width="3%" />
+						<col width="15%" />
+						<col width="17%" />
+						<col width="10%" />
+						<col width="35%"/>
+						<col width="10%" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>지역</th>
+							<th>지부명</th>
+							<th>연락처</th>
+							<th>주소</th>
+							<th>등록일</th>
+							<th class="end">사용여부</th>
+						</tr>
+					</thead>
+					<tbody>
+									<tr>
+						<td align="center" height="50" colspan="7">데이터가 없습니다. </td>
+					</tr>
+										</tbody>
+					</table>
+				</fieldset>
+			</form>
+			<br/><br/>
+
+			<div id="bbspgno">
+					<!-- --------------------- 페이지 처리 화면 START -------------------------->
+										<!-- --------------------- 페이지 처리 화면 END -------------------------->
+			</div>
+		</section>
+		<iframe src="about:blank" name="ifr_hidden" frameborder="no" width="0" height="0" marginwidth="0" marginheight="0" border="0"></iframe>
+	</section>
+</section>
+</div><!--wrapper-->
+</body>
+</html>

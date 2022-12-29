@@ -1,0 +1,346 @@
+<STYLE TYPE='text/css'>
+.nor  {font-size:12px; font-family:arial,verdana; background-color:fffef2; vertical-align:top;}
+.sat  {font-size:12px; font-family:arial,verdana; background-color:fffef2; vertical-align:top; color:#0000ff;}
+.sun  {font-size:12px; font-family:arial,verdana; background-color:fffef2; vertical-align:top; color:#ff0000;}
+.today{font-size:12px; font-family:arial,verdana; font-weight:bold; background-color:FFBEA0; vertical-align:top; }
+.gray {font-size:12px; font-family:arial,verdana; color=#828282; background-color:D8D8D8; vertical-align:top;}
+.yoil {font-size:11px; font-family:dotum,verdana; color=#616161; font-weight:bold; color:#000000; text-align:center; vertical-align:middle;}
+.bt1  {font-size: 9pt; font-family:arial,verdana; font-weight:bold; color:#17406a; text-decoration:none;}
+.arrow{font-size: 8pt; font-family:arial,verdana; color:blue; text-decoration:none; cursor:hand;}
+.ym   {font-size:9px; font-family:arial,verdana; font-weight:bold; }
+.day  {font-size:16px; font-family:arial,verdana; font-weight:bold;}
+</STYLE>
+
+<script language=javascript>
+<!--
+var public_description = new init();
+var curObj;
+var curObj2;
+var ctime ="";
+
+//get current date..
+var now_date=new Date();
+var s_year=now_date.getYear();
+if( s_year<1900) s_year=s_year+1900;
+var s_month = return0(now_date.getMonth()+1);
+var s_day = return0(now_date.getDate());
+var dtype = "YYYY/MM/DD";
+var strLang = "";
+var full_month_name=new Array('JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER');
+var month_name=new Array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
+var day_name=new Array('S','M','T','W','T','F','S');
+var isSelect = 0;
+var calWidth = 180;
+
+function init() {
+   this.put_datetype = put_datetype;
+   this.put_curDate = put_curDate;
+   this.put_full_month_name= put_full_month_name;
+   this.put_month_name= put_month_name;
+   this.put_day_name= put_day_name;
+   this.put_select = put_select;
+   this.put_calWidth = put_calWidth;
+}
+
+function hover(on) {
+   var el = window.event.srcElement;
+   if (el && el.nodeName == "TD") {
+      if (el.title == '') return;
+      if (on) {
+         el.style.border = '1px solid #000033';
+      } else {
+         el.style.border = '1px solid #ffffff';
+      }
+   }
+}
+
+function choose(y,m) {
+
+   var el = window.event.srcElement;
+   if (el && el.nodeName == "TD") {
+      if (el.title == '') return;
+      return_date(y,m,el.title);
+   }
+}
+
+function replaceM(strSrc) {
+	var startM =-1;
+	var endM = -1;
+	
+	var head = "";
+	var tail = "";
+	var strRet =strSrc;
+	
+	startM = strSrc.indexOf("M");
+	endM = strSrc.lastIndexOf("M");
+
+	if ( (endM-startM) > 2) {
+		head = strSrc.substr(0,startM);
+		tail = strSrc.substr(endM+1,strSrc.length);
+		strRet = head+"MMM"+tail;
+	}
+	return strRet;
+}
+
+function put_datetype(str)
+{
+	//dtype = str;
+	dtype = replaceM(str);
+}
+
+function put_full_month_name(str)
+{
+   full_month_name = str;
+}
+
+function put_month_name(str)
+{
+   month_name = str;
+}
+
+function put_day_name(str)
+{
+   day_name = str;
+}
+
+function put_select(str)
+{
+   isSelect = str;
+}
+
+function put_calWidth(str)
+{
+   calWidth = str;
+}
+
+function put_curDate(str)
+{
+	var y=0,m=0,d=0;
+	ctime = "";
+	if (str.length == 0 )
+	{
+		y = s_year;
+		m = s_month;
+		d = s_day;
+	}
+	else
+	{
+		y = parseInt(str.substring(0,4),10);
+		m = parseInt(str.substring(4,6),10);
+		d = parseInt(str.substring(6,8),10);
+
+		if (str.length >= 14) ctime = str.substring(8,14);
+	}
+
+	show_current(y,m,d);
+
+	return(false);
+}
+
+function setLang( lang ) {
+
+	if( lang != null || lang != "" )
+		strLang = lang;
+	else
+		strLang = "E";
+}
+
+function return0(str)
+{
+	str=""+str;
+	if (str.length==1) str="0"+str;
+	return str;
+}
+
+
+function dreplace( str , old_char , new_char )
+{
+
+	if( str == null || str == "" ) return;
+	else {
+		var fromindex = 0;
+		var temp = "";
+		for(var i=0 ; i<str.length ; i++) {
+			fromindex = i;
+			pos = str.indexOf(old_char,fromindex);
+			if( pos != -1 ) {
+				temp = str.substring(0,pos) + new_char + str.substring(pos+old_char.length);
+				str = temp;
+				i = pos+new_char.length-1;
+			} else break;
+		}
+		return str;
+	}
+}
+//open calendar
+function show_current(y,m,d)
+{
+
+	s_year=y;
+	s_month=m;
+	s_day=d;
+
+	make_calendar(s_year,s_month,s_day)
+
+  
+}
+
+//processing changed date
+function return_date(year_item, month_item, day_item)
+{
+	if( year_item < 1900) year_item = 1900 + year_item;
+
+	month_item=return0(month_item);
+	day_item=return0(day_item);
+	//make_calendar(year_item,month_item,day_item);
+	input_date(year_item,month_item,day_item);
+}
+
+//output selected date
+function input_date(year_item, month_item, day_item)
+{
+	var m_name=new Array("JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC");
+	if( year_item < 1900) year_item = 1900 + year_item;
+	month_item=""+month_item;
+	day_item=""+day_item;
+	month_item2 = return0(month_item);
+	day_item2 = return0(day_item);
+	var backupidval = year_item + month_item2 + day_item2 + ctime;
+	year_item=""+year_item;
+	realDate = dtype.toUpperCase();
+	if(realDate.indexOf("YYYY")!=-1) realDate=dreplace(realDate,"YYYY",year_item);
+	else if(realDate.indexOf("YY")!=-1) realDate=dreplace(realDate,"YY",year_item.substring(2));
+	if(realDate.indexOf("DD")!=-1) realDate=dreplace(realDate,"DD",day_item2);
+	else if(realDate.indexOf("D")!=-1) realDate=dreplace(realDate,"D",day_item);
+	if(realDate.indexOf("MMMM")!=-1) realDate=dreplace(realDate,"MMMM",full_month_name[parseInt(month_item,10)-1]);
+	else if(realDate.indexOf("MON")!=-1) realDate=dreplace(realDate,"MON",m_name[parseInt(month_item,10)-1]);
+	else if(realDate.indexOf("MMM")!=-1) realDate=dreplace(realDate,"MMM",m_name[parseInt(month_item,10)-1]);
+	else if(realDate.indexOf("MM")!=-1) realDate=dreplace(realDate,"MM",month_item2);
+	else if(realDate.indexOf("M")!=-1) realDate=dreplace(realDate,"M",month_item);
+	var backupval = realDate;
+
+  window.external.raiseEvent(backupidval,backupval);
+
+}
+
+//draw calendar UI
+function make_calendar(y,m,d)
+{
+	var content="";
+	var day_num=new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+  if (m == 0) { y = y - 1; m = 12; }
+  else if (m == 13) { y = y + 1; m = 1; }
+
+	if(((y % 4 == 0) && (y % 100 != 0)) || (y % 400 == 0)) day_num[1]=29;
+
+	var first=new Date(y,m-1, 1);
+	firstday    = first.getDay()+1
+	DaysInMonth = day_num[m-1]
+
+	if ((m-2) == -1) DaysInBefMonth = day_num[11]
+	else DaysInBefMonth = day_num[m-2]
+
+
+	if (d > DaysInMonth) day = DaysInMonth
+	else day = d
+
+
+	content=content + "<CENTER>\n";
+	content=content + "<FORM style=font-family:arial; NAME=calendar onSubmit='return false;'>\n"
+	content=content + "<TABLE width=100% height=100% border=1 cellspacing=0 cellpadding=2 bordercolor=#9E9E9E " +
+	         "onmouseover='hover(true)' onmouseout='hover(false)' onclick='choose(" + y + "," + m + ")'> " + 
+	         "<tr><td align=left valign=middle colspan=7 height=26 style='background-color:#FFFFFF;border-top:1 #FFFFFF solid;border-left:1 #FFFFFF solid;border-right:0 #FFFFFF solid'>\n"
+
+  if (isSelect)
+  {
+	   content=content + "<select name=years  onChange='make_calendar(this.value, calendar.months.value,day)'>\n"
+
+   	 for( i=1901 ;i <= 2037;i++)
+	   {
+		   content=content + "<option value=" + i
+		   if (i ==y) content=content +  " selected>" + i  + "</option>\n"
+		   else content=content +  ">" + i + "</option>\n"
+	   }
+
+     content=content + "</select>&nbsp;\n"
+	   content=content + "<select name=months onChange='make_calendar(calendar.years.value,this.value,day)'>\n"
+
+	   for (i=1 ;i<= 12;i++)
+	   {
+		    content=content + "<option value=" + i
+		    if (i ==m) content=content +  " selected>"
+		    else content=content +  ">"
+
+		    content=content + month_name[i-1]  + "</option>\n"
+	   }
+
+	   content=content + "</select >\n"
+  }
+  else 
+  {
+     content=content + "<font class=ym>";
+	   content=content + "<span class=arrow onClick='make_calendar(" + (y-1) + "," + m + "," + day + ");' >&nbsp;&lt;</span>" + y;
+	   content=content + "<span class=arrow onClick='make_calendar(" + (y+1) + "," + m + "," + day + ");' >&gt;&nbsp;</span>";
+	   content=content + "<span class=arrow onClick='make_calendar(" + y + "," + (m-1) + "," + day + ");' >&nbsp;&lt;&nbsp;</span>" + month_name[m-1];
+	   content=content + "<span class=arrow onClick='make_calendar(" + y + "," + (m+1) + "," + day + ");' >&nbsp;&gt;&nbsp;</span>";
+     content=content + "</font>&nbsp;";
+  }
+  
+  content=content + "<font class=day>" + day +" </font>";
+
+	content=content + "</td></tr>\n"
+
+	//content=content + "<TABLE width=100% border=1 cellspacing=0 cellpadding=0 bordercolor=#289396>\n"
+	content=content + "<TR bordercolor=#FFFFFF>\n"
+	content=content + "<Td class=yoil style='background-color:#F3D89C;width:35'>" + day_name[0] + "</Td>\n"
+	content=content + "<Td class=yoil style='background-color:#CFDAE1;width:35'>" + day_name[1] + "</Td>\n"
+	content=content + "<Td class=yoil style='background-color:#CFDAE1;width:35'>" + day_name[2] + "</Td>\n"
+	content=content + "<Td class=yoil style='background-color:#CFDAE1;width:35'>" + day_name[3] + "</Td>\n"
+	content=content + "<Td class=yoil style='background-color:#CFDAE1;width:35'>" + day_name[4] + "</Td>\n"
+	content=content + "<Td class=yoil style='background-color:#CFDAE1;width:35'>" + day_name[5] + "</Td>\n"
+	content=content + "<Td class=yoil style='background-color:#F3D89C;width:35'>" + day_name[6] + "</Td>\n"
+	content=content + "</TR><TR bordercolor=#FFFFFF>\n"
+
+	var column = 0
+
+	for (i=1 ; i <= (firstday-1);i++)
+	{
+		content=content + "<TD align=center class=gray>"+ (DaysInBefMonth-(firstday-1)+i) +"</TD>\n"
+		column =column + 1
+	}
+
+	for( i=1 ; i<= DaysInMonth;i++)
+	{
+		if(i==day) content=content+"<TD align=center class = today\n"
+		else if(column ==0) content=content+"<TD align=center class = sun\n"
+		else if(column ==6) content=content+"<TD align=center class = sat\n"
+		else  content=content+"<TD align=center class = nor\n"
+		content = content + " title=" + i + ">" + i;
+		//content=content + "<span style=cursor:hand; onclick=javascript:return_date(" + y + "," + m+ "," + i + ")>" + i + "</span>"
+		column  = column + 1
+		content = content + "</TD>\n"
+
+		if(column == 7 )
+		{
+			content = content + "</TR><TR bordercolor=#FFFFFF  >\n"
+			column = 0
+		}
+	}
+
+	if((column > 0) && (column < 7))
+	{
+		for (i=1 ;i <= (7-column) ; i++)
+			content=content+"<TD align=center class=gray>"+i+"</TD>\n"
+	}
+
+	content=content + "</TR></TABLE>\n"
+
+	content=content +"</FORM></CENTER>\n"
+
+  content = content + "<span style='position:absolute;top:0;left:" + (parseInt(calWidth,10) - 12) +
+            ";background-color:#999999;color:white;font-size:8pt;font-weight:bold;cursor:hand;padding-left:2;padding-right:2'" + 
+            " onclick='javascript:window.external.raiseEvent(\"\",\"\");'>x</span>";
+  document.body.innerHTML = content;
+}
+//-->

@@ -1,0 +1,203 @@
+/**
+ * Breakpoints
+ */
+
+ $bui-breakpoints: (
+	container:	1298px,
+	xxx-large:	2560px,		// laptop 4K
+	xx-large:	1440px,		// laptop large
+	x-large:	1024px,		// laptop
+	large:		768px,		// tablet
+	medium:		425px,		// mobile large
+	small:		360px,		// mobile medium
+	x-small:	320px,		// mobile small
+	xx-small:	280px,		// mobile small
+);
+
+/**
+ * Vertical rhythm
+ */
+
+$bui-vertical-rhythm: (
+	laptop: (
+		content: 128rem,
+		section: 64rem,
+		subsection: 48rem,
+		subsubsection: 32rem,
+	),
+	mobile: (
+		content: 64rem,
+		section: 40rem,
+		subsection: 32rem,
+		subsubsection: 24rem,
+	)
+);
+
+/**
+ * Gutter
+ */
+
+$bui-gutter: (
+	laptop: (
+		content: 64rem,
+		section: 40rem,
+		subsection: 32rem,
+		subsubsection: 24rem,
+	),
+	mobile: (
+		content: 24rem,
+		section: 24rem,
+		subsection: 16rem,
+		subsubsection: 16rem,
+	)
+);
+
+
+/**
+ * Color theme creation
+ */
+
+// Color palettes
+$bui-color-palettes: (
+	normal: (
+		100: #000000,
+		090: #191919,
+		080: #2d2d2d,
+		070: #484848,
+		060: #646464,
+		050: #848484,
+		040: #a3a3a3,
+		030: #bcbcbc,
+		020: #d8d8d8,
+		010: #ebebeb,
+		005: #f5f5f5,
+		000: #ffffff,
+	),
+	primary: (
+		010: #EE2C49,
+	),
+	secondary: (
+		010: #313851,
+	),
+);
+// Create Color
+@function bui-color($theme: normal, $variant: 100, $opacity: 1) {
+	$set-color: map-get($bui-color-palettes, $theme, $variant);
+	$create-color: rgba(red($set-color),green($set-color),blue($set-color),$opacity);
+	@return $create-color;
+}
+
+
+/* 
+ * Font systems
+ */
+
+// Font theme
+$bui-font-theme: (
+	default: (
+		font-family: #{Roboto, Noto Sans KR, Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕, dotum, 돋움, sans-serif},
+		letter-spacing: normal,
+		font-weight: (
+			thin:			100,
+			extra-light:	200,
+			light:			300,
+			regular:		400,
+			medium:			500,
+			semi-bold:		600,
+			bold:			700,
+			black:			900,
+		),
+	),
+	identity: (
+		font-family: #{Roboto Mono, Noto Sans KR, Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕, dotum, 돋움, sans-serif},
+		letter-spacing: normal,
+		font-weight: (
+			thin:			100,
+			extra-light:	200,
+			light:			300,
+			regular:		400,
+			medium:			500,
+			semi-bold:		600,
+			bold:			700,
+			black:			700,
+		),
+	),
+	code: (
+		font-family: #{Consolas, Courier New, monospace, Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕, dotum, 돋움, sans-serif},
+		letter-spacing: normal,
+		font-weight: (
+			thin:			100,
+			extra-light:	200,
+			light:			300,
+			regular:		400,
+			medium:			500,
+			semi-bold:		500,
+			bold:			700,
+			black:			900,
+		),
+	),
+);
+
+// Font outlines
+$bui-font-outline: (
+	head: (
+		xxx-large:	(font-size: 76rem, line-height: 1.5),
+		xx-large:	(font-size: 72rem, line-height: 1.5),
+		x-large:	(font-size: 68rem, line-height: 1.5),
+		large:		(font-size: 64rem, line-height: 1.5),
+		medium:		(font-size: 60rem, line-height: 1.5),
+		small:		(font-size: 56rem, line-height: 1.5),
+		x-small:	(font-size: 52rem, line-height: 1.5),
+		xx-small:	(font-size: 48rem, line-height: 1.5),
+		xxx-small:	(font-size: 40rem, line-height: 1.5),
+	),
+
+	body: (
+		xx-large:	(font-size: 32rem, line-height: 1.5),
+		x-large:	(font-size: 28rem, line-height: 1.5),
+		large:		(font-size: 24rem, line-height: 1.5),
+		medium:		(font-size: 20rem, line-height: 1.5),
+		small:		(font-size: 16rem, line-height: 1.5),
+		x-small:	(font-size: 18rem, line-height: 1.5),
+		xx-small:	(font-size: 12rem, line-height: 1.5),
+		xxx-small:	(font-size: 10rem, line-height: 1.5),
+		
+	),
+);
+
+// Create font declaration
+@mixin bui-font($outline: &, $size: &, $line-height: &, $style: &, $weight: &, $family: &, $letter-spacing: &) {
+	@if $size != & {
+		@if $outline != & {
+			font: {size: map-get($bui-font-outline, $outline, $size, font-size);}
+			@if $line-height != & {
+				line-height: $line-height;
+			} @else {
+				line-height: map-get($bui-font-outline, $outline, $size, line-height);
+			}
+		} @else {
+			font: {size: map-get($bui-font-outline, body, $size, font-size);}
+			@if $line-height != & {
+				line-height: $line-height;
+			} @else {
+				line-height: map-get($bui-font-outline, $outline, $size, line-height);
+			}
+		}
+	}
+	@if $style != & {
+		font: {style: $style;}
+	}
+	@if $weight != & {
+		@if $family != & {
+			font: {weight: map-get($bui-font-theme, $family, font-weight, $weight);}
+		} @else {
+			font: {weight: map-get($bui-font-theme, default, font-weight, $weight);}
+		}
+	}
+	@if $family != & {
+		font: {family: map-get($bui-font-theme, $family, font-family);}
+	}
+	@if $letter-spacing != & {
+		letter-spacing: $letter-spacing;
+	}
+}

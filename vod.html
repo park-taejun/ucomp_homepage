@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+
+	video {
+        position: fixed; right: 0; bottom: 0;
+        min-width: 100%; min-height: 100%;
+        width: auto; height: auto; z-index: -100;
+        background-size: cover;
+    }
+
+  </style>
+ </head>
+ <body>
+	<video width="100%" controls id="myvideo" autoplay="autoplay" muted="muted">
+		<source src="LG_MAN_FINAL_0429.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+</body>
+<script>
+	document.getElementById('myvideo').play();
+</script>
+</html>

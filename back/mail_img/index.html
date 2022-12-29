@@ -1,0 +1,79 @@
+<?
+	//////////////////////////////////////////////////////////////
+	//
+	// 	Date 		: 2005/11/28
+	// 	Last Update : 2005/11/28
+	// 	Author 		: Park, ChanHo
+	// 	History 	: 2005.11.28 by Park ChanHo 
+	// 	File Name 	: index.html
+	// 	Description : 관리자 로그인 화면
+	// 	Version 	: 1.0
+	//
+	//////////////////////////////////////////////////////////////
+
+	include "./inc/global_init.inc";
+?>
+<html>
+<head>
+	<title>=== Administrator ===</title>
+	<link rel="STYLESHEET" type="text/css" href="/manager/common/basic.css">
+</head>
+<script language='javascript'>
+<!--
+function check_form(form)
+{
+	if (form.adminid.value == "")
+	{
+		alert ('관리자의 아이디를 입력해 주세요.');
+		form.adminid.focus();
+		return false;
+	}
+	if (form.adminpasswd.value == "")
+	{
+		alert ('관리자의 패스워드를 입력해 주세요.');
+		form.adminid.focus();
+		return false;
+	}
+}
+//-->
+</script>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+<div align="center">
+  <table width="100%" height="509" border="0" cellpadding="0" cellspacing="0">
+		<form method='post' name='form' action='admin_ok.php' onSubmit='return check_form(this);'>
+		<tr> 
+      <td height="160">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td height="349" align="center" background="/manager/images/ad_03.gif">
+				<table width="645" height="349" border="0" cellpadding="0" cellspacing="0">
+          <tr> 
+            <td height="96" colspan="4" background="/manager/images/ad_04.gif"></td>
+          </tr>
+          <tr> 
+            <td width="19" height="253" rowspan="2" background="/manager/images/ad_06.gif">&nbsp;</td>
+            <td width="242" rowspan="2" background="/manager/images/ad_07.gif">&nbsp;</td>
+            <td height="133" valign="top" background="/manager/images/ad_12.gif">
+							<table width="314" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="131" height="37"><img src="/manager/images/ad_08.gif" width="131" height="37"></td>
+                  <td valign="bottom">
+										<input name="adminid" type="text" class="select">
+                  </td>
+                </tr>
+                <tr>
+                  <td height="33">
+										<img src="/manager/images/ad_11.gif" width="131" height="33"></td>
+                  <td valign="bottom">
+										<input name="adminpasswd" type="password" class="select">
+                  </td>
+                </tr>
+                <tr>
+                  <td height="63">&nbsp;</td>
+                  <td><input type='image' src="/manager/images/ad_15.gif" width="118" height="34" border="0"></td>
+                </tr>
+              </table></td>
+            <td width="31" rowspan="2" background="/manager/images/ad_10.gif">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td width="352" heig

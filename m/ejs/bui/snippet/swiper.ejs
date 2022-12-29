@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<div class="local-title"><h2 class="local-name" id="localName">snippet</h2></div>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<div class="content-title"><h3 class="content-name" id="contentName">swiper</h3></div>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><div class="section-title"><h4 class="section-name">theme a</h4></div></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><div class="subsection-title"><h5 class="subsection-name">HTML Structure</h5></div></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;a href="#" class="btn"&gt;&lt;span class="btn-text"&gt;name&lt;/span&gt;&lt;/a&gt;
+&lt;button type="button" class="btn"&gt;&lt;span class="btn-text"&gt;name&lt;/span&gt;&lt;/button&gt;
+&lt;button type="submit" class="btn"&gt;&lt;span class="btn-text"&gt;name&lt;/span&gt;&lt;/button&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><div class="subsection-title"><h5 class="subsection-name">Class Options</h5></div></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table theme-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>btn</td>
+												</tr>
+												<tr>
+													<th scope="row">theme</th>
+													<td>theme-a</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>xx-small, x-small, small, medium, large, x-large, xx-large, xxx-large</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">symbols</th>
+													<td>symbol-ltr-*, symbol-rtl-*</td>
+												</tr>
+												<tr>
+													<th scope="row">options</th>
+													<td>attr-disabled</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><div class="subsection-title"><h5 class="subsection-name">style</h5></div></div>
+								<div class="subsection-body">
+									<div class="swiper-container" id="swiperDemo01">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">1</div>
+											<div class="swiper-slide">2</div>
+											<div class="swiper-slide">3</div>
+											<div class="swiper-slide">4</div>
+											<div class="swiper-slide">5</div>
+											<div class="swiper-slide">6</div>
+											<div class="swiper-slide">7</div>
+										</div>
+									</div>
+									<script type="text/javascript">
+										document.addEventListener('DOMContentLoaded', function() {
+											var swiperDemo01 = new Swiper('#swiperDemo01', {
+												simulateTouch: false,
+												slidesPerView: 10,
+												spaceBetween: 16,
+												slidesPerGroup: 10,
+												watchOverflow: true,
+											});
+										});
+									</script>
+								</div>
+							</div>
+							<div class="subsection">
+								<div class="subsection-head"><div class="subsection-title"><h5 class="subsection-name">type</h5></div></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;a href="#" class="btn theme-a type-a"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a type-b"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a type-c"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;</code></pre>
+									<!-- //highlight-js -->
+									<div class="bui-button-area">
+										<a class="btn theme-a style-b type-a normal-01 medium" href="#" onclick="return false;"><span class="btn-text">Button type-a</span></a>
+										<a class="btn theme-a style-b type-b normal-01 medium" href="#" onclick="return false;"><span class="btn-text">Button type-b</span></a>
+									</div>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><div class="subsection-title"><h5 class="subsection-name">outline</h5></div></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;a href="#" class="btn theme-a xx-small"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a x-small"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a small"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a medium"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a large"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a xx-large"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a xx-large"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;</code></pre>
+									<!-- //highlight-js -->
+									<h6 class="subsection-item">type-a</h6>
+									<div class="bui-button-area">
+										<a class="btn theme-a style-b type-a normal-01 xxx-large" href="#"><span class="btn-text">outline xxx-large</span></a>
+										<a class="btn theme-a style-b type-a normal-01 xx-large" href="#"><span class="btn-text">outline xx-large</span></a>
+										<a class="btn theme-a style-b type-a normal-01 x-large" href="#"><span class="btn-text">outline x-large</span></a>
+										<a class="btn theme-a style-b type-a normal-01 large" href="#"><span class="btn-text">outline large</span></a>
+										<a class="btn theme-a style-b type-a normal-01 medium" href="#"><span class="btn-text">outline medium</span></a>
+										<a class="btn theme-a style-b type-a normal-01 small" href="#"><span class="btn-text">outline small</span></a>
+										<a class="btn theme-a style-b type-a normal-01 x-small" href="#"><span class="btn-text">outline x-small</span></a>
+										<a class="btn theme-a style-b type-a normal-01 xx-small" href="#"><span class="btn-text">outline xx-small</span></a>
+									</div>
+									<h6 class="subsection-item">type-b</h6>
+									<div class="bui-button-area">
+										<a class="btn theme-a style-b type-b normal-01 xxx-large" href="#"><span class="btn-text">outline xxx-large</span></a>
+										<a class="btn theme-a style-b type-b normal-01 xx-large" href="#"><span class="btn-text">outline xx-large</span></a>
+										<a class="btn theme-a style-b type-b normal-01 x-large" href="#"><span class="btn-text">outline x-large</span></a>
+										<a class="btn theme-a style-b type-b normal-01 large" href="#"><span class="btn-text">outline large</span></a>
+										<a class="btn theme-a style-b type-b normal-01 medium" href="#"><span class="btn-text">outline medium</span></a>
+										<a class="btn theme-a style-b type-b normal-01 small" href="#"><span class="btn-text">outline small</span></a>
+										<a class="btn theme-a style-b type-b normal-01 x-small" href="#"><span class="btn-text">outline x-small</span></a>
+										<a class="btn theme-a style-b type-b normal-01 xx-small" href="#"><span class="btn-text">outline xx-small</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="subsection">
+								<div class="subsection-head"><div class="subsection-title"><h5 class="subsection-name">accent</h5></div></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;a href="#" class="btn theme-a normal-04"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a normal-03"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a normal-02"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a normal-01"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a accent-01"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a accent-02"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;</code></pre>
+									<!-- //highlight-js -->
+									<h6 class="subsection-item">type-a</h6>
+									<div class="bui-button-area">
+										<a class="btn theme-a style-b type-a accent-02 medium" href="#"><span class="btn-text">btn accent-02</span></a>
+										<a class="btn theme-a style-b type-a accent-01 medium" href="#"><span class="btn-text">btn accent-01</span></a>
+										<a class="btn theme-a style-b type-a normal-01 medium" href="#"><span class="btn-text">btn normal-01</span></a>
+										<a class="btn theme-a style-b type-a normal-02 medium" href="#"><span class="btn-text">btn normal-02</span></a>
+										<a class="btn theme-a style-b type-a normal-03 medium" href="#"><span class="btn-text">btn normal-03</span></a>
+										<a class="btn theme-a style-b type-a normal-04 medium" href="#"><span class="btn-text">btn normal-04</span></a>
+									</div>
+									<h6 class="subsection-item">type-b</h6>
+									<div class="bui-button-area">
+										<a class="btn theme-a style-b type-b accent-02 medium" href="#"><span class="btn-text">btn accent-02</span></a>
+										<a class="btn theme-a style-b type-b accent-01 medium" href="#"><span class="btn-text">btn accent-01</span></a>
+										<a class="btn theme-a style-b type-b normal-01 medium" href="#"><span class="btn-text">btn normal-01</span></a>
+										<a class="btn theme-a style-b type-b normal-02 medium" href="#"><span class="btn-text">btn normal-02</span></a>
+										<a class="btn theme-a style-b type-b normal-03 medium" href="#"><span class="btn-text">btn normal-03</span></a>
+										<a class="btn theme-a style-b type-b normal-04 medium" href="#"><span class="btn-text">btn normal-04</span></a>
+									</div>
+									<h6 class="subsection-item">type-c</h6>
+									<div class="bui-button-area">
+										<a class="btn theme-a style-b type-c accent-02 medium" href="#"><span class="btn-text">btn accent-02</span></a>
+										<a class="btn theme-a style-b type-c accent-01 medium" href="#"><span class="btn-text">btn accent-01</span></a>
+									</div>
+									<h6 class="subsection-item">type-d</h6>
+									<div class="bui-button-area">
+										<a class="btn theme-a style-b type-d accent-02 medium" href="#"><span class="btn-text">btn accent-02</span></a>
+										<a class="btn theme-a style-b type-d accent-01 medium" href="#"><span class="btn-text">btn accent-01</span></a>
+									</div>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><div class="subsection-title"><h5 class="subsection-name">symbols</h5></div></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;a href="#" class="btn theme-a symbol-ltr-*"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="btn theme-a symbol-rtl-*"&gt;&lt;span class="btn-text"&gt;Button Text&lt;/span&gt;&lt;/a&gt;</code></pre>
+									<!-- //highlight-js -->
+									<!-- button-area -->
+									<div class="bui-button-area">
+										<a class="btn theme-a style-b type-b normal-01 large symbol-ltr-chevron-left" href="#" onclick="return false;"><span class="btn-text">theme-a insert before</span></a>
+										<a class="btn theme-a style-b type-b normal-01 large symbol-rtl-chevron-right" href="./../snippet/icon.html"><span class="btn-text">theme-a insert after</span></a>
+									</div>
+									<!-- //button-area -->
+									<p class="para">버튼 모듈에 사용되는 아이콘 명은 <a href="./../snippet/icon.html">snippet/icon.html</a> 참조</p>
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+</body>
+</html>

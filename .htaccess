@@ -1,0 +1,1 @@
+SetEnvIfNoCase User-Agent "bingbot" !go_out

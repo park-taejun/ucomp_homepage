@@ -1,0 +1,30 @@
+td {FONT-SIZE: 9pt; FONT-FAMILY: "±¼¸²","µ¸¿ò"; LINE-HEIGHT: 14pt}
+
+.white8 {FONT-SIZE: 8pt; COLOR: #ffffff; FONT-FAMILY: "arial","±¼¸²","µ¸¿ò"}
+.white9 {FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "±¼¸²","µ¸¿ò"}
+
+.gray8 {FONT-SIZE: 8pt; COLOR: #666666; FONT-FAMILY: "±¼¸²","µ¸¿ò"}
+.gray9 {FONT-SIZE: 9pt; COLOR: #666666; FONT-FAMILY: "±¼¸²","µ¸¿ò"}
+
+.red9 {FONT-SIZE: 9pt; COLOR: #950000; FONT-FAMILY: "±¼¸²","µ¸¿ò"}
+
+.chart8 {FONT-SIZE: 8pt; COLOR: #666666; FONT-FAMILY: "helvetica","arial"; LINE-HEIGHT: 10pt}
+
+A {COLOR: #000000; TEXT-DECORATION: none}
+A:hover {COLOR: #0082FB; TEXT-DECORATION: none}
+
+A.blue_u {COLOR: #006380; TEXT-DECORATION: underline}
+A.blue_u:hover {COLOR: #FF9000; TEXT-DECORATION: none}
+
+A.list {COLOR: #953800; TEXT-DECORATION: none}
+A.list:hover {COLOR: #40646C; TEXT-DECORATION: none}
+
+A.chart1 {FONT-SIZE: 8pt; COLOR: #006380; FONT-FAMILY: "helvetica","arial"; TEXT-DECORATION: none}
+A.chart1:hover {FONT-SIZE: 8pt; COLOR: #FF9000; FONT-FAMILY: "helvetica","arial"; TEXT-DECORATION: none}
+
+
+BODY   
+{scrollbar-face-color: #FFFFFF; scrollbar-shadow-color: #888888; 
+scrollbar-highlight-color: #FFFFFF; scrollbar-3dlight-color: #888888; 
+scrollbar-darkshadow-color: #FFFFFF; scrollbar-track-color: #F4F4F4; 
+scrollbar-arrow-color: #FFFFFF}

@@ -1,0 +1,247 @@
+/* post-display */
+.goods-display {
+	.goods-list {
+		margin: 0;
+		padding: 0;
+		.goods-item {
+			list-style: none;
+		}
+	}
+
+	.goods-info {
+		.info-list {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 12rem;
+	
+			.info-item {
+				>.data-list {
+					display: flex;
+					align-items: center;
+			
+					.data-item {
+						display: block;
+						@include font((outline: body, size: medium, weight: bold)...);
+						color: color(base, 090);
+						.body,
+						.head {
+							display: inline-block;
+							vertical-align: top;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// post-display
+.goods-display.module-a {
+	.goods-list {
+		.goods-item {
+			display: flex;
+			flex-direction: column;
+			padding: 16rem 0;
+			
+			+.goods-item {
+				border-top: 1rem solid color(base, 010);
+			}
+
+			.goods-wrap {
+				display: flex;
+				align-items: center;
+				position: relative;
+				
+				&::before  {
+					content: '';
+					flex-shrink: 0;
+					display: block;
+					margin-right: 12rem;
+					width: 48rem;
+					height: 48rem;
+					border-radius: 50%;
+					box-shadow: inset 0 0 1rem 0 rgba(0,0,0,0.2);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-color: color(base, 000);
+					background-size: cover;
+					background-image: var(--default-picture);
+				}
+
+				.goods-inform {
+					flex: 1 1 100%;
+					display: flex;
+					flex-direction: column;
+					position: relative;
+					width: 100%;
+
+					.goods-type {
+						position: absolute;
+						top: 0;
+						right: 0;
+
+						.data-list {
+							display: flex;
+						}
+
+						~.goods-head {
+							padding-right: 20rem;
+						}
+					}
+
+					.goods-head {
+						.goods-title {
+							display: flex;
+							align-items: center;
+							
+							.goods-name {
+								@include font((outline: body, size: small, weight: bold)...);
+								color: color(base, 070);
+							}
+
+							.goods-position {
+								margin-left: 4rem;
+								@include font((outline: body, size: xx-small, weight: light)...);
+								color: color(base, 070);
+							}
+
+							.goods-team,
+							.goods-department {
+								display: flex;
+								align-items: center;
+								@include font((outline: body, size: xx-small, weight: light)...);
+								color: color(base, 040);
+
+								&::before {
+									content: '';
+									flex-shrink: 0;
+									display: block;
+									width: 12rem;
+									height: 16rem;
+									background: icon(bullet-dot, color(base, 040)) no-repeat center/cover;
+								}
+							}
+						}
+
+						p.goods-title {
+							margin: 0;
+						}
+
+						~.goods-data {
+							margin-top: 4rem;
+						}
+					}
+
+					.goods-data {
+						>.data-list {
+							display: flex;
+							flex-wrap: wrap;
+							align-items: center;
+							margin: 0;
+							padding: 0;
+							list-style: none;
+
+							.data-item {
+								.body {
+									display: block;
+									.text {
+										display: block;
+										@include font((outline: body, size: xx-small)...);
+									}
+									a.text:not(:hover) {
+										text-decoration: none;
+									}
+								}
+							}
+
+							.data-item.mobilephone {
+								.head {
+									@include hidden;
+								}
+								.body {
+									position: relative;
+
+									.text {
+										cursor: pointer;
+										color: color(base, 070);
+									}
+
+									.tooltip {
+										position: absolute;
+										z-index: 10;
+										top: 100%;
+										left: 0;
+									}
+								}
+
+								&:not(:focus-within) {
+									.tooltip {
+										display: none;
+									}
+								}
+							}
+
+							.data-item.email {
+								display: flex;
+								align-items: center;
+								
+								&::before {
+									content: '';
+									margin: 0 8rem;
+									flex-shrink: 0;
+									display: block;
+									width: 1rem;
+									height: 8rem;
+									background-color: color(base, 010);
+								}
+
+								.head {
+									@include hidden;
+								}
+
+								.body {
+									.text {
+										color: color(base, 040);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.style-b {
+		.goods-list {
+			.goods-item {
+				padding: 0;
+				margin-bottom: 16rem;
+				.goods-wrap {
+					&::before {
+						display: none;
+					}
+					.goods-inform {
+						.goods-head {
+							.goods-title {
+								.goods-name {
+									@include font((outline: head, size: x-small)...);
+								}
+								.goods-position { 
+									@include font((outline: head, size: xx-small)...);
+								}
+								.goods-team,
+								.goods-department {
+									@include font((outline: head, size: xx-small)...);
+								}
+							}
+						}
+					}
+
+				}
+			}
+		}
+
+	}
+}

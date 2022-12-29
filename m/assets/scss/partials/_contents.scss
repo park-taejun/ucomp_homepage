@@ -1,0 +1,24 @@
+/* image-replace */
+.image-replace {
+	position: relative;
+	user-select: none;
+	
+	&::after {
+		content: '';
+		display: block;
+		position: relative;
+		height: var(--height);
+		background-image: var(--background-image);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: 100% auto;
+	}
+
+	.image-replace-body {
+		overflow: hidden;
+		height: inherit;
+		position: absolute;
+		top:0;
+		@include image-replace;
+	}
+}

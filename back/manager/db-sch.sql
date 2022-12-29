@@ -1,0 +1,667 @@
+CREATE TABLE TBL_ADMIN_GROUP (
+  GROUP_NO int IDENTITY(1,1),
+  GROUP_NAME varchar(50) NOT NULL default '',
+  GROUP_FLAG char(1) NOT NULL default '',
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (GROUP_NO)
+) 
+
+INSERT INTO TBL_ADMIN_GROUP (GROUP_NAME, GROUP_FLAG, USE_TF, DEL_TF, REG_ADM, REG_DATE) VALUES
+('시스템 관리', 'Y', 'Y', 'N', 1, now())
+
+
+CREATE TABLE TBL_ADMIN_INFO (
+  ADM_ID varchar(15) NOT NULL ,
+  ADM_NO int NOT NULL IDENTITY(1,1),
+  PASSWD varchar(255) NOT NULL,
+  ADM_NAME varchar(50) NOT NULL,
+  ADM_INFO text,
+  ADM_HPHONE varchar(50) NOT NULL default '',
+  ADM_PHONE varchar(50) NOT NULL default '',
+  ADM_EMAIL varchar(70) NOT NULL default '',
+  GROUP_NO int  NOT NULL default '0',
+  ADM_FLAG char(1) NOT NULL default '',
+  POSITION_CODE varchar(20) NOT NULL default '',
+  DEPT_CODE varchar(20) NOT NULL default '',
+  COM_CODE varchar(20) NOT NULL default '',
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (ADM_ID,ADM_NO)
+) 
+
+INSERT INTO TBL_ADMIN_INFO (ADM_ID, PASSWD, ADM_NAME, ADM_INFO, ADM_HPHONE, ADM_PHONE, ADM_EMAIL, GROUP_NO, ADM_FLAG, POSITION_CODE, DEPT_CODE, COM_CODE, USE_TF, DEL_TF, REG_ADM, REG_DATE) VALUES
+('system', 'aWf5KnjkYNhz4KSbCIb+rg==', '진학사', '', '010-5226-4159', '02-545-4275', '', 1, '', '', '', '1', 'Y', 'N', NULL, getDate());
+
+
+CREATE TABLE TBL_ADMIN_MENU (
+  MENU_NO int NOT NULL default '0',
+  MENU_CD varchar(10) NOT NULL default '',
+  MENU_NAME varchar(50) NOT NULL default '',
+  MENU_URL varchar(100) NOT NULL default '',
+  MENU_SEQ01 varchar(3) NOT NULL default '',
+  MENU_SEQ02 varchar(3) NOT NULL default '',
+  MENU_SEQ03 varchar(3) NOT NULL default '',
+  MENU_FLAG char(1) NOT NULL default '',
+  MENU_RIGHT varchar(10) NOT NULL default '',
+  MENU_IMG varchar(50) NOT NULL default '',
+  MENU_IMG_OVER varchar(50) NOT NULL default '',
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+)
+
+INSERT INTO TBL_ADMIN_MENU (MENU_NO, MENU_CD, MENU_NAME, MENU_URL, MENU_SEQ01, MENU_SEQ02, MENU_SEQ03, MENU_FLAG, MENU_RIGHT, MENU_IMG, MENU_IMG_OVER, USE_TF, DEL_TF, REG_ADM, REG_DATE, UP_ADM, UP_DATE, DEL_ADM, DEL_DATE) VALUES
+(1, '01', '관리자 관리', '#', '06', '00', '00', 'Y', 'AD001', '', '', 'Y', 'N', 1, '2010-06-13 17:24:57', 1, '2010-11-03 13:38:01', NULL, NULL),
+(2, '0101', '관리자 관리', '/manager/admin/admin_list.php', '06', '01', '00', 'Y', 'AD002', '', '', 'Y', 'N', 1, '2010-06-13 18:12:42', 1, '2010-06-13 18:13:46', NULL, NULL),
+(3, '0102', '관리자 그룹 관리', '/manager/admingroup/admingroup_list.php', '06', '02', '00', 'Y', 'AD003', '', '', 'Y', 'N', 1, '2010-06-13 18:15:18', 1, '2010-08-17 13:40:29', NULL, NULL),
+(4, '0103', '관리자 메뉴 관리', '/manager/menu/menu_list.php', '06', '03', '00', 'Y', 'AD004', '', '', 'Y', 'N', 1, '2010-06-18 11:44:30', NULL, NULL, NULL, NULL),
+(5, '02', '시스템 관리', '#', '07', '00', '00', 'Y', 'SY001', '', '', 'Y', 'N', 1, '2010-06-13 18:17:24', NULL, NULL, NULL, NULL),
+(6, '0201', '코드 관리', '/manager/syscode/pcode_list.php', '07', '01', '00', 'Y', 'SY002', '', '', 'Y', 'N', 1, '2010-06-13 18:18:24', NULL, NULL, NULL, NULL),
+(7, '03', '컨텐츠 관리', '#', '01', '00', '00', 'Y', 'CS000', '', '', 'Y', 'N', 1, '2013-06-04 21:18:27', NULL, NULL, NULL, NULL),
+(8, '0301', '컨텐츠 관리', '/manager/pages/page_list.php', '01', '01', '00', 'Y', 'CS001', '', '', 'Y', 'N', 1, '2013-06-05 15:51:01', 1, '2013-06-12 16:18:11', NULL, NULL),
+(9, '04', '게시판 관리', '#', '02', '00', '00', 'Y', 'BO000', '', '', 'Y', 'N', 1, '2013-06-12 16:23:13', 1, '2013-06-12 18:23:18', NULL, NULL),
+(10, '0401', '게시판 생성', '/manager/board/board_config_list.php', '02', '01', '00', 'Y', 'BO001', '', '', 'Y', 'N', 1, '2013-06-12 16:23:56', NULL, NULL, NULL, NULL);
+
+
+CREATE TABLE TBL_ADMIN_MENU_RIGHT (
+  MENU_CD varchar(10) NOT NULL default '',
+  GROUP_NO int  NOT NULL default '0',
+  READ_FLAG char(1) NOT NULL default '',
+  REG_FLAG char(1) NOT NULL default '',
+  UPD_FLAG char(1) NOT NULL default '',
+  DEL_FLAG char(1) NOT NULL default '',
+  FILE_FLAG char(1) NOT NULL default '',
+  TOP_FLAG char(1) NOT NULL default 'N',
+  MAIN_FLAG char(1) NOT NULL default 'N',
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (MENU_CD,GROUP_NO)
+) 
+
+INSERT INTO TBL_ADMIN_MENU_RIGHT (MENU_CD, GROUP_NO, READ_FLAG, REG_FLAG, UPD_FLAG, DEL_FLAG, FILE_FLAG, TOP_FLAG, MAIN_FLAG, USE_TF, DEL_TF, REG_ADM, REG_DATE, UP_ADM, UP_DATE, DEL_ADM, DEL_DATE) VALUES
+('02', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('01', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0101', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0102', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0103', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0603', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0602', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0601', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('06', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0701', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('07', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0501', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0502', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('05', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0425', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0424', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0423', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0422', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0421', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0420', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0419', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0418', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0417', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0416', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0415', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0414', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0413', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0412', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0411', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0410', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0409', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0408', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0406', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0405', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0407', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0404', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0403', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0402', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0401', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('04', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0306', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0305', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0304', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0303', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0302', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0301', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('03', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL),
+('0201', 1, 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 'Y', 'N', NULL, NULL, NULL, NULL, NULL, NULL);
+
+CREATE TABLE TBL_COMPANY (
+  CP_NO int IDENTITY(1,1),
+  CP_TYPE varchar(10) NOT NULL default '',
+  CP_NM varchar(50) NOT NULL default '',
+  CP_PHONE varchar(20) NOT NULL default '',
+  CP_HPHONE varchar(20) NOT NULL default '',
+  CP_FAX varchar(20) NOT NULL default '',
+  CP_ZIP varchar(10) NOT NULL default '',
+  CP_ADDR varchar(50) NOT NULL default '',
+  RE_ZIP varchar(10) NOT NULL default '',
+  RE_ADDR varchar(50) NOT NULL default '',
+  HOMEPAGE varchar(80) NOT NULL default '',
+  BIZ_NO varchar(20) NOT NULL default '',
+  CEO_NM varchar(20) NOT NULL default '',
+  UPJONG varchar(30) NOT NULL default '',
+  UPTEA varchar(30) NOT NULL default '',
+  DC_RATE int default 0,
+  MANAGER_NM varchar(20) NOT NULL default '',
+  PHONE varchar(20) NOT NULL default '',
+  HPHONE varchar(20) NOT NULL default '',
+  FPHONE varchar(20) NOT NULL default '',
+  EMAIL varchar(50) NOT NULL default '',
+  EMAIL_TF char(1) NOT NULL default 'Y',
+  CONTRACT_START datetime default NULL,
+  CONTRACT_END datetime NOT NULL,
+  AD_TYPE varchar(30) NOT NULL default '',
+  ACCOUNT_BANK varchar(30) NOT NULL default '',
+  ACCOUNT varchar(20) NOT NULL default '',
+  DELIVERY_LIMIT int NOT NULL,
+  DELIVERY_PRICE int NOT NULL,
+  MEMO text NOT NULL ,
+  COM_AUTH_TF char(1) NOT NULL default 'M' ,
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (CP_NO)
+) 
+--
+-- 테이블의 덤프 데이터 TBL_COMPANY
+--
+
+INSERT INTO TBL_COMPANY (CP_TYPE, CP_NM, CP_PHONE, CP_HPHONE, CP_FAX, CP_ZIP, CP_ADDR, RE_ZIP, RE_ADDR, HOMEPAGE, BIZ_NO, CEO_NM, UPJONG, UPTEA, DC_RATE, MANAGER_NM, PHONE, HPHONE, FPHONE, EMAIL, EMAIL_TF, CONTRACT_START, CONTRACT_END, AD_TYPE, ACCOUNT_BANK, ACCOUNT, DELIVERY_LIMIT, DELIVERY_PRICE, MEMO, COM_AUTH_TF, USE_TF, DEL_TF, REG_ADM, REG_DATE) VALUES
+('운영', 'silla', '', '', '', '', '', '', '', '', '', 'silla', '', '', 0, '담당자', '', '', '', '', 'Y', '0000-00-00', '0000-00-00', '', '', '', 0, 0, '', 'N', 'Y', 'N', 1, 'getDate()');
+
+CREATE TABLE TBL_CODE_PARENT (
+  PCODE_NO int IDENTITY(1,1),
+  SITE_NO int default NULL,
+  PCODE varchar(20) NOT NULL,
+  PCODE_NM varchar(50) NOT NULL,
+  PCODE_MEMO text,
+  PCODE_SEQ_NO int default NULL,
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (PCODE_NO)
+)
+
+
+INSERT INTO TBL_CODE_PARENT (SITE_NO, PCODE, PCODE_NM, PCODE_MEMO, PCODE_SEQ_NO, USE_TF, DEL_TF, REG_ADM, REG_DATE) VALUES
+(1, 'USE_TF', '사용 여부', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'CP_TYPE', '커뮤니티 구분', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'BOARD_TYPE', '게시판 유형', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'READ_GROUP', '읽기 권한', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'WRITE_GROUP', '쓰기 권한', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'FILE_CNT', '첨부 파일 수', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'FILE_SIZE', '첨부파일 사이즈', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'DEPT', '부서', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'POSITION', '직급', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'TEL', '전화국번', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'MOBILE', '휴대전화', '', 0, 'Y', 'N', 1, 'getDate()'),
+(1, 'JOB', '직업', '', 0, 'Y', 'N', 1, 'getDate()');
+
+
+CREATE TABLE TBL_CODE_DETAIL (
+  DCODE_NO int IDENTITY(1,1),
+  PCODE varchar(20) NOT NULL,
+  DCODE varchar(20) NOT NULL,
+  DCODE_NM varchar(50) NOT NULL,
+  DCODE_EXT varchar(255) NOT NULL,
+  DCODE_SEQ_NO int default NULL,
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (PCODE,DCODE_NO)
+) 
+
+--
+-- 테이블의 덤프 데이터 TBL_CODE_DETAIL
+--
+
+INSERT INTO TBL_CODE_DETAIL (PCODE, DCODE, DCODE_NM, DCODE_EXT, DCODE_SEQ_NO, USE_TF, DEL_TF, REG_ADM, REG_DATE) VALUES
+('USE_TF', 'Y', '사용', '', 0, 'Y', 'N', 1, getDate()),
+('USE_TF', 'N', '사용안함', '', 1, 'Y', 'N', 1, getDate()),
+('CP_TYPE', '운영', '운영', '', 3, 'Y', 'N', 1,  getDate()),
+('BOARD_TYPE', 'NOTICE', '공지형', '', 0, 'Y', 'N', 1,  getDate()),
+('BOARD_TYPE', 'BOARD', '게시판형', '', 1, 'Y', 'N', 1,  getDate()),
+('BOARD_TYPE', 'QNA', 'Q&A형', '', 5, 'Y', 'N', 1,  getDate()),
+('BOARD_TYPE', 'FAQ', 'FAQ 형', '', 6, 'Y', 'N', 1,  getDate()),
+('BOARD_TYPE', 'GALLERY', '이미지형', '', 3, 'Y', 'N', 1,  getDate()),
+('READ_GROUP', '0', '전체', '', 0, 'Y', 'N', 1,  getDate()),
+('READ_GROUP', '1', '회원', '', 3, 'Y', 'N', 1,  getDate()),
+('WRITE_GROUP', '0', '전체', '', 0, 'Y', 'N', 1,  getDate()),
+('WRITE_GROUP', '1', '회원', '', 1, 'Y', 'N', 1,  getDate()),
+('BOARD_TYPE', 'BLOG', '블로그형', '', 2, 'Y', 'Y', 1,  getDate()),
+('POSITION', '당대표', '당대표', '', 0, 'Y', 'N', 1,  getDate()),
+('POSITION', '실장', '실장', '', 0, 'Y', 'N', 1,  getDate()),
+('POSITION', '국장', '국장', '', 0, 'Y', 'N', 1,  getDate()),
+('POSITION', '차장', '차장', '', 0, 'Y', 'N', 1,  getDate()),
+('POSITION', '과장', '과장', '', 0, 'Y', 'N', 1,  getDate()),
+('POSITION', '대리', '대리', '', 0, 'Y', 'N', 1,  getDate()),
+('POSITION', '주임', '주임', '', 0, 'Y', 'N', 1,  getDate()),
+('POSITION', '사원', '사원', '', 0, 'Y', 'N', 1,  getDate()),
+('DEPT', '총무실', '총무실', '', 1, 'Y', 'N', 1,  getDate()),
+('DEPT', '홍보미디어실', '홍보미디어실', '', 0, 'Y', 'N', 1,  getDate()),
+('FILE_CNT', '2', '2개', '', 0, 'Y', 'N', 1,  getDate()),
+('FILE_CNT', '3', '3개', '', 1, 'Y', 'N', 1,  getDate()),
+('FILE_CNT', '4', '4개', '', 2, 'Y', 'N', 1,  getDate()),
+('FILE_CNT', '5', '5개', '', 3, 'Y', 'N', 1,  getDate()),
+('WRITE_GROUP', '9', '관리자', '', 3, 'Y', 'N', 1,  getDate()),
+('READ_GROUP', '9', '관리자', '', 1, 'Y', 'N', 1,  getDate()),
+('FILE_SIZE', 'ADMIN', '50', '', 0, 'Y', 'N', 1,  getDate()),
+('FILE_SIZE', 'USER', '20', '', 0, 'Y', 'N', 1,  getDate()),
+('TEL', '02', '02', '', 0, 'Y', 'N', 1,  getDate()),
+('TEL', '031', '031', '', 2, 'Y', 'N', 1,  getDate()),
+('TEL', '064', '064', '', 15, 'Y', 'N', 1,  getDate()),
+('TEL', '063', '063', '', 14, 'Y', 'N', 1,  getDate()),
+('TEL', '062', '062', '', 13, 'Y', 'N', 1,  getDate()),
+('TEL', '061', '061', '', 12, 'Y', 'N', 1,  getDate()),
+('TEL', '055', '055', '', 11, 'Y', 'N', 1,  getDate()),
+('TEL', '054', '054', '', 10, 'Y', 'N', 1,  getDate()),
+('TEL', '053', '053', '', 9, 'Y', 'N', 1,  getDate()),
+('TEL', '052', '052', '', 8, 'Y', 'N', 1,  getDate()),
+('TEL', '051', '051', '', 7, 'Y', 'N', 1,  getDate()),
+('TEL', '043', '043', '', 6, 'Y', 'N', 1,  getDate()),
+('TEL', '042', '042', '', 5, 'Y', 'N', 1,  getDate()),
+('TEL', '033', '033', '', 4, 'Y', 'N', 1,  getDate()),
+('TEL', '032', '032', '', 3, 'Y', 'N', 1,  getDate()),
+('TEL', '070', '070', '', 1, 'Y', 'N', 1,  getDate()),
+('MOBILE', '010', '010', '', 0, 'Y', 'N', 1,  getDate()),
+('MOBILE', '011', '011', '', 1, 'Y', 'N', 1,  getDate()),
+('MOBILE', '016', '016', '', 2, 'Y', 'N', 1,  getDate()),
+('MOBILE', '017', '017', '', 3, 'Y', 'N', 1,  getDate()),
+('MOBILE', '018', '018', '', 4, 'Y', 'N', 1,  getDate()),
+('MOBILE', '019', '019', '', 5, 'Y', 'N', 1,  getDate()),
+('JOB', '0', '주부', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '1', '자영업', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '2', '학생/대학생', '', 0, 'Y', 'N', 1, getDate()),
+('AGE', '20', '20대', '', 0, 'Y', 'N', 1,  getDate()),
+('AGE', '30', '30대', '', 0, 'Y', 'N', 1,  getDate()),
+('AGE', '40', '40대', '', 0, 'Y', 'N', 1,  getDate()),
+('AGE', '50', '50대', '', 0, 'Y', 'N', 1,  getDate()),
+('AGE', '60', '60대', '', 0, 'Y', 'N', 1,  getDate()),
+('AGE', '70', '70대', '', 0, 'Y', 'N', 1,  getDate()),
+('AGE', '80', '80대', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '3', '대학원생/교수/교직자', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '4', '정치인/정당인', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '5', '사회단체종사자', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '6', '공무원', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '7', '의료인', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '8', '법조인', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '9', '종교인', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '10', '언론인', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '11', '예술종사자', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '12', '농/축산/수산/광업', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '13', '무직', '', 0, 'Y', 'N', 1,  getDate()),
+('JOB', '14', '기타', '', 0, 'Y', 'N', 1,  getDate());
+
+
+CREATE TABLE TBL_PAGES (
+  PAGE_NO int,
+  PAGE_LANG varchar(15) NOT NULL ,
+  PAGE_CD varchar(15) NOT NULL default '',
+  PAGE_NAME varchar(100) NOT NULL ',
+  PAGE_URL varchar(100) NOT NULL default '' ,
+  PAGE_SEQ01 varchar(3) NOT NULL default '' ,
+  PAGE_SEQ02 varchar(3) NOT NULL default '' ,
+  PAGE_SEQ03 varchar(3) NOT NULL default '' ,
+  PAGE_SEQ04 varchar(3) NOT NULL default '' ,
+  PAGE_SEQ05 varchar(3) NOT NULL default '' ,
+  PAGE_FLAG char(1) NOT NULL default '' ,
+  PAGE_RIGHT varchar(10) NOT NULL default '' ,
+  TITLE_IMG varchar(50) NOT NULL default '' ,
+  TITLE_IMG_OVER varchar(50) NOT NULL default '' ,
+  PAGE_IMG varchar(50) NOT NULL default '' ,
+  PAGE_IMG_OVER varchar(50) NOT NULL default '' ,
+  PAGE_SCRIPT text NOT NULL ,
+  PAGE_CONTENT longtext NOT NULL ,
+  PAGE_INFO01 varchar(100) NOT NULL default '' ,
+  PAGE_INFO02 varchar(100) NOT NULL default '' ,
+  PAGE_INFO03 varchar(100) NOT NULL default '' ,
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+)
+
+
+CREATE TABLE TBL_BOARD_CONFIG (
+  CONFIG_NO int NOT NULL default '1',
+  SITE_NO int NOT NULL default '0',
+  BOARD_CODE varchar(15) NOT NULL,
+  BOARD_TYPE varchar(30) default NULL,
+  BOARD_CATE varchar(100) default NULL,
+  READ_GROUP varchar(50) default NULL,
+  WRITE_GROUP varchar(50) default NULL,
+  RE_TF varchar(2) NOT NULL default 'N',
+  REPLY_TF varchar(2) default NULL,
+  HTML_TF varchar(2) default NULL,
+  FILE_TF varchar(2) default NULL,
+  FILE_CNT int default '0',
+  BOARD_NM varchar(50) default NULL,
+  BOARD_MEMO text,
+  BOARD_BADWORD text,
+  REAL_TF char(1) default NULL,
+  USE_TF char(1) NOT NULL default 'Y',
+  DEL_TF char(1) NOT NULL default 'N',
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (CONFIG_NO,SITE_NO)
+)
+
+
+CREATE TABLE TBL_BOARD (
+  BB_CODE varchar(50) NOT NULL,
+  BB_NO int NOT NULL default '1',
+  BB_PO int NOT NULL default '1',
+  BB_RE int NOT NULL default '1',
+  BB_DE int NOT NULL default '1',
+  CATE_01 varchar(50) default NULL,
+  CATE_02 varchar(50) default NULL,
+  CATE_03 text,
+  CATE_04 varchar(50) default NULL,
+  WRITER_ID varchar(30) NOT NULL,
+  WRITER_NM varchar(20) NOT NULL default '',
+  WRITER_PW varchar(20) NOT NULL default '',
+  EMAIL varchar(100) default NULL,
+  PHONE varchar(50) default NULL,
+  HOMEPAGE varchar(100) default NULL,
+  TITLE varchar(150) default NULL,
+  HIT_CNT int default '0' ,
+  REF_IP varchar(100) default NULL,
+  RECOMM int default '0',
+  RECOMMNO int NOT NULL default '0',
+  REPLY_CNT int NOT NULL default '0',
+  FILE_CNT int NOT NULL default '0',
+  CONTENTS text,
+  FILE_NM varchar(150) NOT NULL default '',
+  FILE_RNM varchar(150) NOT NULL default '',
+  FILE_PATH varchar(150) NOT NULL default '',
+  FILE_SIZE int default NULL,
+  FILE_EXT varchar(5) NOT NULL default '',
+  THUMB_IMG varchar(100) NOT NULL default '',
+  KEYWORD varchar(200) NOT NULL default '',
+  REPLY text,
+  REPLY_ADM int default NULL,
+  REPLY_DATE datetime default NULL,
+  REPLY_STATE char(1) default 'N',
+  COMMENT_TF char(1) default 'N',
+  MAIN_TF varchar(20) default NULL,
+  TOP_TF varchar(2) NOT NULL default 'N',
+  USE_TF char(1) NOT NULL default 'Y' ,
+  DEL_TF char(1) NOT NULL default 'N' ,
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (BB_CODE,BB_NO)
+) 
+
+CREATE TABLE TBL_BOARD_COMMENT (
+  BB_CODE varchar(50) NOT NULL,
+  BB_NO int NOT NULL default '1',
+  BB_PO int NOT NULL default '1',
+  BB_RE int NOT NULL default '1',
+  BB_DE int NOT NULL default '1',
+  BB_REF varchar(50) NOT NULL,
+  CATE_01 varchar(50) default NULL,
+  CATE_02 varchar(50) default NULL,
+  CATE_03 text,
+  CATE_04 varchar(50) default NULL,
+  WRITER_ID varchar(30) NOT NULL,
+  WRITER_NM varchar(20) NOT NULL default '',
+  WRITER_PW varchar(20) NOT NULL default '',
+  EMAIL varchar(100) default NULL,
+  PHONE varchar(50) default NULL,
+  HOMEPAGE varchar(100) default NULL,
+  TITLE varchar(150) default NULL,
+  HIT_CNT int default '0' ,
+  REF_IP varchar(100) default NULL,
+  RECOMM int default '0',
+  RECOMMNO int NOT NULL default '0',
+  CONTENTS text,
+  FILE_NM varchar(150) NOT NULL default '',
+  FILE_RNM varchar(150) NOT NULL default '',
+  FILE_PATH varchar(150) NOT NULL default '',
+  FILE_SIZE int default NULL,
+  FILE_EXT varchar(5) NOT NULL default '',
+  KEYWORD varchar(200) NOT NULL default '',
+  REPLY text,
+  REPLY_ADM int default NULL,
+  REPLY_DATE datetime default NULL,
+  REPLY_STATE char(1) default 'N',
+  COMMENT_TF char(1) default 'N',
+  MAIN_TF varchar(20) default NULL,
+  TOP_TF varchar(2) NOT NULL default 'N',
+  USE_TF char(1) NOT NULL default 'Y' ,
+  DEL_TF char(1) NOT NULL default 'N' ,
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (BB_CODE,BB_NO)
+) 
+
+
+CREATE TABLE TBL_BOARD_FILE (
+  FILE_NO int IDENTITY(1,1),
+  BB_CODE varchar(40) NOT NULL,
+  BB_NO int NOT NULL default '1' ,
+  FILE_NM varchar(250) NOT NULL,
+  FILE_RNM varchar(250) NOT NULL,
+  FILE_PATH varchar(150) NOT NULL default '',
+  FILE_SIZE int default NULL,
+  FILE_EXT varchar(5) NOT NULL default '',
+  HIT_CNT int default '0',
+  DEL_TF char(1) NOT NULL default 'N' ,
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (FILE_NO)
+)
+
+
+CREATE TABLE TBL_BOARD_READ_CNT_IP (
+  BB_CODE varchar(30) NOT NULL ,
+  BB_NO int NOT NULL default '1',
+  IP varchar(20) NOT NULL default '',
+  GOOD_CNT int NOT NULL default '0',
+  BAD_CNT int NOT NULL default '0',
+  REG_DATE datetime default NULL ,
+  PRIMARY KEY  (BB_CODE,BB_NO,IP)
+)
+
+
+CREATE TABLE TBL_RECOM (
+  SEQ_NO int IDENTITY(1,1),
+  BB_CODE varchar(40) NOT NULL,
+  BB_NO int(10) NOT NULL,
+  WRITER_ID varchar(30) NOT NULL,
+  RECOM_TF varchar(10) NOT NULL,
+  REG_DATE datetime default NULL,
+  REF_IP varchar(100) NOT NULL,
+  PRIMARY KEY  (SEQ_NO)
+) 
+
+CREATE TABLE TBL_BOARD_READ_CNT_IP (
+  BB_CODE varchar(30) NOT NULL,
+  BB_NO int NOT NULL default '1' ,
+  IP varchar(20) NOT NULL default '' ,
+  GOOD_CNT int NOT NULL default '0',
+  BAD_CNT int NOT NULL default '0',
+  REG_DATE datetime default NULL,
+  PRIMARY KEY  (BB_CODE,BB_NO,IP)
+) 
+
+CREATE TABLE TBL_ZIPCODE (
+  SEQ_NO int IDENTITY(1,1),
+  POST_NO varchar(6) NOT NULL default '',
+  SIDO varchar(50) NOT NULL default '',
+  SIGUNGU varchar(50) NOT NULL default '',
+  DONG varchar(100) NOT NULL default '',
+  RI varchar(100) NOT NULL default '',
+  DOSE varchar(50) NOT NULL default '',
+  BUNJI varchar(100) NOT NULL default '',
+  FULL_ADDR varchar(300) NOT NULL default '',
+  PRIMARY KEY  (SEQ_NO)
+)
+
+
+CREATE TABLE TBL_INQUIRY (
+  SEQ_NO int IDENTITY(1,1),
+  GUBUN varchar(50) NOT NULL default '',
+  CATE_CODE varchar(50) NOT NULL default '',
+  ASK_CODE varchar(50) default NULL,
+  TITLE varchar(255) NOT NULL,
+  IN_NAME varchar(50) default NULL,
+  IN_PASS varchar(150) default NULL,
+  PHONE varchar(20) default NULL,
+  HPHONE varchar(20) default NULL,
+  EMAIL varchar(100) default NULL,
+  ZIP_CODE varchar(7) default NULL,
+  ADDR1 varchar(150) default NULL,
+  ADDR2 varchar(150) default NULL,
+  CONTENTS text,
+  REPLY text,
+  REPLY_ADM int default NULL,
+  REPLY_DATE datetime default '',
+  REPLY_STATE char(1) default '',
+  USE_TF char(1) NOT NULL default 'Y' ,
+  DEL_TF char(1) NOT NULL default 'N' ,
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY  (SEQ_NO)
+) 
+
+
+CREATE TABLE TBL_SCHEDULE (
+  SEQ_NO int IDENTITY(1,1),
+  SCH_CATE varchar(30) DEFAULT '',
+  SCH_DATE varchar(15) DEFAULT NULL,
+  TITLE varchar(100) DEFAULT NULL,
+  PLACE varchar(100) DEFAULT NULL,
+  FROM_HH varchar(2) DEFAULT NULL,
+  FROM_MM varchar(2) DEFAULT NULL,
+  TO_HH varchar(2) DEFAULT NULL,
+  TO_MM varchar(2) DEFAULT NULL,
+  CONTENTS text ,
+  ADDR varchar(150) NOT NULL DEFAULT '',
+  STR_LAT varchar(60) NOT NULL DEFAULT '',
+  STR_LNG varchar(60) NOT NULL DEFAULT '',
+  TEMP01 varchar(30) NOT NULL DEFAULT '',
+  TEMP02 varchar(30) NOT NULL DEFAULT '',
+  TEMP03 varchar(30) NOT NULL DEFAULT '',
+  HIT_CNT int DEFAULT '0',
+  USE_TF char(1) NOT NULL default 'Y' ,
+  DEL_TF char(1) NOT NULL default 'N' ,
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+  PRIMARY KEY (SEQ_NO)
+)
+
+	CREATE TABLE TBL_BANNER (
+	BANNER_NO						int IDENTITY(1,1),
+	SITE_NO							int,
+	BANNER_TYPE					varchar(30)	NOT	NULL default '',
+	BANNER_NM						varchar(30)	NOT	NULL default '',
+	BANNER_IMG					varchar(50)	NOT	NULL default '',
+	BANNER_REAL_IMG			varchar(50)	NOT	NULL default '',
+	BANNER_URL					varchar(150)NOT	NULL default '',
+	TITLE_NM						varchar(50)	NOT	NULL default '',
+	TITLE_IMG						varchar(50)	NOT	NULL default '',
+	TITLE_REAL_IMG			varchar(50)	NOT	NULL default '',
+	URL_TYPE						varchar(10)	NOT	NULL default '',
+	DISP_SEQ						int,
+  USE_TF char(1) NOT NULL default 'Y' ,
+  DEL_TF char(1) NOT NULL default 'N' ,
+  REG_ADM int default NULL,
+  REG_DATE datetime default NULL,
+  UP_ADM int default NULL,
+  UP_DATE datetime default NULL,
+  DEL_ADM int default NULL,
+  DEL_DATE datetime default NULL,
+	PRIMARY	KEY	 (BANNER_NO)
+	)	
+
+
+DELETE FROM TBL_BOARD WHERE BB_CODE = 'GRBBS_1_1'
+DELETE FROM TBL_BOARD_FILE WHERE BB_CODE = 'GRBBS_1_1'
+
+DELETE FROM TBL_BOARD WHERE BB_CODE = 'GRBBS_1_6'
+DELETE FROM TBL_BOARD_FILE WHERE BB_CODE = 'GRBBS_1_6'
+
+
+SELECT * FROM TBL_BOARD WHERE CONTENTS LIKE '%k2web.silla.ac.kr%'
+
+UPDATE TBL_BOARD SET CONTENTS = replace(convert(varchar( max ), CONTENTS),'http://k2web.silla.ac.kr','') WHERE CONTENTS LIKE '%http://k2web.silla.ac.kr%'
+
+
+
+CREATE TABLE TBL_USER_LOG(
+  SEQ_NO int IDENTITY(1,1),
+  USER_TYPE varchar(2) NOT NULL default '',
+  LOG_ID varchar(16) NOT NULL default '',
+  LOG_IP varchar(20) NOT NULL default '',
+  LOGIN_DATE datetime default NULL,
+  PRIMARY KEY  (SEQ_NO)
+)

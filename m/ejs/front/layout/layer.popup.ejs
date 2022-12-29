@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'front',
+	pageJavascript: ''
+}) %>
+<style>
+	body {margin: 24rem;}
+	body>.button-display {margin: 0 auto; max-width: 480rem;}
+	body>.button-display + .button-display  {margin-top: 16rem;}
+</style>
+</head>
+<body>
+<h1>공통 팝업</h1>
+<div class="button-display module-a style-b type-d">
+	<span class="button-area">
+		<a href="#signoffForm" class="btn module-b style-a type-fill accent-01 large flex" onclick="toastPopup.active('signoffForm');"><span class="btn-text">총 #개 결재하기</span></a>
+	</span>
+</div>
+<div class="button-display module-a style-b type-d">
+	<span class="button-area">
+		<a href="#schedule" class="btn module-b style-a type-fill normal-02 large flex" onclick="contentsPopup.active('schedule');"><span class="btn-text">임직원 근무 현황 상세</span></a>
+	</span>
+</div>
+<div class="button-display module-a style-b type-d">
+	<span class="button-area">
+		<a href="#imageEnlarge" class="btn module-b style-a type-fill normal-04 large flex" onclick="imageEnlarge.active('imageEnlarge');"><span class="btn-text">이미지 크게 보기</span></a>
+	</span>
+</div>
+<hr />
+<%-include('../_templates/_content.popup.ejs') %>
+<script stype="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		// imageEnlarge.active('imageEnlarge');
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'front',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<!-- page-body -->
+		<div class="page-body page-default page-approval">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-title" id="localTitle"><span class="local-name">결제관리</span></h2>
+					<!-- local-navi -->
+					<div class="local-navi">
+						<ul class="navi-list">
+							<li class="navi-item current" title="현재 선택된 항목"><a class="navi-name" href="#">연차결재</a></li>
+							<li class="navi-item"><a class="navi-name" href="#">지출결재</a></li>
+						</ul>
+					</div>
+					<!-- //local-navi -->
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-title"><span class="content-name">지출결의 등록</span></h3>
+							<div class="content-navi">
+								<a class="btn" href="#"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>뒤로</title><path d="M12.7,5.7a1,1,0,0,0-1.4-1.4l-7,7a1,1,0,0,0,0,1.4l7,7a1,1,0,0,0,1.4-1.4L7.4,13H19a1,1,0,0,0,0-2H7.4Z"></path></svg></a>
+							</div>
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<div class="content-body">
+
+						</div>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+	<%-include('../_templates/_content.popup.ejs') %>
+</div>
+</body>
+</html>

@@ -1,0 +1,339 @@
+@import '_variables';
+@import '_mixin';
+
+
+/**
+ * @type		component
+ * @name		content-popup
+ * @moudle		module-a
+ * @update		2022-04-11
+ */
+@keyframes popup-active {
+	0% {
+		visibility: hidden;
+		opacity: 0;
+	}
+	100% {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+@keyframes popup-inactive {
+	0% {
+		visibility: visible;
+		opacity: 1;
+	}
+	100% {
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
+html.active-content-popup {	
+	body {
+		overflow: hidden;
+	}
+}
+
+.content-popup.module-a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	z-index: 60;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 48rem;
+	visibility: hidden;
+	opacity: 0;
+	background-color: rgba(0,0,0,0.0);
+	
+
+	&:not(.enabled) {
+		display: none;
+	}
+
+	&:not(.active) {
+		animation-name: popup-inactive;
+		animation-duration: 0.25s;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
+	}
+
+	&.active {
+		background-color: rgba(0,0,0,0.2);
+		animation-name: popup-active;
+		animation-duration: 0.25s;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
+	}
+
+	.popup-page-body {
+		display: flex;
+		min-width: 280rem;
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		opacity: 1;
+		visibility: visible;
+		transition: visibility 0.25s ease, opacity 0.25s ease;
+
+		.popup-local {
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			width: 100%;
+			align-items: center;
+
+			.popup-local-head {
+				
+			}
+	
+			.popup-local-body {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				overflow-y: auto;
+				@include overflow-scroll(default, dark);
+				
+				.popup-content {
+					flex: 1 1 100%;
+
+					.popup-content-body {
+
+					}
+				}
+			}
+		}
+	}
+}
+
+.content-popup.module-a.style-a {
+	.popup-page-body {
+		background-color: color(base, 000);
+		border-radius: 16rem;
+		box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.08), 0 0 0 0.0625rem rgba(0,0,0,0.05);
+
+		.popup-local {
+			.popup-local-head {
+				@include hidden;
+			}
+			.popup-local-body {
+				padding: 0 16rem;
+				
+				.popup-content {
+					margin: 24rem 0;
+				}
+			}
+		}
+	}
+	.btn.popup-close {
+		display: block;
+		flex-shrink: 0;
+		width: 100%;
+		height: 48rem;
+		border-top: 1rem solid color(base, 010);
+		color: color(base, 040);;
+		@include font((outline: body, size: small, weight: bold)...);
+	}
+	
+	// popup size
+	&.small {
+		.popup-page-body {
+			max-width: 320rem;
+		}
+	}
+}
+
+/**
+ * @type		component
+ * @name		image-popup
+ * @moudle		module-a
+ * @update		2022-04-11
+ */
+html.active-image-popup {
+	body {
+		overflow: hidden;
+	}
+}
+
+.image-popup.module-a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	z-index: 60;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,1);
+
+	&:not(.active) {
+		display: none;
+	}
+
+	.popup-page-body {
+		display: flex;
+		position: relative;
+		width: 100%;
+		height: 100vh;
+
+		.popup-local {
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			width: 100%;
+			align-items: center;
+			justify-content: center;
+			overflow-y: scroll;
+
+			@at-root {
+				html.laptop {
+					.image-popup.module-a {
+						.popup-page-body {
+							.popup-local {
+								@include overflow-scroll(default, light);
+							}
+						}
+					}
+				}
+			}
+
+			.popup-local-head {
+				@include hidden;
+			}
+	
+			.popup-local-body {
+				.popup-content {
+
+				}
+			}
+		}
+	}
+
+	.btn.popup-close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 16rem;
+		right: 20rem;
+		width: 48rem;
+		height: 48rem;
+		background:rgba(0,0,0,0.1);
+		border-radius: 50%;
+		
+		svg {
+			display: block;
+			width: 32rem;
+			height: 32rem;
+			fill: color(base, 010);
+
+		}
+	}
+}
+
+
+/**
+ * @type		component
+ * @name		toast-popup
+ * @moudle		module-a
+ * @update		2022-03-27
+ */
+@keyframes toast-popup-active {
+	0% {
+		transform: translate(0, 120%);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes toast-popup-inactive {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, 120%);
+	}
+}
+
+.toast-popup.module-a.style-b {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+
+	position: absolute;
+	z-index: 50;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	outline: none;
+	background-color: rgba(0,0,0,0);
+	transition: background-color 0.5s ease;
+
+	&:not(.enabled) {
+		display: none;
+	}
+
+	&:not(.active) {
+		.popup-page-body {
+			animation-name: toast-popup-inactive;
+			animation-duration: 0.25s;
+			animation-fill-mode: forwards;
+			animation-timing-function: cubic-bezier(.2,0,0,1);
+		}
+	}
+	
+	&.active {
+		background-color: rgba(0,0,0,0.2);
+
+		.popup-page-body {
+			animation-name: toast-popup-active;
+			animation-duration: 0.25s;
+			animation-fill-mode: forwards;
+			animation-timing-function: cubic-bezier(.2,0,0,1);
+		}
+	}
+
+	.popup-page-body {
+		flex: 0 0 100%;
+		width: 100%;
+
+		.popup-local {
+			overflow: hidden;
+			border-top-right-radius: 16rem;
+			border-top-left-radius: 16rem;
+			background-color: #fff;
+
+			.popup-local-head {
+				@include hidden;
+			}
+
+			.popup-local-body {
+				margin: 56rem 0 24rem 0;
+				padding-right: $container-gap;
+				padding-left: $container-gap;
+			}
+
+
+			.btn.popup-close {
+				position: absolute;
+				top: 16rem;
+				left: 50%;
+				transform: translate(-50%, 0);
+
+				svg {
+					fill: color(base, 040);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<defs>
+		<style type="text/css">
+			.st0 {
+				fill: none;
+				stroke: #fe373d;
+				stroke-width: 0.75;
+				stroke-dasharray: 44;
+				stroke-dashoffset: 44;
+				animation: doneRound 0.5s 0.5s ease-in-out forwards;
+			}
+
+			.st1 {
+				fill: none;
+				stroke: #fe373d;
+				stroke-width: 0.75;
+				stroke-linecap: round;
+				stroke-dasharray: 8;
+				stroke-dashoffset: 8;
+				animation: doneCheck 0.25s 1s ease-in-out forwards;
+			}
+			
+			@keyframes doneRound {
+				from {
+					stroke-dashoffset: 44;
+				}
+				to {
+					stroke-dashoffset: 0;
+				}
+			}
+			
+			@keyframes doneCheck {
+				from {
+					stroke-dashoffset: -8;
+				}
+				to {
+					stroke-dashoffset: 0;
+				}
+			}
+		</style>
+	</defs>
+	<path class="st0" d="M12,6a6,6,0,1,1-6,6A6,6,0,0,1,12,6Z"/>
+	<path class="st1" d="M14.5,10l-3.18,4L9.5,12"/>
+</svg>

@@ -1,0 +1,25 @@
+
+td { font-size: 12px;  font-family: Arial, µ¸¿ò,µ¸¿òÃ¼ ;color:#666666; line-height:16px;}
+
+.b { font-size: 12px;  font-family: Arial, µ¸¿ò,µ¸¿òÃ¼ ;color:#3366CC;}
+
+.i { font-size: 12px;  font-family: Arial, µ¸¿ò,µ¸¿òÃ¼ ;color:#990000;}
+
+.w { font-size: 12px;  font-family: Arial, µ¸¿ò,µ¸¿òÃ¼ ;color:#FFFFFF;}
+
+.c { font-size: 12px;  font-family: Arial, µ¸¿ò,µ¸¿òÃ¼ ;color:#000000;}
+
+.s { font-size: 11px;  font-family: Arial, µ¸¿ò,µ¸¿òÃ¼ ;color:#666666;}
+
+
+/*   */
+
+A:link {	COLOR: #3366CC;  TEXT-DECORATION: none}
+A:visited { COLOR: #3366CC;  TEXT-DECORATION: none}
+A:active { COLOR: #FF6600;  TEXT-DECORATION: none}
+A:hover { COLOR: #FF6600;  TEXT-DECORATION: none}
+
+
+input {color: #797878; font-size: 12px; font-family: Arial, µ¸¿ò,µ¸¿òÃ¼ }
+select {color: #797878; font-size: 12px; font-family: Arial, µ¸¿ò,µ¸¿òÃ¼ ; }
+.box { font-size:12px; border-width:1; border-color:#B4B4B4; background-color:#FFFFFF;color:#666666}

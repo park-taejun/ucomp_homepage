@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: '',
+	pageStyle: 'login',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.blank.ejs') %>
+		<!-- page-body -->
+		<div class="page-body page-login">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-title" id="localTitle"><span class="local-name">로그인</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-body -->
+						<form class="content-body">
+							<!-- info-board -->
+							<div class="info-board">
+								<div class="board-wrap">
+									<div class="board-head">
+										<p class="board-summary">
+											<span class="wbr">유컴패니온은</span>
+											<span class="wbr"><strong class="em accent-01">지식경제시대를</strong></span>
+											<span class="wbr">준비하고자 고민합니다.</span>
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- //info-board -->
+							<!-- submit-form -->
+							<fieldset class="submit-form">
+								<legend>로그인 정보 입력 서식</legend>
+								<div class="form-list">
+									<div class="form-item">
+										<div class="form-wrap">
+											<div class="form-head"><label class="form-name" for="form_id">아이디</label></div>
+											<div class="form-body ">
+												<div class="form-area">
+													<span class="form textfield module-b style-b type-line normal-04 medium flex"><input type="text" class="form-elem" placeholder="아이디를 입력해주세요." onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="" /></span>
+												</div>
+												<div class="form-noti">
+													<p class="para">해당 아이디가 없습니다.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-item">
+										<div class="form-wrap">
+											<div class="form-head"><label class="form-name" for="form_id">비밀번호</label></div>
+											<div class="form-body">
+												<div class="form-area">
+													<span class="form textfield module-b style-b type-line normal-04 medium flex"><input type="password" class="form-elem" placeholder="비밀번호를 입력해주세요." onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" value="" /></span>
+												</div>
+												<div class="form-noti">
+													<p class="para">회원 정보가 일치 하지 않습니다.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-util">
+									<!-- button-display -->
+									<div class="button-display module-a style-a type-a">
+										<span class="button-area">
+											<button class="btn module-b style-b type-fill accent-01 x-large flex" type="submit"><span class="btn-text">로그인</span></button>
+										</span>
+									</div>
+									<!-- //button-display -->
+								</div>
+							</fieldset>
+							<!-- //submit-form -->
+						</form>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+</body>
+</html>

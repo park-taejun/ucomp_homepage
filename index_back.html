@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="ko" lang="ko">
+<head>
+<title>유컴패니온</title>
+<meta content="유컴패니온" name="keywords" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+<link type="text/css" rel="stylesheet" href="css/reset.css" />
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/jquery_ui.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/slick.js"></script>
+</head>
+
+<body id="main">
+
+<div id="wrap">
+	<!-- S: toparea -->
+	<div class="toparea">
+		<div class="innerbox">
+			<h1><a href="index.html">유컴패니온</a></h1>
+			<ul>
+				<li class="brochure"><a href="introduce.pdf">COMPANY BROCHURE</a></li>
+				<li><a href="contact.html">CONTACT</a></li>
+				<li><a href="request.html">PROJECT REQUEST</a></li>
+				<!-- <li><a href="history.html">HISTORY</a></li>
+				<li><a href="introduce.html">INTRODUCE</a></li> -->
+				<li><a href="project-01.html">PROJECT EXPERIENCE</a></li>
+			</ul>
+			<span class="btn-category"><button type="button">카테고리 열림/닫힘</button></span>
+		</div>
+	</div>
+	<!-- //E: toparea -->
+
+	<!-- S: midarea -->
+	<div class="midarea">
+		<div class="maincontents" id="contents">
+			<div class="mainvisual">
+				<ul class="slideimg">
+					<li class="sd-1" style="background:#fee0e0">
+						<span class="pc-only"><img src="images/img_mainvisual_01.jpg" alt="" /></span>
+						<span class="tablet-only"><img src="images/img_mainvisual_01_t.jpg" alt="" /></span>
+						<span class="mobile-only"><img src="images/img_mainvisual_01_m.jpg" alt="" /></span>
+					</li>
+					<li class="sd-2" style="background:#d2dfef">
+						<span class="pc-only"><img src="images/img_mainvisual_02.jpg" alt="" /></span>
+						<span class="tablet-only"><img src="images/img_mainvisual_02_t.jpg" alt="" /></span>
+						<span class="mobile-only"><img src="images/img_mainvisual_02_m.jpg" alt="" /></span>
+					</li>
+					<li class="sd-3" style="background:#f3e9e0">
+						<span class="pc-only"><img src="images/img_mainvisual_03.jpg" alt="" /></span>
+						<span class="tablet-only"><img src="images/img_mainvisual_03_t.jpg" alt="" /></span>
+						<span class="mobile-only"><img src="images/img_mainvisual_03_m.jpg" alt="" /></span>
+					</li>
+					<li class="sd-4" style="background:#f0f2ef">
+						<span class="pc-only"><img src="images/img_mainvisual_04.jpg" alt="" /></span>
+						<span class="tablet-only"><img src="images/img_mainvisual_04_t.jpg" alt="" /></span>
+						<span class="mobile-only"><img src="images/img_mainvisual_04_m.jpg" alt="" /></span>
+					</li>
+				</ul>
+				<ul class="slidetxt">
+					<li class="sd-1 on textChange">SKT<br />OUR365<br />RENEWAL</li>
+					<li class="sd-2">SHINHAN<br />OPEN API POTAL<br />DEVELOPMENT</li>
+					<li class="sd-3">BEARCREEK<br />GOLF CLUB<br />RENEWAL</li>
+					<li class="sd-4">MOBILE<br />APP<br />DEVELOPMENT</li>
+				</ul>
+				<p class="pagecount"><span>4 /</span><sub>1</sub></p>
+				<div class="slick-dots-group"></div>
+			</div>
+		</div>
+	</div>
+	<!-- //E: midarea -->
+</div>
+
+<script type="text/javascript" src="js/common_ui.js"></script>
+<script>
+$(".mainvisual ul.slideimg").slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	autoplay:true,
+	centerMode: true,
+	autoplaySpeed:10000,
+	arrows:false,
+	dots:true,
+	appendDots: $(".mainvisual .slick-dots-group"),
+    touchMove: false
+});
+
+$("body#main").on("mousewheel",function(e){
+	e.preventDefault();
+	if(e.originalEvent.wheelDelta /120 > 0) {
+		$('ul.slideimg').slick('slickPrev');
+	}else{
+		$('ul.slideimg').slick('slickNext');
+	}
+})
+
+$('ul.slideimg').on('afterChange', function(event, slick, currentSlide, nextSlide){
+	var currentSlide = $('.mainvisual ul.slideimg').slick('slickCurrentSlide');
+	$(".pagecount sub").text(currentSlide+1);
+	changeText(currentSlide);
+});
+
+function changeText(currentSlide){
+	$(".slidetxt li").removeClass("on textChange");
+	$(".slidetxt li").eq(currentSlide).addClass("on textChange")
+
+}
+
+function mainUILoad(){
+	var mainvisualHeight;
+	var mainvisualoffset = $(".mainvisual ul.slideimg").position().top;
+
+	//mainvisul resize
+	if (windowWidth <= 375){
+		mainvisualHeight = (300*windowWidth) / 300;
+	}else if (windowWidth <= 769){
+		mainvisualHeight = (300*windowWidth) / 769;
+	}else if (windowWidth <= 1044){
+		mainvisualHeight = (620*windowWidth) / 1044;
+	}else if (windowWidth <= 1280){
+		mainvisualHeight = (556*windowWidth) / 1280;
+	}else if (windowWidth <= 1440){
+		mainvisualHeight = (600*windowWidth) / 1440;
+	}else{
+		mainvisualHeight = (600*windowWidth) / 1920;
+	}
+
+	$(".maincontents").height(windowHeight- $(".toparea").innerHeight());
+	$(".mainvisual").height($(".maincontents").innerHeight());
+
+	if(mainvisualHeight <= windowHeight*0.63){
+		mainvisualHeight = windowHeight*0.63; //mainvisual height가 화면크기보다 작을 경우 63% 채우기
+	}else{
+		if(mainvisualHeight >= windowHeight*0.63){
+			mainvisualHeight = windowHeight*0.63 //mainvisual height가 화면크기의 63%보다 클 경우 63%로 고정
+		}
+	}
+
+	$(".mainvisual ul.slideimg ul.slick-track").height(mainvisualHeight);
+	$(".mainvisual ul.slideimg").height(mainvisualHeight);
+	$(".mainvisual li.slick-slide").height(mainvisualHeight);
+	$(".slidetxt").css("top", mainvisualoffset);
+
+	if(windowWidth < 1024){
+		var txtoffset = mainvisualoffset - $(".slidetxt").height() - 10;
+		$(".slick-dots-group").css("top", txtoffset);
+	}else{
+		$(".slick-dots-group").css("top", mainvisualoffset);
+	}
+}
+mainUILoad();
+
+$(window).resize(function(){
+	mainUILoad();
+}).resize();
+
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28115000-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

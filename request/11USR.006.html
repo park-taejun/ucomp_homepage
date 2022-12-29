@@ -1,0 +1,432 @@
+<?session_start();?>
+<?
+header("x-xss-Protection:0");
+header('Content-Type: text/html; charset=UTF-8');
+
+	$depth_01 = "3";
+
+#====================================================================
+# DB Include, DB Connection
+#====================================================================
+	require "../_classes/com/db/DBUtil.php";
+
+	$conn = db_connection("w");
+
+#=====================================================================
+# common function, login_function
+#=====================================================================
+	require "../_common/config.php";
+	require "../_classes/com/util/Util.php";
+	require "../_classes/com/util/ImgUtil.php";
+	require "../_classes/com/util/ImgUtilResize.php";
+	require "../_classes/com/etc/etc.php";
+
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<!--<meta charset="utf-8" />-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="msvalidate.01" content="D3D1C99AF64E85DB61B385661327885B" />
+	<meta name="robots" content="index, follow">
+	<title>유컴패니온 홈페이지</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="keywords" content="ucompanion" />
+	<link rel="shortcut icon" href="../assets/images/app/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/module.global.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/layout.front.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/page.front.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	<script src="../assets/js/gsap.min.js"></script>
+	<script src="../assets/js/ScrollTrigger.min.js"></script>
+	<script src="../assets/js/ScrollToPlugin.min.js"></script>
+	<script src="../assets/js/swiper-bundle.min.js"></script>
+	<script src="../assets/js/bui.js"></script>
+	<script src="../assets/js/bui.fullpage.js"></script>
+	<script src="../assets/js/bui.template.js" defer></script>
+	<script src="https://www.google.com/recaptcha/api.js?render=6Ld87m0aAAAAAK7Nd3O9MIMZ-SKHSjMIOnE7TcaS"></script>
+	
+</head>
+<script type="text/javascript">
+	function js_save(){
+		
+		var frm = document.frm;
+	
+		if((frm.req_title.value == "") || (frm.req_title.value == " ")){
+			alert("문의제목을 입력하세요");
+			frm.req_title.focus();
+			return;
+		}
+		
+		if(frm.req_contents.value == ""){
+			alert("상세 문의 내용을 입력하세요");
+			frm.req_contents.focus();
+			return;
+		}
+		  
+		if((frm.req_name.value == "") || (frm.req_name.value == " ")){
+			alert("담당자명을 입력하세요");
+			frm.req_name.focus();
+			return;
+		}
+		
+		if(frm.req_email01.value == ""){
+			alert("이메일을 입력하세요");
+			frm.req_email01.focus();
+			return;
+		}
+	   
+		frm.submit();
+	}
+</script>
+<script type="text/javascript">
+grecaptcha.ready(function() {
+  grecaptcha.execute('6Ld87m0aAAAAAK7Nd3O9MIMZ-SKHSjMIOnE7TcaS', {action: 'homepage'}).then(function(token) {
+    // 토큰을 받아다가 g-recaptcha 에다가 값을 넣어줍니다.
+    document.getElementById('g-recaptcha').value = token;
+  });
+});
+</script>
+<form class="section-body" id="frm" name="frm" method="post" action="../_process/ajax_requet.php" enctype="multipart/form-data">
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+			<!-- page-skip -->
+	<div id="skip" class="page-skip">
+		<a class="skip-item" href="#content">본문 바로가기</a>
+	</div>
+	<!-- //page-skip -->
+	<!-- page-head -->
+	<div class="page-head" id="header">
+		<h1 class="page-subject" id="pageSubject">
+			<a class="page-name" href="../USR.001">
+				<svg width="28" height="28" viewBox=" 0 0 28 28" focusable="false" xmlns="http://www.w3.org/2000/svg">
+					<title>유컴패니온</title>
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M12.3274 18.6828C12.3274 20.5984 11.3883 21.5543 9.51139 21.5543H9.51014C7.63323 21.5543 6.69415 20.5971 6.69415 18.6828V2H2V18.6828C2 20.9398 2.68388 22.7226 4.0529 24.0351C5.42067 25.3463 7.26866 26.0013 9.51014 26.0013C11.7516 26.0013 13.5644 25.3463 14.9473 24.0351C16.3288 22.7239 17.0215 20.9398 17.0215 18.6828V2H12.3274V18.6828ZM25.3689 6.35847C24.9478 5.91972 24.4311 5.69971 23.8226 5.69971V5.70097H23.7799C23.184 5.70097 22.6724 5.92098 22.2449 6.35974C21.8162 6.79849 21.6025 7.30552 21.6025 7.92383C21.6025 8.54213 21.8162 9.06307 22.2449 9.48792C22.6724 9.9115 23.1991 10.1239 23.8226 10.1239C24.4462 10.1239 24.9654 9.91908 25.379 9.50941C25.7926 9.09974 26 8.59776 26 7.96555C26 7.33334 25.7901 6.79723 25.3689 6.35847ZM25.3739 16.4916C24.9553 16.0591 24.4462 15.8442 23.8453 15.8442H23.8013C23.1991 15.8442 22.6824 16.0692 22.25 16.5143C21.8162 16.9594 21.6013 17.5183 21.6013 18.11C21.6013 18.7018 21.8175 19.2075 22.25 19.6324C22.6824 20.056 23.2154 20.2684 23.8453 20.2684C24.4462 20.2684 24.9553 20.0496 25.3739 19.6109C25.7913 19.1721 26.0013 18.6423 26.0013 18.024C26.0013 17.4335 25.7913 16.9227 25.3739 16.4916Z"/>
+				</svg>
+			</a>
+		</h1>
+		<!-- page-navi -->
+		<div class="page-navi" id="pageNavigation" data-bui-toggle="pageNavigation">
+			<div class="section-wrap">
+				<div class="section-head">
+					<p class="section-subject"><span class="section-name">목차</span></p>
+				</div>
+				<div class="section-body">
+					<ul class="gnb-list">
+						<li class="gnb-item">
+							<a class="gnb-name" href="/about/USR.002">About</a> 
+							<!-- <ul class="lnb-list">
+								<li class="lnb-item current"><a class="lnb-name" href="#">공지사항</a></li>
+							</ul> -->
+						</li>
+						<li class="gnb-item">
+							<a class="gnb-name" href="/business/USR.003">Business</a> 
+							<ul class="lnb-list">
+								<li class="lnb-item"><a class="lnb-name" href="/business/USR.003_1">Portfolio</a></li>
+							</ul>
+						</li>
+						<li class="gnb-item">
+							<a class="gnb-name" href="/people/USR.004">People</a>
+							<!-- <ul class="lnb-list">
+								<li class="lnb-item"><a class="lnb-name" href="#">공지사항</a></li>
+							</ul> -->
+						</li>
+						<li class="gnb-item">
+							<a class="gnb-name" href="/story/USR.005">Story</a>
+							<ul class="lnb-list">
+								<li class="lnb-item"><a class="lnb-name" href="/story/USR.005_2">Awards</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="section-util">
+					<span class="button-area">
+						<a class="btn inquiry" href="#"><span class="btn-text">견적 &middot; 문의</span></a>
+					</span>
+					<span class="button-area">
+						<!--<a class="btn ir-download" href="#" download><span class="btn-text"><span class="wbr">Download</span> <span class="wbr">IR</span></span></a>-->
+						<a class="btn ir-download" href="/_common/new_download_file.php?menu=brochure&file_no=<?=$file_no?>"><span class="btn-text"><span class="wbr">Download</span> <span class="wbr">IR</span></span></a>
+						<!-- <a class="btn module-b style-c type-line accent-01 large-1x transform-size" href="#" download=""><span class="btn-text"><span class="wbr">Download</span> <span class="wbr">IR</span></a> -->
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- //page-navi -->
+
+		<!-- page-util -->
+		<!-- <div class="page-util">
+			<span class="button-area">
+				<a class="btn ir-download" href="#" download="" ><span class="btn-text">Download IR</span></a>
+			</span>
+		</div> -->
+		<!-- //page-util -->
+
+		<!-- page-control -->
+		<div class="page-control">
+			<span class="button-area">
+				<a class="btn goto-page-navi" href="#pageNavigation" data-bui-toggle-button="pageNavigation">
+					<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg">
+						<title>전체메뉴</title>
+						<line class="ob-01" x1="16.67%" y1="50%" x2="83.33%" y2="50%" />
+						<line class="ob-02" x1="16.67%" y1="50%" x2="83.33%" y2="50%" />
+						<line class="ob-03" x1="16.67%" y1="50%" x2="83.33%" y2="50%" />
+					</svg>
+				</a>
+			</span>
+		</div>
+		<!-- //page-control -->
+	</div>
+	<!-- //page-head -->
+
+
+	<hr />
+		<!-- page-body -->
+		<div class="page-body page-request">
+			<!-- local -->
+			<div id="local">    
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-body -->
+						<div class="content-body">
+							<!-- section -->
+							<div class="section module-a style-b type-a" data-bui-animation="type-1">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h3 class="section-subject"><span class="section-name">Request</span></h3>
+									</div>
+									
+										<input type="hidden" name="mode" id="mode" value="I">
+										<!-- subsection -->
+										<div class="subsection project-inquiry">
+											<div class="subsection-wrap">
+												<div class="subsection-head">
+													<h4 class="subsection-subject"><span class="subsection-name">어떤 프로젝트를 문의하고 싶으신가요?</span></h4>
+												</div>
+												<div class="subsection-body">
+													<!-- submit-form -->
+													<fieldset class="submit-form module-a style-b type-c">
+														<legend>전송 서식</legend>
+														<div class="form-list">
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="category" class="form-name">프로젝트 유형 <strong class="em accent-01">*</strong></label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form select module-b style-b type-line normal-04 large-2x flex" style="width: 33.333%;">
+																				<!--
+																				<select id="category" class="form-elem" title="프로젝트 유형 선택">
+																					<option>유형을 선택해 주세요</option>
+																					<option>유형을 선택해 주세요</option>
+																				</select>
+																				-->
+																				<select id="category" class="form-elem" title="프로젝트 유형 선택">
+																					<option value="01">사업 제휴</option>
+																					<option value="02">신규 구축</option>
+																					<option value="03">리뉴얼</option>
+																					<option value="04">유지 운영</option>
+																					<option value="99">기타</option>
+																				</select>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="budget" class="form-name">예산</label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form textfield module-b style-b type-line normal-04 large-2x flex" style="width: 33.333%;">
+																				<input id="budget" class="form-elem" type="text" title="예산 입력" onfocus="buiFormFunc(this);" onmouseover="buiFormFunc(this);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+																				<span class="form-func">
+																					<span class="form-unit">만원</span>
+																				</span>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="period" class="form-name">기간</label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form textfield module-b style-b type-line normal-04 large-2x flex" style="width: 33.333%;">
+																				<input id="period" class="form-elem" type="text" title="기간 입력" onfocus="buiFormFunc(this);" onmouseover="buiFormFunc(this);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+																				<span class="form-func">
+																					<span class="form-unit">개월</span>
+																				</span>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="inquiry-title" class="form-name">문의 제목 <strong class="em accent-01">*</strong></label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form textfield module-b style-b type-line normal-04 large-2x flex">
+																				<input id="inquiry-title" class="form-elem" type="text" name="req_title" placeholder="제목을 입력해주세요" title="문의 제목 입력" />
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="content-inquiry" class="form-name">상세 문의 내용 <strong class="em accent-01">*</strong></label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form textarea module-b style-b type-line normal-04 large-2x flex">
+																				<textarea name="req_contents" id="content-inquiry" class="form-elem" cols="40" rows="5" placeholder="문의 내용을 입력해주세요" title="문의 내용 입력"></textarea>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</fieldset>
+													<!-- //submit-form -->
+												</div>
+											</div>
+										</div>
+										<!-- //subsection -->
+										<!-- subsection -->
+										<div class="subsection basic-information">
+											<div class="subsection-wrap">
+												<div class="subsection-head">
+													<h4 class="subsection-subject">기본정보를 입력해주세요.</h4>
+												</div>
+												<div class="subsection-body">
+													<!-- submit-form -->
+													<fieldset class="submit-form module-a style-b type-c">
+														<legend>전송 서식</legend>
+														<div class="form-list">
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="company-name" class="form-name">회사명</label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form textfield module-b style-b type-line normal-04 large-2x flex">
+																				<input id="company-name" class="form-elem" type="text" title="회사명 입력" />
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="position" class="form-name">직책</label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form textfield module-b style-b type-line normal-04 large-2x flex">
+																				<input id="position" class="form-elem" type="text" title="직책 입력" />
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label  for="manager" class="form-name">담당자명 <strong class="em accent-01">*</strong></label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span for="manager" class="form textfield module-b style-b type-line normal-04 large-2x flex">
+																				<input id="manager" class="form-elem" type="text" name="req_name" title="담당자명 입력" />
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="email" class="form-name">이메일 <strong class="em accent-01">*</strong></label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form textfield module-b style-b type-line normal-04 large-2x flex">
+																				<input id="email" class="form-elem" type="email" name="req_email01" title="이메일 입력" />
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-item">
+																<div class="form-wrap">
+																	<div class="form-head"><label for="phone" class="form-name">연락처</label></div>
+																	<div class="form-body">
+																		<div class="form-area">
+																			<span class="form textfield module-b style-b type-line normal-04 large-2x flex">
+																				<input id="phone" class="form-elem" type="tel" title="연락처 입력" />
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</fieldset>
+													<!-- //submit-form -->
+												</div>
+
+											</div>
+										</div>
+										<!-- //subsection -->
+										<p class="para">제출 시 <a href="#">개인정보수집및활용</a>에 동의한 것으로 간주합니다.</p>
+									<!--</form>-->
+									<div class="section-util" >
+										<div class="button-display module-a style-a type-c">
+											<span class="button-area">
+												<a class="btn module-b style-c type-fill accent-01 large-2x flex symbol-rtl-small-arrow-right" href="javascript:void(0);" onclick="js_save();" ><span class="btn-text" >문의하기</span></a>
+											</span>
+										</div>
+									</div>
+								   <input type="hidden" id="g-recaptcha" name="g-recaptcha">
+								</div>
+							</div>	
+							<!-- //section -->					
+						</div>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+				<hr />
+		<!-- page-foot -->
+		<?
+			require "../_common/footer.php";
+		?>
+		<!-- //page-foot -->
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28115000-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</form>
+</html>
+<?
+#====================================================================
+# DB Close
+#====================================================================
+
+	mysql_close($conn);
+?>

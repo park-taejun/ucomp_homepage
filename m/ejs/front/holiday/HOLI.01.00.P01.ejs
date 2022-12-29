@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'front',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.front.ejs', {
+			current: '3',
+		}) %>
+		<!-- page-body -->
+		<div class="page-body page-intro page-holiday">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-title" id="localTitle"><span class="local-name">근무현황</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-title"><span class="content-name">임직원 근무 현황</span></h3>
+							<!-- data-finder --> 
+							<form class="data-finder">
+								<!-- submit-form -->
+								<fieldset class="submit-form module-a">
+									<legend>구성원 검색 서식</legend>
+									<div class="form-list">
+										<div class="form-item">
+											<div class="form-head"><label class="form-name" for="searchScope">검색어</label></div>
+											<div class="form-body">
+												<div class="form-area">
+													<span class="form select module-b style-b type-line normal-04 medium" style="width: 128rem;">
+														<select class="form-elem" id="searchCategory" title="분류 선택">
+															<option>전체</option>
+															<option>경영기획팀</option>
+															<option>기업부설연구소</option>
+															<option>플랫폼사업본부</option>
+															<option>서비스 운영 본부</option>
+															<option>디지털 구축 본부</option>
+														</select>
+													</span>
+													<span class="form textfield module-b style-b type-line normal-04 medium flex">
+														<input type="search" class="form-elem" id="searchKeyword" placeholder="이름을 입력해 주세요." title="이름 입력" onfocus="buiFormCancel(this);" onmousemove="buiFormCancel(this);" />
+														<span class="form-func">
+															<button type="button" class="btn"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>검색</title><path d="M19.63,17.87l-2-2a7.5,7.5,0,1,0-1.76,1.76l2,2a1.24,1.24,0,0,0,1.76-1.76ZM11.5,16.5a5,5,0,1,1,5-5A5,5,0,0,1,11.5,16.5Z"></path></svg></button></span>
+														</span>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<!-- //submit-form -->
+							</form>
+							<!-- //data-finder -->
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<div class="content-body">
+							<!-- datepicker -->
+							<div class="datepicker-inline style-b" id="datepickerInline" data-bui-expand="workingStatus"></div>
+							<!-- //datepicker -->
+							<!-- section -->
+							<div class="section module-a type-a">
+								<div class="section-head"><h4 class="section-title"><span class="section-name">스마트데이</span></h4></div>
+								<div class="section-body">
+									<!-- data-display -->
+									<div class="data-display module-b style-a type-a normal-03 small">
+										<!-- data-list -->
+										<ul class="data-list">
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">홍길동</a></div>
+													<div class="data-body">위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 이 헌법중 공무원의 임기 또는 중임제한에 관한 규정은 이 헌법에 의하여 그 공무원이 최초로 선출 또는 임명된 때로부터 적용한다/div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">제갈정</a></div>
+													<div class="data-body">위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 이 헌법중 공무원의 임기 또는 중임제한에 관한 규정은 이 헌법에 의하여 그 공무원이 최초로 선출 또는 임명된 때로부터 적용한다</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">이주희</a></div>
+													<div class="data-body">위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 이 헌법중 공무원의 임기 또는 중임제한에 관한 규정은 이 헌법에 의하여 그 공무원이 최초로 선출 또는 임명된 때로부터 적용한다</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">권세희</a></div>
+													<div class="data-body">위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 이 헌법중 공무원의 임기 또는 중임제한에 관한 규정은 이 헌법에 의하여 그 공무원이 최초로 선출 또는 임명된 때로부터 적용한다</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">한창수</a></div>
+													<div class="data-body">위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 이 헌법중 공무원의 임기 또는 중임제한에 관한 규정은 이 헌법에 의하여 그 공무원이 최초로 선출 또는 임명된 때로부터 적용한다</div>
+												</div>
+											</li>
+										</ul>
+										<!-- //data-list -->
+									</div>
+									<!-- //data-display -->
+								</div>
+							</div>
+							<!-- //section -->
+							<!-- section -->
+							<div class="section module-a type-a">
+								<div class="section-head"><h4 class="section-title"><span class="section-name">휴가</span></h4></div>
+								<div class="section-body">
+									<!-- data-display -->
+									<div class="data-display module-b style-a type-a normal-03 small">
+										<!-- data-list -->
+										<ul class="data-list">
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">김민지</a></div>
+													<div class="data-body">인트라넷 모바일 작업, 운영...</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">제갈정</a></div>
+													<div class="data-body">진학사, 인트라넷</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">이주희</a></div>
+													<div class="data-body">LG DLAB 프로젝트</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">권세희</a></div>
+													<div class="data-body">LG하우시스 웹진 개편-작업...</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#schedule" class="data-name symbol-rtl-fill-circle-more" onclick="contentsPopup.active('schedule');">한창수</a></div>
+													<div class="data-body">인트라넷 모바일 고도화</div>
+												</div>
+											</li>
+										</ul>
+										<!-- //data-list -->
+									</div>
+									<!-- //data-display -->
+								</div>
+							</div>
+							<!-- //section -->
+						</div>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+	<%-include('../_templates/_content.popup.ejs') %>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.1.1/air-datepicker.min.js"></script>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		/**
+		 * @module AirDatepicker datepickerInline
+		 */
+		const datepicker = new AirDatepicker('#datepickerInline', {
+			inline: true,
+			toggleSelected: false,
+			multipleDates: false,
+			firstDay: 0,
+			locale: {
+				days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+				daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				daysMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+				monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				today: 'Today',
+				clear: 'Clear',
+				dateFormat: 'MM/dd/yyyy',
+				timeFormat: 'hh:mm aa',
+				firstDay: 0,
+			},
+			navTitles: {
+				days: 'yyyy.MM'
+			},
+			prevHtml: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>전월</title><path d="M15.52,6.37a1.24,1.24,0,0,1,0,1.76L11.65,12l3.87,3.87a1.25,1.25,0,1,1-1.77,1.76L8.12,12l5.63-5.63A1.25,1.25,0,0,1,15.52,6.37Z"></path></svg>',
+			nextHtml: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>차월</title><path d="M8.48,17.63a1.24,1.24,0,0,1,0-1.76L12.35,12,8.48,8.13a1.25,1.25,0,1,1,1.77-1.76L15.88,12l-5.63,5.63A1.25,1.25,0,0,1,8.48,17.63Z"></path></svg>',
+			minDate: '2022-04-24', // 금주 시작
+			maxDate: '2022-04-30', // 금주 마지막
+			selectedDates: ['2022-04-27'], // 오늘 날짜
+			onSelect: function(date, formattedDate, datepicker) {
+				console.log(date.datepicker.focusDate); // 선택한 날짜
+			},
+		});
+
+		/**
+		 * @module buiExpand workingStatus
+		 */
+		const workingStatus = new buiExpand('[data-bui-expand="workingStatus"]', {
+			accordion: false,
+			activeClass: 'active',
+			buttonClass: 'btn expand',
+			buttonText: '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>펼치기</title><path d="M6.37,8.48a1.24,1.24,0,0,1,1.76,0L12,12.35l3.87-3.87a1.25,1.25,0,1,1,1.76,1.77L12,15.88,6.37,10.25A1.25,1.25,0,0,1,6.37,8.48Z"></path></svg>',
+			buttonActiveText: '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>접기</title><path d="M17.63,15.52a1.24,1.24,0,0,1-1.76,0L12,11.65,8.13,15.52a1.25,1.25,0,1,1-1.76-1.77L12,8.12l5.63,5.63A1.25,1.25,0,0,1,17.63,15.52Z"></path></svg>',
+
+			activeAfterCallBack: function() {
+				datepicker.update({
+					minDate: false, // 금주 시작
+					maxDate: false, // 금주 마지막
+				});
+			},
+			inactiveAfterCallBack: function() {
+				datepicker.update({
+					minDate: '2022-04-24', // 금주 시작
+					maxDate: '2022-04-30', // 금주 마지막
+				});
+			},
+		});
+
+		// popup active
+		contentsPopup.active('schedule');
+	});
+</script>
+</body>
+</html>

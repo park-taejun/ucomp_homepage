@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.admin.ejs', {
+	layoutTemplate: '',
+	pageStyle: 'admin',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<!--page-head-->
+		<div class="page-head" id="header">
+			<h1 class="page-title" id="pageTitle">KPC 한국생산성본부</h1>
+		</div>
+		<!--//page-head-->
+		<!-- page-body -->
+		<div class="page-body page-login">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-title" id="localTitle"><span class="local-name">관리자 로그인</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-body -->
+						<form class="content-body" action="#">
+							<!--submit-form-->
+							<fieldset class="submit-form submit-login">
+								<legend>로그인정보 입력 서식</legend>
+								<div class="form-list">
+									<div class="form-item item-id">
+										<div class="form-wrap">
+											<div class="form-head"><label class="form-name" for="userId">아이디</label></div>
+											<div class="form-body">
+												<div class="form-area">
+													<span class="form textfield module-b style-c type-line medium flex">
+														<input type="text" id="userId" class="form-elem" placeholder="아이디" maxlength="" />
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-item item-pw">
+										<div class="form-wrap">
+											<div class="form-head"><label class="form-name" for="userPassword">비밀번호</label></div>		
+											<div class="form-body">
+												<div class="form-area">
+													<span class="form textfield module-b style-c type-line medium flex">
+														<input type="password" id="userPassword" class="form-elem" placeholder="비밀번호" maxlength="" />
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+								<!--button-area-->
+								<div class="button-area module-a style-a type-d">
+									<button class="btn module-b style-a type-fill accent-02 medium" type="submit"><span class="btn-text">Login</span></button>
+								</div>
+								<!--//button-area-->
+								<!-- data-list -->
+								<div class="data-list module-a style-d normal-05 xx-small">
+									<span class="data-item">문의사항은 담당자에게 요청해 주세요.</span>
+								</div>
+								<!--// data-list -->
+							</fieldset>
+							<!--//submit-form-->
+						</form>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.admin.ejs') %>	
+    </div>
+	<!-- //page -->
+</div>
+</body>
+</html>

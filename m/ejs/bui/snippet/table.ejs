@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-title" id="localTitle"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head"><%- include('../_mixin/_title.content.ejs', {name: 'table'}) %></div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section : Button System-->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'data table'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;!-- data-table --&gt;
+&lt;div class="data-table"&gt;
+	&lt;table&gt;
+		&lt;colgroup&gt;
+			&lt;col style="width: value;" /&gt;
+			&lt;col /&gt;
+		&lt;/colgroup&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th scope="col"&gt;header cell&lt;/th&gt;
+				&lt;th scope="col"&gt;header cell&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td&gt;data cell&lt;/td&gt;
+				&lt;td&gt;data cell&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;
+&lt;!-- //data-table --&gt;</code></pre>
+									<!-- //highlight-js -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">name</th>
+													<td>data-display</td>
+												</tr>
+												<tr>
+													<th scope="row">module</th>
+													<td>module-*</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>medium</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-c style-a type-a medium">
+										<table>
+											<colgroup>
+												<col style="width: 16em;" />
+												<col />
+												<col />
+												<col />
+												<col />
+												<col />
+												<col />
+											</colgroup>
+											<thead>
+												<tr>
+													<th scope="col" rowspan="2">지표항목</th>
+													<th scope="col" colspan="2">2017</th>
+													<th scope="col" colspan="2">2018</th>
+													<th scope="col" colspan="2">2019</th>
+												</tr>
+												<tr>
+													<th scope="col">다담리테일</th>
+													<th scope="col">비교지표</th>
+													<th scope="col">다담리테일</th>
+													<th scope="col">비교지표</th>
+													<th scope="col">다담리테일</th>
+													<th scope="col">비교지표</th>
+												</tr>
+											</thead>
+											<tbody style="text-align: right;">
+												<tr>
+													<td style="text-align: left;">1. 총자본순이익률(%)</td>
+													<td>22.67</td>
+													<td>16.57</td>
+													<td>32.77</td>
+													<td>18.29</td>
+													<td>19.83</td>
+													<td>20.67</td>
+												</tr>
+												<tr>
+													<td style="text-align: left;">2. 총자본영업이익률(%)</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+												<tr>
+													<td style="text-align: left;">3. 경영자본영업이익률(%)</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+												<tr>
+													<td style="text-align: left;">4. 자기자본영업이익률(%)</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+												<tr>
+													<td style="text-align: left;">5. 매출액영업이익률(%)</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function() {
+		var buttons = document.querySelectorAll('.bui-button-area .btn');
+		Array.prototype.forEach.call(buttons, function(button) {
+			button.addEventListener('click', function(e) {
+				e.preventDefault();
+			});
+		});
+
+		var forTest = ['a', 'b', 'c', 'd'];
+
+		for(var i = 0; i < forTest.length; i++) {
+			console.log(forTest[i]);
+		}
+
+		// for (const [key, value] of Object.entries(object1)) {
+		// 	console.log(value);
+		// }
+
+
+
+
+
+		var temp = document.querySelector('body');
+
+		// temp.style.backgroundColor = "blue";
+
+		var object1 = {
+			test1: 'test1',
+			test2: 'test2'
+		}
+
+		
+		for (const [key, value] of Object.entries(object1)) {
+			if (key === 'test2') {
+				console.log(value);
+			}
+		}
+	});
+</script>
+</body>
+</html>

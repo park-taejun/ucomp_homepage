@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body page-front" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<div class="local-title"><h2 class="local-name" id="localName">preview</h2></div>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head"><div class="content-head"><%- include('../_mixin/_title.content.ejs', {name: 'front'}) %></div></div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+				</div>
+				<!-- //content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+<script stype="text/javascript">
+	var page = {
+		"layout": [
+			{"status": "완료", "name": "intro", "id": "page.intro"},
+			{"status": "완료", "name": "intro-tab", "id": "page.intro.tab"},
+			{"status": "완료", "name": "default", "id": "page.default"},
+			{"status": "완료", "name": "공통 팝업", "id": "layer.popup"},
+		],
+		// "common": [
+		// 	{"status": "진행", "name": "pop 결재 상태 변경", "id": "POPUP.01.00.P01"},
+		// 	{"status": "진행", "name": "pop 원본 이미지  ", "id": "POPUP.01.00.P02"},
+		// ],
+		"main": [
+			{"status": "완료", "name": "메인", "id": "MAIN.00.00.F01"},
+		],
+		"login": [
+			{"status": "완료", "name": "로그인", "id": "LOGI.00.00.F01"},
+			{"status": "완료", "name": "로그인 > 유효성 검사", "id": "LOGI.00.00.F02"},
+		],
+		"notice": [
+			{"status": "완료", "name": "공지사항", "id": "NOTI.01.00.F1"}
+		],
+		"member": [
+			{"status": "완료", "name": "임직원 조회 리스트", "id": "MEM.01.00.F1"}
+		],
+		"holiday": [
+			{"status": "완료", "name": "근무현황 > 리스트", "id": "HOLI.01.00.F01"},
+			{"status": "완료", "name": "근무현황 > 결과없음", "id": "HOLI.01.00.F02"},
+			{"status": "완료", "name": "근무현황 > POP-임직원 근무 현황 상세", "id": "HOLI.01.00.P01"},
+			{"status": "완료", "name": "근무현황 > 등록", "id": "HOLI.01.00.F03"},
+			{"status": "완료", "name": "근무현황 > 완료", "id": "HOLI.01.00.F04"},
+		],
+		"approval-a": [
+			{"status": "완료", "name": "결재관리(관리자) > 연차결재 > 지출결재 > 리스트", "id": "APPR-A.01.02.F01"},
+			{"status": "완료", "name": "결재관리(관리자) > 연차결재 > 지출결재 > 상세", "id": "APPR-A.01.02.F02"},
+			{"status": "완료", "name": "결재관리(관리자) > 연차결재 > 모든요청 > 리스트", "id": "APPR-A.01.03.F01"},
+			{"status": "완료", "name": "결재관리(관리자) > 연차결재 > 모든요청 > 상세", "id": "APPR-A.01.03.F02"},
+			{"status": "완료", "name": "결재관리(관리자) > 연차결재 > 나의요청 > 리스트", "id": "APPR-A.01.01.F01"},
+			{"status": "완료", "name": "결재관리(관리자) > 연차결재 > 나의요청 > 상세", "id": "APPR-A.01.01.F02"},
+			{"status": "완료", "name": "결재관리(관리자) > 연차결재 > 나의요청 > 쓰기", "id": "APPR-A.01.01.F03"},
+			{"status": "완료", "name": "결재관리(관리자) > 연차결재 > pop 결재 상태 변경", "id": "POPUP.01.00.P01"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 지출결재 > 리스트", "id": "APPR-A.02.02.F01"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 지출결재 > 상세", "id": "APPR-A.02.02.F02"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 모든요청 > 리스트", "id": "APPR-A.02.03.F01"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 모든요청 > 상세", "id": "APPR-A.02.03.F02"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 나의요청 > 리스트", "id": "APPR-A.02.01.F01"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 나의요청 > 상세", "id": "APPR-A.02.01.F02"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 나의요청 > 쓰기", "id": "APPR-A.02.01.F03"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 나의요청 > 완료", "id": "APPR-A.02.01.F04"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > 나의요청 > 수정", "id": "APPR-A.02.01.F03"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > pop 결재 상태 변경", "id": "POPUP.01.00.P01"},
+			{"status": "완료", "name": "결재관리(관리자) > 지출결재 > pop 원본 이미지", "id": "POPUP.01.00.P02"},
+		],
+		"approval-u": [
+			{"status": "완료", "name": "결재관리(사용자) > 연차결재(나의요청) > 리스트", "id": "APPR-U.01.00.F01"},
+			{"status": "완료", "name": "결재관리(사용자) > 연차결재(나의요청) > 상세", "id": "APPR-U.01.00.F02"},
+			{"status": "완료", "name": "결재관리(사용자) > 연차결재(나의요청) > 쓰기", "id": "APPR-U.01.00.F03"},
+			{"status": "완료", "name": "결재관리(사용자) > 지출결재(나의요청) > 리스트", "id": "APPR-U.02.00.F01"},
+			{"status": "완료", "name": "결재관리(사용자) > 지출결재(나의요청) > 상세", "id": "APPR-U.02.00.F02"},
+			{"status": "완료", "name": "결재관리(사용자) > 지출결재(나의요청) > 쓰기", "id": "APPR-U.02.00.F03"},
+			{"status": "완료", "name": "결재관리(사용자) > 지출결재(나의요청) > 완료", "id": "APPR-U.02.00.F04"},
+			{"status": "완료", "name": "결재관리(사용자) > 지출결재(나의요청) > 수정", "id": "APPR-U.02.00.F03"},
+			{"status": "완료", "name": "결재관리(사용자) > 지출결재(나의요청) > pop 원본 이미지", "id": "POPUP.01.00.P02"},
+
+		],
+	};
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var listup = function(selector) {
+			var directory = './../../front/';
+			var dataContainer = document.querySelector(selector);
+
+			Object.keys(page).forEach(function(dir) {
+				var section = document.createElement('div');
+				var sectionHead = document.createElement('div');
+				var sectionTitle = document.createElement('h4');
+				var sectionName = document.createElement('span');
+				var sectionBody = document.createElement('div');
+				var dataDisplay = document.createElement('div');
+				var dataList = document.createElement('ul');
+
+				section.className = 'section';
+				sectionHead.className = 'section-head';
+				sectionTitle.className = 'section-title';
+				sectionName.className = 'section-name';
+				sectionBody.className = 'section-body';
+
+				section.id = dir;
+				sectionName.textContent = dir;
+				sectionTitle.appendChild(sectionName);
+				sectionHead.appendChild(sectionTitle);
+
+				Array.prototype.forEach.call(page[dir], function(data) {
+					var dataItem = document.createElement('li');
+					var dataArea = document.createElement('a');
+					var dataHead = document.createElement('span');
+					var dataName = document.createElement('span');
+					var dataBody = document.createElement('span');
+
+					dataDisplay.className = 'data-display style-bui type-a';
+					dataList.classList.add('data-list');
+
+					dataItem.title = data.status;
+					dataItem.classList.add('data-item');
+					
+					dataHead.classList.add('data-head');
+					dataName.textContent = data.name;
+					dataName.classList.add('data-name');
+					
+					dataArea.classList.add('data-area');
+					dataArea.setAttribute('target', '_blank');
+					dataArea.setAttribute('href', directory + section.id + '/' + data.id + '.html');
+					
+					dataBody.classList.add('data-body');
+					dataBody.textContent = data.id + '.html';
+					
+					dataHead.appendChild(dataName);
+					dataArea.appendChild(dataHead);
+					dataArea.appendChild(dataBody);
+					dataItem.appendChild(dataArea);
+					dataList.appendChild(dataItem);
+				});
+				
+				dataDisplay.appendChild(dataList);
+				sectionBody.appendChild(dataDisplay);
+
+				section.appendChild(sectionHead);
+				section.appendChild(sectionBody);
+				dataContainer.appendChild(section);
+
+				// 페이지 전체 열기
+				var openPage = document.createElement('button');
+				openPage.textContent = '모두열기';
+				sectionHead.appendChild(openPage);
+				openPage.addEventListener('click', function() {
+					var container = document.getElementById(section.id);
+					Array.prototype.forEach.call(container.querySelectorAll('a'), function(page) {
+						page.click();
+					});
+				});
+			});
+		}
+
+		listup('.content-body');
+	});
+</script>
+</body>
+</html>

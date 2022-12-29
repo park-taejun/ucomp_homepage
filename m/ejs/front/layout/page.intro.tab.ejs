@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'front',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.front.ejs', {
+			current: '5',
+		}) %>
+		<!-- page-body -->
+		<div class="page-body page-intro-tab page-approval">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-title" id="localTitle"><span class="local-name">결재관리</span></h2>
+					<!-- local-navi -->
+					<div class="local-navi">
+						<ul class="navi-list">
+							<li class="navi-item"><a class="navi-name" href="#">연차결재</a></li>
+							<li class="navi-item current" title="현재 선택된 항목"><a class="navi-name" href="#">지출결재</a></li>
+						</ul>
+					</div>
+					<!-- //local-navi -->
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-title"><span class="content-name">지출결제</span></h3>
+							<!-- tab-display -->
+							<div class="tab-display module-c style-a type-d medium">
+								<ul class="tab-list">
+									<li class="tab-item current" title="현재 선택된 항목"><a class="tab-name" href="#">지출결재</a></li>
+									<li class="tab-item"><a class="tab-name" href="#">모든요청</a></li>
+									<li class="tab-item"><a class="tab-name" href="#">나의요청</a></li>
+								</ul>
+							</div>
+							<!-- //tab-display -->
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<div class="content-body">
+							<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+							<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+							<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+						</div>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+				<!-- local-util -->
+				<div class="local-util">
+					<div class="button-display module-a style-b type-d">
+						<span class="button-area">
+							<a href="#signoffForm" class="btn module-b style-a type-fill accent-01 x-large flex" onclick="toastPopup.active('signoffForm');"><span class="btn-text">총 #개 결재하기</span></a>
+						</span>
+					</div>
+				</div>
+				<!-- //local-util -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+	<%-include('../_templates/_content.popup.ejs') %>
+</div>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Basic User Interface</title>
+<link rel="shortcut icon" href="./../../assets/images/bui/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/module.global.css" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/bui.page.snippet.css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+<script type="text/javascript" src='https://unpkg.com/focus-within-polyfill/dist/focus-within-polyfill.js'></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/bash.min.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+<!-- <script type="text/javascript" src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script> -->
+<!-- <script type="text/javascript" src="./../../assets/js/polyfill.js"></script> -->
+
+<script type="text/javascript" src="./../../assets/js/bui.js"></script>
+<script type="text/javascript" src="./../../assets/js/bui.template.js" defer></script>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var currentPage = function(pageItem, pageName) {
+			var localItems = document.querySelectorAll(pageItem);
+			Array.prototype.forEach.call(localItems, function(localItem, index) {
+				var localName = localItem.querySelector(pageName).getAttribute('href');
+				if (localName.substring(localName.lastIndexOf('/') + 1) === document.URL.substring(document.URL.lastIndexOf('/') + 1)) {
+					localItem.classList.add('current');
+				}
+			});
+		}
+		currentPage('#tableOfContent .lnb-item', '.lnb-name');		
+	});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<!--page-head-->
+		<div class="page-head" id="head">
+			<h1 class="page-title" title="UCOMP"><a class="page-name" href="/"><abbr title="Basic User Interpace">BUI</abbr></a></h1>
+			<!--page-control-->
+			<div class="page-control">
+				<div class="control-list">
+					<span class="control-item"><a class="control-name" href="#aside" onclick="layoutPageSide.active('aside');"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>Go to Table of Content</title><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></a></span>
+				</div>
+			</div>
+		</div>
+		<!--//page-head-->
+		<!--page-side-->
+		<div class="page-side" id="aside" data-bui-toggle="layoutPageSide">
+			<!--aside-body-->
+			<div class="aside-body">
+				<!--section-->
+				<div class="section toc" id="tableOfContent">
+					<div class="section-head">
+						<h2 class="section-title"><span class="section-name">Table of Content</span></h2>
+					</div>
+					<div class="section-body">
+						<ul class="gnb-list">
+							<li class="gnb-item"><span class="gnb-name">preview</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../preview/front.html">front</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../preview/admin.html">admin</a></li> -->
+								</ul>
+							</li>
+							<li class="gnb-item"><span class="gnb-name">snippet</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/color.html">color</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/font.html">font</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/icon.html">icon</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/button.html">button</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/mark.html">mark</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/form.html">form</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/table.html">table</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/list.html">list</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/board.html">board</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/fieldset.html">fieldset</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/tab.html">tab</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/post.html">post</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/tooltip.html">tooltip</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/interaction.html">interaction</a></li><!-- bui.js -->
+									
+									<!-- 해야 하는것 -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/utility.html">utility</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/popup.html">popup</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/goods.html">goods</a></li> -->
+
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--//section-->
+			</div>
+			<!--//aside-body-->
+		</div>
+		<!--//page-side-->
+		<script type="text/javascript">
+			const layoutPageSide = new buiToggle('[data-bui-toggle="layoutPageSide"]', {
+				inactiveButton: true,
+				inactiveButtonText: '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>닫기</title><path d="M10.5382 12L3 4.46179L4.46179 3L12 10.5382L19.5382 3L21 4.46179L13.4618 12L21 19.5382L19.5382 21L12 13.4618L4.46179 21L3 19.5382L10.5382 12Z"></path></svg>',
+				inactiveButtonClass: 'btn close',
+				reactTarget: 'html',
+				reactTargetActiveClass: 'active-page-side',
+			});
+			document.addEventListener('DOMContentLoaded', function() {
+
+				// var pageSide = new buiToggle('[data-bui-toggle="pageSide"]', {
+				// 	close: true,
+				// 	closeButtonClass: 'btn close',
+				// 	closeButtonText: '<svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" width="24" height="24"><title>닫기</title><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
+				// 	focusin: true,
+				// 	focusout: true,
+				// });	
+			});
+		</script>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-title" id="localName"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<h3 class="content-title" id="contentName"><span class="content-name">interaction</span></h3>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">BuiToggle</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+<pre class="highlight-js"><code class="html">&lt;script type="text/javascript" defer src="/assets/js/module.bui.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+	const toggleName = new buiToggle('[data-bui-toggle="toggleName"]');
+&lt;/script&gt;
+
+&lt;div id="targetElementId" data-bui-toggle="toggleName"&gt;toggle target&lt;/div&gt;
+&lt;a href="#targetElementId" data-bui-toggle-button="targetElementId" onclick="toggleName.toggle('targetElementId')"&gt;toggle button&lt;/a&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">API</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">parameters</span></h6></div>
+										<div class="subsubsection-body">
+<pre class="highlight-js"><code class="javascript">var toggleName = new buiToggle('selector', {
+	// general
+	mode: 'normal',
+	event: 'click',
+	activeClass: 'active',
+
+	// focusin
+	focusin: true,
+	focusout: true,
+
+	// clickout
+	clickout: false,
+	clickoutTarget: null,
+	
+	// target
+	targetClass: 'bui-toggle-target',
+	targetActiveClass: 'active',
+	targetAttribute: 'data-toggle-target',
+
+	// inactiveButton
+	inactiveButton: false,
+	inactiveButtonElement: 'button',
+	inactiveButtonClass: 'close',
+	inactiveButtonText: 'close',
+	inactiveButtonArea: null,
+
+	// react target
+	reactTarget: null,
+	reactTargetClass: null,
+	reactTargetActiveClass: 'active',
+
+	/* callback */
+	onloadCallBack: function() {return false;},
+	eventBeforeCallBack: function() {return false;},
+	eventAfterCallBack: function() {return false;},
+	activeBeforeCallBack: function() {return false;},
+	activeAfterCallBack: function() {return false;},
+	inactiveBeforeCallBack: function() {return false;},
+	inactiveAfterCallBack: function() {return false;}
+});</code></pre>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">Methods &amp; Properties</span></h6></div>
+										<div class="subsubsection-body">
+<pre class="highlight-js"><code class="javascript">// toggle actions
+toggleName.toggle('Toggle Target ID');
+
+// active actions
+toggleName.active('Toggle Target ID');
+
+//  inactive actions
+toggleName.inactive('Toggle Target ID');
+
+// myToggle Properties
+toggleName.myToggle['Toggle Target ID'].toggleTarget
+toggleName.myToggle['Toggle Target ID'].toggleButton
+toggleName.myToggle['Toggle Target ID'].reactTarget
+</code></pre>
+
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">default</span></h6></div>
+										<div class="subsubsection-body">
+											<pre class="highlight-js"><code class="javascript">var toggleDefault = new buiToggle('[data-bui-toggle="toggleDefault"]');</code></pre>
+
+											<a class="toggle-button-demo" href="#toggleDemosDefault" data-bui-toggle-button="toggleDemosDefault" onclick="toggleDefault.toggle(this.dataset.buiToggleButton);">toggle button</a>
+											<div class="toggle-target-demo" id="toggleDemosDefault" data-bui-toggle="toggleDefault"><div class="toggle-target-body"><p>toggle target</p></div></div>
+
+											<script type="text/javascript">
+												var toggleDefault = new buiToggle('[data-bui-toggle="toggleDefault"]');
+											</script>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">close</span></h6></div>
+										<div class="subsubsection-body">
+<pre class="highlight-js"><code class="javascript">var toggleClose = new buiToggle('[data-bui-toggle="toggleClose"]', {
+	close: true,
+	closeButtonArea: '.toggle-target-body'
+});</code></pre>
+											<a class="toggle-button-demo" href="#toggleDemosClose" data-bui-toggle-button="toggleDemosClose" onclick="toggleClose.toggle(this.dataset.buiToggleButton);">toggle button</a>
+											<div class="toggle-target-demo" id="toggleDemosClose" data-bui-toggle="toggleClose"><div class="toggle-target-body"><p>toggle target</p></div></div>
+											<script type="text/javascript">
+												// toggle-close
+												var toggleClose = new buiToggle('[data-bui-toggle="toggleClose"]', {
+													inactiveButton: true,
+													inactiveButtonArea: '.toggle-target-body',
+												});
+											</script>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">clickout</span></h6></div>
+										<div class="subsubsection-body">
+<pre class="highlight-js"><code class="javascript">var toggleClickout = new buiToggle('[data-bui-toggle="toggleClickout"]', {
+	close: true,
+	closeButtonArea: '.toggle-target-body',
+	clickout: true
+});</code></pre>
+											<a class="toggle-button-demo" href="#toggleDemosClickout" data-bui-toggle-button="toggleDemosClickout" onclick="toggleClickout.toggle(this.dataset.buiToggleButton);">toggle button</a>
+											<div class="toggle-target-demo" id="toggleDemosClickout" data-bui-toggle="toggleClickout"><div class="toggle-target-body"><p>toggle target</p></div></div>
+											<script type="text/javascript">
+												// toggle-clickout
+												var toggleClickout = new buiToggle('[data-bui-toggle="toggleClickout"]', {
+													inactiveButton: true,
+													inactiveButtonArea: '.toggle-target-body',
+													clickout: true
+												});
+											</script>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">focusin</span></h6></div>
+										<div class="subsubsection-body">
+<pre class="highlight-js"><code class="javascript">var toggleFocusin = new buiToggle('[data-bui-toggle="toggleFocusin"]', {
+	close: true,
+	closeButtonArea: '.toggle-target-body',
+	focusin: true
+});</code></pre>
+											<a class="toggle-button-demo" href="#toggleDemosFocusin" data-bui-toggle-button="toggleDemosFocusin" onclick="toggleFocusin.toggle(this.dataset.buiToggleButton);">toggle button</a>
+											<div class="toggle-target-demo" id="toggleDemosFocusin" data-bui-toggle="toggleFocusin"><div class="toggle-target-body"><p>toggle target</p></div></div>
+											<script type="text/javascript">
+												// toggle-focusin
+												var toggleFocusin = new buiToggle('[data-bui-toggle="toggleFocusin"]', {
+													inactiveButton: true,
+													inactiveButtonArea: '.toggle-target-body',
+													focusin: true
+												});
+											</script>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">focusout</span></h6></div>
+										<div class="subsubsection-body">
+<pre class="highlight-js"><code class="javascript">var toggleFocusout = new buiToggle('[data-bui-toggle="toggleFocusout"]', {
+	close: true,
+	closeButtonArea: '.toggle-target-body',
+	focusout: true
+});</code></pre>
+											<a class="toggle-button-demo" href="#toggleDemosFocusout" data-bui-toggle-button="toggleDemosFocusout" onclick="toggleFocusout.toggle(this.dataset.buiToggleButton);">toggle button</a>
+											<div class="toggle-target-demo" id="toggleDemosFocusout" data-bui-toggle="toggleFocusout"><div class="toggle-target-body"><p>toggle target</p></div></div>
+											<script type="text/javascript">
+												// toggle-focusout
+												var toggleFocusout = new buiToggle('[data-bui-toggle="toggleFocusout"]', {
+													inactiveButton: true,
+													inactiveButtonArea: '.toggle-target-body',
+													focusout: true,
+												});
+											</script>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">reactTarget</span></h6></div>
+										<div class="subsubsection-body">
+<pre class="highlight-js"><code class="javascript">var toggleReactTarget = new buiToggle('[data-bui-toggle="toggleReactTarget"]', {
+	close: true,
+	closeButtonArea: '.toggle-target-body',
+	reactTarget: 'html',
+	reactTargetActiveClass: 'active-toggle-react-target'
+});</code></pre>
+											<a class="toggle-button-demo" href="#toggleDemosReactTarget" data-bui-toggle-button="toggleDemosReactTarget" onclick="toggleReactTarget.toggle(this.dataset.buiToggleButton);">toggle button</a>
+											<div class="toggle-target-demo" id="toggleDemosReactTarget" data-bui-toggle="toggleReactTarget"><div class="toggle-target-body"><p>toggle target</p></div></div>
+											<script type="text/javascript">
+												// toggle-react-target
+												var toggleReactTarget = new buiToggle('[data-bui-toggle="toggleReactTarget"]', {
+													inactiveButton: true,
+													inactiveButtonArea: '.toggle-target-body',
+													reactTarget: 'html',
+													reactTargetActiveClass: 'active-toggle-react-target',
+												});
+											</script>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section" style="display: none;">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">BuiTab</span></h4></div>
+						<div class="section-body">
+							<!--subsection-->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+<pre class="highlight-js"><code class="html">&lt;script type="text/javascript" defer src="/assets/js/module.bui.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" defer src="/assets/js/module.bui.template.js"&gt;&lt;/script&gt;
+
+&lt;div class="tab-display" data-bui-tab="normal"&gt;
+	&lt;ul class="tab-list"&gt;
+		&lt;li class="tab-item"&gt;&lt;a class="tab-name" href="#tabTarget1"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="tab-item"&gt;&lt;a class="tab-name" href="#tabTarget2"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="tab-item"&gt;&lt;a class="tab-name" href="#tabTarget3"&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="tabTarget1"&gt;Tab Target 1&lt;/div&gt;
+&lt;div class="tabTarget2"&gt;Tab Target 2&lt;/div&gt;
+&lt;div class="tabTarget3"&gt;Tab Target 3&lt;/div&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">javascript</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">default</span></h6></div>
+										<div class="subsubsection-body">
+											<pre class="highlight-js"><code class="javascript">var tabs = new buiTab('[data-bui-tab="normal"]');</code></pre>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">options</span></h6></div>
+										<div class="subsubsection-body">
+<pre class="highlight-js"><code class="javascript">var tabs = new buiTab('[data-bui-tab="normal"]'), {
+	// general
+	active: false,
+	activeClass: 'current',
+	initial: 0,
+
+	// tab
+	tabItem: '.tab-item',
+	tabName: '.tab-name',
+	
+	// target
+	target: null,
+	targetClass: 'bui-tab-target',
+	targetActiveClass: 'active',
+});</code></pre>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<div class="tab-display tab-demo" data-bui-tab="tabDemo">
+										<ul class="tab-list">
+											<li class="tab-item current" title="현재 선택된 항목"><a class="tab-name" href="#tabTargetDemo1">one</a></li>
+											<li class="tab-item"><a class="tab-name" href="#tabTargetDemo2">two</a></li>
+											<li class="tab-item"><a class="tab-name" href="#tabTargetDemo3">three</a></li>
+										</ul>
+									</div>
+									<div id="tabTargetDemo1" class="tab-target-demo">Tab Target 1</div>
+									<div id="tabTargetDemo2" class="tab-target-demo">Tab Target 2</div>
+									<div id="tabTargetDemo3" class="tab-target-demo">Tab Target 3</div>
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- //content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<!--page-foot-->
+		<div class="page-foot" id="foot">
+			<p class="copyright">&copy; Copyright <a href="mailto:codenamic@gmail.com">codenamic</a></p>
+		</div>
+		<!--//page-foot-->
+		<div class="page-baseline" id="pageBaseline"></div>
+		<div class="page-grid" id="pageGrid">
+			<div class="grid-list"><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span></div>
+		</div>
+		<!--//page-control-->
+	</div>
+	<!-- //page -->
+</div>
+</body>
+</html>

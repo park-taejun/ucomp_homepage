@@ -1,0 +1,390 @@
+
+
+BODY
+{
+//	BACKGROUND-IMAGE: url(/admin/mall/img/bk_grad.gif);
+	COLOR: black;
+	FONT-SIZE: 12px;
+	MARGIN-LEFT: 0px;
+	MARGIN-TOP: 0px;
+
+	scrollbar-face-color: #FFFFFF; 
+	scrollbar-shadow-color: #3D3D3D; 
+	scrollbar-highlight-color: #FFFFFF; 
+	scrollbar-3dlight-color: #3D3D3D; 
+	scrollbar-darkshadow-color: #FFFFFF; 
+	scrollbar-track-color: #FFFFFF; 
+	scrollbar-arrow-color: #FFFFFF
+}
+
+TABLE
+{
+    FONT-SIZE:12px;
+}
+
+BODY.LFRAME
+{
+//	BACKGROUND-IMAGE: url(/admin/img/bk_blue.gif);
+	COLOR: gary;
+	FONT-SIZE: 13px;
+	MARGIN-LEFT: 16px;
+	MARGIN-TOP: 0px;
+}
+
+BODY.LFRAME INPUT 
+{
+    border:0 solid #FFFFFF;
+    width:135;
+	margin-top:2px; 
+	padding-top:3px;
+	font-size: 12px; 
+	color: black;
+}
+
+BODY.TFRAME
+{
+//	BACKGROUND-IMAGE: url(/admin/img/bk_blue.gif);
+	COLOR: black;
+	FONT-SIZE: 10px;
+	MARGIN-LEFT: 16px;
+	MARGIN-RIGHT: 16px;
+	MARGIN-TOP: 10px;
+}
+
+TABLE.TITLE
+{
+    MARGIN-LEFT: 0px;
+    COLOR: gary;
+    WIDTH: 100%;
+}
+
+TABLE.TITLE TD
+{
+    BACKGROUND-COLOR: #FFFFFF;
+    FONT-SIZE: 20px;
+    FONT-WEIGHT: bold;
+    PADDING : 5px;
+}
+
+TABLE.IN
+{
+    WIDTH: 100%;
+    BORDER-WIDTH: 0px;
+    FONT-SIZE:12px;
+}
+
+TABLE.IN TH
+{
+    WIDTH: 15%;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: normal;
+    TEXT-ALIGN: right;
+    PADDING: 5px;
+    BACKGROUND-COLOR: #DDDDDD;
+}
+
+TABLE.IN TD
+{
+    WIDTH: 85%;
+    BACKGROUND-COLOR: #EEEEEE;
+}
+
+TABLE.GOODSIN
+{
+    WIDTH: 100%;
+    BORDER-WIDTH: 0px;
+    FONT-SIZE:12px;
+}
+
+TABLE.GOODSIN TH
+{
+    WIDTH: 15%;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: normal;
+    TEXT-ALIGN: right;
+    PADDING: 5px;
+    BACKGROUND-COLOR: #DDDDDD;
+}
+
+TABLE.GOODSIN TD
+{
+    BACKGROUND-COLOR: #EEEEEE;
+}
+
+
+TABLE.LIST
+{
+    WIDTH: 100%;
+    MARGIN-TOP : 0px;
+    MARGIN-LEFT : 0px;
+}
+
+TABLE.LIST TH
+{
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: normal;
+    TEXT-ALIGN: left;
+    PADDING: 5px;
+    COLOR: white;
+    BACKGROUND-COLOR: 555555;
+}
+
+TABLE.LIST TD
+{
+    FONT-SIZE: 12px;
+    PADDING: 2px;
+    BACKGROUND-COLOR: #FFFFFF;
+}
+
+
+TABLE.LIST TDC
+{
+    FONT-SIZE: 12px;
+    PADDING: 2px;
+    ALIGN : center;
+}
+
+TABLE.BOTTOM
+{
+    FONT-SIZE: 12px;
+    PADDING: 2px;
+    WIDTH: 100%;
+//    BACKGROUND-IMAGE: url(/manager/img/bkbottom.gif);
+    BACKGROUND-COLOR: white;
+    BACKGROUND: white;
+}
+
+/*
+
+TABLE.TITLE INPUT 
+{
+    border:1 solid #FFCC00;
+	margin-top:2px; 
+	margin-bottom:0px;
+	padding-top : 5px;
+	font-size: 12px; 
+	color: black;
+}
+
+
+
+
+
+TABLE.LISTTOP
+{
+    WIDTH: 95%;
+}
+
+TABLE.LISTTOP TD
+{
+    FONT-SIZE: 12px;
+    TEXT-ALIGN: right;
+}
+
+TABLE.MENU
+{
+	WIDTH:100%;
+}
+
+TABLE.MENU INPUT 
+{
+    border:1 solid gray;
+	margin-top:2px; 
+	margin-bottom:0px;
+	padding-top : 5px;
+	font-size: 12px; 
+	color: black;
+	width:150px;
+}
+
+TABLE.STITLE
+{
+    FONT-SIZE: 20px;
+    FONT-WEIGHT: bold;
+    PADDING: 10px;
+    WIDTH: 100%;
+    BACKGROUND-COLOR:white;
+}
+
+
+TABLE.SUBTITLE
+{
+    FONT-SIZE: 15px;
+    FONT-WEIGHT: bold;
+    PADDING: 10px;
+    WIDTH: 100%;
+    BACKGROUND-COLOR: white;
+}
+
+TABLE.NUL
+{
+    PADDING: 0px;
+    MARGIN-LEFT : 20px;
+    WIDTH: 95%;
+}
+
+TABLE.SEARCH
+{
+    FONT-SIZE: 12px;
+    WIDTH: 95%;
+    MARGIN-LEFT : 20px;
+}
+
+TABLE.SEARCH TD
+{
+    PADDING: 5px;
+}
+
+
+
+TABLE.DETAIL
+{
+    WIDTH: 600px;
+    BORDER-WIDTH: 1px;
+    MARGIN-LEFT : 20px;
+    BACKGROUND-IMAGE: url(/admin/img/bkbottom.gif);
+}
+
+TABLE.DETAIL TH
+{
+    PADDING: 5px;
+    FONT-SIZE: 15px;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: left;
+}
+
+TABLE.DETAIL TD
+{
+    PADDING: 5px;
+    FONT-SIZE: 12px;
+}
+
+
+TABLE.IN3
+{
+    WIDTH: 100%;
+    BORDER-WIDTH: 0px;
+    FONT-SIZE:12px;
+}
+
+TABLE.IN3 TH
+{
+    WIDTH: 15%;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: normal;
+    TEXT-ALIGN: right;
+    PADDING: 5px;
+    BACKGROUND-COLOR: #DDDDDD;
+}
+
+TABLE.IN3 TD
+{
+    BACKGROUND-COLOR: #EEEEEE;
+}
+
+
+TABLE.TIP
+{
+    FONT-SIZE: 12px;
+    PADDING: 0px;
+    WIDTH: 100%;
+    /*BACKGROUND-IMAGE: url(/admin/img/bkbottom.gif);*/
+    BACKGROUND:white;
+    MARGIN-LEFT : 0px;
+}
+
+
+
+PRE
+{
+    FONT-SIZE: 13px
+}
+
+FONT
+{
+    FONT-SIZE: 12px
+}
+
+FONT.TIT
+{
+    FONT-SIZE: 13px
+}
+
+
+
+
+*/
+
+A:link
+{
+    COLOR: navy;
+    FONT-SIZE: 12px;
+    TEXT-DECORATION: none
+}
+
+A:visited
+{
+    COLOR: blue;
+    FONT-SIZE: 12px;
+    TEXT-DECORATION: none
+}
+
+A:active
+{
+    COLOR: blue;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    TEXT-DECORATION: none
+}
+
+A:hover
+{
+    COLOR:black;
+    TEXT-DECORATION: none;
+}
+
+A
+{
+    COLOR: blue;
+    TEXT-DECORATION: none;
+}
+
+
+/*
+INPUT 
+{
+    border:1 solid gray;
+	margin-top:2px; 
+	margin-bottom:0px;
+	padding-top:3px;
+	font-size: 12px; 
+	color: black;
+}
+
+UL INPUT
+{
+    border:0
+	margin-top:1px; 
+	margin-bottom:1px; 
+	font-size: 12px; 
+	color: black;
+}
+
+SELECT
+{
+	border:1 solid #c0c0c0;
+	margin-top:0px; 
+	margin-bottom:0px;
+	font-size: 12px;
+}
+
+TEXTAREA 
+{
+	border:1 solid gray
+	margin-top:0px;
+	padding:3px;
+	margin-bottom:0px; 
+	font-size: 12px; 
+	color: black;
+}
+*/

@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/* 2020.11.06 pdf viwer */
+.pdfArea{position:relative; padding:40px 0;}
+.btn_pdfArea{position:absolute; right:0; bottom:0; font-size:0;text-align:right;}
+.btn_pdfArea a{position:relative;display:inline-block;margin-left:10px;padding:0 36px 0 12px;color:#333;font-size:14px;line-height:33px;border:1px solid #c3c3c3;background:#f6f3ec;cursor:pointer; font-family:'NSR'}
+.btn_pdfArea a:after{position:absolute;right:12px;top:50%;width:16px;height:16px;margin-top:-8px;content:'';}
+.btn_pdfArea a.btn_pdf_zoom:after{background:url(../img/common/btn_pdf_zoom.png) no-repeat left top;}
+.btn_pdfArea a.btn_pdf_download:after{background:url(../img/common/btn_pdf_download.png) no-repeat left top;}
+.btn_pdfArea a#DownPdf {width:0; height:0; padding:0; background:0; border:0; font-size:0}
+
+.pdfBox{height:1195px;}
+.pdfobject-container{width:100%;height:100%;overflow:hidden !important}
+
+/* 2020/11/09 분양List 페이지 tab */
+.tabbox_new{position:relative;height:96px;}
+.tabbox_new ul{overflow:hidden;height:47px;padding-left:40px;font-family:"NSR";border-bottom:1px solid #ccc;}
+.tabbox_new .tab_depth2{position:absolute;left:0;top:48px;right:0;}
+.tabbox_new li{float:left;}
+.tabbox_new .tab_depth1 > li{margin-left:88px;}
+.tabbox_new .tab_depth2 > li{margin-left:96px;}
+.tabbox_new li:first-child{margin-left:0;}
+.tabbox_new li a{display:inline-block;margin-top:-1px;color:#666;font-size:16px;}
+.tabbox_new li label{display:inline-block;line-height:47px;cursor:pointer}
+.tabbox_new li.on > a,.tabbox_new li > a:hover,.tabbox_new li > a:focus{color:#a62c2e; border-bottom:2px solid #a62c2e;}
+.tabbox_new li.on > a{font-weight:700;}
+
+/* 2020/11/09 지도로보기 위치 영역 */
+.map_info{margin-top:20px;border-top:2px solid #ccc;border-bottom:2px solid #ccc;}
+.map_info li{padding:18px 0;border-top:1px solid #ccc;}
+.map_info li:first-child{border:none;}
+.map_info dt{color:#333;font-size:16px;font-weight:700;}
+.map_info dd{margin-top:8px;color:#666;font-size:12px;}
+
+/* 분양중 메인 비주얼 IR기법 */
+.ir_indent{width:0;height:0;text-indent:-9999px;}
+
+/* 기본정보 특장점 */
+.feature_table{width:100%;margin-top:40px;border-top:5px solid #801214;}
+.feature_table th,.feature_table td{padding:12px 10px;font-size:12px;font-family:"Nanum Gothic", Arial;font-weight:700;text-align:left;border-bottom:1px solid #d3d3d3;}
+.feature_table th{color:#000;}
+.feature_table th:first-child{border-left:0;}
+.feature_table td{color:##747373;}
+
+.feature_icon_list{width:100%;font-size:0;}
+.feature_icon_list a{position:relative;display:inline-block;width:54px;height:26px;margin-left:4px;padding:5px 0 5px 25px;font-family:"Nanum Gothic", Arial;font-size:12px;font-weight:400;box-sizing:border-box;}
+.feature_icon_list a:first-child{margin:0;}
+.feature_icon_list a.tool_ico01 {background:url(../img/common/ico_sales_tool01.gif) no-repeat 0 0;}
+.feature_icon_list a.tool_ico02 {background:url(../img/common/ico_sales_tool02.gif) no-repeat 0 0;}
+.feature_icon_list a.tool_ico03 {background:url(../img/common/ico_sales_tool03.gif) no-repeat 0 0;}
+.feature_icon_list a.tool_ico04 {background:url(../img/common/ico_sales_tool04.gif) no-repeat 0 0;}
+.feature_icon_list a.tool_ico05 {background:url(../img/common/ico_sales_tool05.gif) no-repeat 0 0;}
+.feature_icon_list a.tool_ico06 {background:url(../img/common/ico_sales_tool06.gif) no-repeat 0 0;}
+.feature_icon_list a.tool_ico07 {background:url(../img/common/ico_sales_tool07.gif) no-repeat 0 0;}
+.feature_icon_list a.tool_ico08 {background:url(../img/common/ico_sales_tool08.gif) no-repeat 0 0;}
+.feature_icon_list a span.tooltip { position:absolute; bottom:-20px; left:-50%; display:block; font-size:12px; background:url(../img/common/tooltip_arrow.png) no-repeat center top; overflow:hidden;}
+.feature_icon_list a span.tooltip a { background:#801214; text-align:center; color:#fff; display:block; background:#801214; margin-top:3px; padding:3px 10px 0; white-space:nowrap; border-radius:3px; height:20px;}

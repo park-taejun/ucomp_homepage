@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-title" id="localTitle"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<h3 class="content-title" id="contentTitle"><span class="content-name">list</span></h3>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section : Button System-->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'data display'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;!-- data-display --&gt;
+&lt;div class="data-display"&gt;
+	&lt;ul class="data-list"&gt;
+		&lt;li class="data-item"&gt;
+			&lt;div class="data-wrap"&gt;
+				&lt;div class="data-head"&gt;&lt;span class="data-name"&gt;&lt;/span&gt;&lt;/div&gt;
+				&lt;div class="data-body"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+		&lt;li class="data-item"&gt;
+			&lt;div class="data-wrap"&gt;
+				&lt;div class="data-head"&gt;&lt;span class="data-name"&gt;&lt;/span&gt;&lt;/div&gt;
+				&lt;div class="data-body"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- //data-display --&gt;
+</code></pre>
+									<!-- //highlight-js -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>module-*</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>xx-small, x-small, small, medium, large, x-large, xx-large, xx-large</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">symbols</th>
+													<td>attr-*</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'module a'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js"><code class="html">
+&lt;div class="data-display module-a style-a type-a small"&gt;
+	&lt;ul class="data-list"&gt;
+		&lt;li class="data-item"&gt;
+			&lt;div class="data-wrap"&gt;
+				&lt;div class="data-head"&gt;&lt;span class="data-name"&gt;&lt;/span&gt;&lt;/div&gt;
+				&lt;div class="data-body"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+									<!-- //highlight-js -->
+									<!-- data-display -->
+									<div class="data-display module-a style-a type-a small">
+										<!-- data-list -->
+										<ul class="data-list">
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><span class="data-name">일자</span></div>
+													<div class="data-body">2월 5일, 10일, 11일, 12일, 22일</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><span class="data-name">지출타입</span></div>
+													<div class="data-body">교통비</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><span class="data-name">상세내역</span></div>
+													<div class="data-body">12시 지나 퇴근이라 택시 탐</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><span class="data-name">프로젝트</span></div>
+													<div class="data-body">LG디스커버리</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><span class="data-name">금액</span></div>
+													<div class="data-body">11,000</div>
+												</div>
+											</li>
+										</ul>
+										<!-- //data-list -->
+									</div>
+									<!--// data-display -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'module b'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js"><code class="html">
+&lt;div class="data-display module-b style-a type-a normal-03 small"&gt;
+	&lt;ul class="data-list"&gt;
+		&lt;li class="data-item"&gt;
+			&lt;div class="data-wrap"&gt;
+				&lt;div class="data-head"&gt;&lt;a href="#" class="data-name"&gt;name&lt;/a&gt;&lt;/div&gt;
+				&lt;div class="data-body"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+									<!-- //highlight-js -->
+									<!-- data-display -->
+									<div class="data-display module-b style-a type-a normal-03 small">
+										<!-- data-list -->
+										<ul class="data-list">
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#" class="data-name symbol-rtl-fill-circle-more">김민지</a></div>
+													<div class="data-body">인트라넷 모바일 작업, 운영...</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#" class="data-name symbol-rtl-fill-circle-more">제갈정</a></div>
+													<div class="data-body">진학사, 인트라넷</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#" class="data-name symbol-rtl-fill-circle-more">이주희</a></div>
+													<div class="data-body">LG DLAB 프로젝트</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#" class="data-name symbol-rtl-fill-circle-more">권세희</a></div>
+													<div class="data-body">LG하우시스 웹진 개편-작업...</div>
+												</div>
+											</li>
+											<li class="data-item">
+												<div class="data-wrap">
+													<div class="data-head"><a href="#" class="data-name symbol-rtl-fill-circle-more">한창수</a></div>
+													<div class="data-body">인트라넷 모바일 고도화</div>
+												</div>
+											</li>
+										</ul>
+										<!-- //data-list -->
+									</div>
+									<!--// data-display -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'data list'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list"&gt;
+	&lt;li class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="data-list"&gt;
+	&lt;p class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!--data-table-->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>data-list</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>small to large</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--//data-table-->
+								</div>
+							</div>
+							<!-- //subsection -->
+
+							<!-- subsection: style-a -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'style-a'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js"><code class="html">&lt;ul class="data-list module-a style-a small"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'small'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a style-a normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js"><code class="html">&lt;ul class="data-list module-a style-a xx-small"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'xx-small'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a style-a normal-00 xx-small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'normal-05'}) %></div>
+										<div class="subsubsection-body">
+											<!-- highlight-js -->
+											<pre class="highlight-js"><code class="html">&lt;ul class="data-list module-a style-a normal-05 xx-small"&gt;</code></pre>
+											<!-- //highlight-js -->
+											<!-- data-list -->
+											<ul class="data-list module-a style-a normal-05 xx-small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: style-a -->
+
+							<!-- subsection: style-b -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'style-b'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'xx-small'}) %></div>
+										<!-- highlight-js -->
+										<pre class="highlight-js"><code class="html">&lt;ul class="data-list module-a style-b xx-small"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a style-b normal-00 xx-small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: style-b -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'style-c'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js"><code class="html">&lt;ul class="data-list module-a style-c normal-00 xx-small"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'xx-small'}) %></div>
+										<div class="subsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a style-c normal-00 xx-small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection: style-d -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'style-d'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'xx-small'}) %></div>
+										<!-- highlight-js -->
+										<pre class="highlight-js"><code class="html">&lt;ul class="data-list module-a style-d xx-small"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a style-d normal-00 xx-small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem a totam quam eligendi aspernatur provident sit, eveniet ipsa distinctio deserunt officia quos, autem fugiat minima praesentium perspiciatis, inventore dolorum culpa.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: style-d -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function() {
+		var buttons = document.querySelectorAll('.bui-button-area .btn');
+		Array.prototype.forEach.call(buttons, function(button) {
+			button.addEventListener('click', function(e) {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<style>
+  html, body, button, div, input, select, fieldset { font-family: MS Shell Dlg; font-size: 8pt; position: absolute; };
+</style>
+<script language="javascript">
+<!--
+	function upload_file()
+	{
+		if ( document.inputform.imgfile.value == "" ) return;
+		document.inputform.action="image_save.html";
+		
+		document.inputform.submit();
+	}	
+</script>	
+<BODY style="background: threedface; color: windowtext;" scroll=no  >
+<DIV id=divAltText style="left: 0.98em; top: 1em; width: 6.58em; height: 1.2168em; ">이미지첨부:</DIV>
+<form  enctype="multipart/form-data" name="inputform" method="post">
+<input type='hidden' name='board_type' value='<? echo $board_type; ?>'>
+<INPUT type='file' name="imgfile" style="left: 8.54em; top: 0.5em; width: 24.5em; height: 2.1294em; " >
+</form>
+<input type=button value="확인" onClick="upload_file();"  style="left: 5.54em; top: 4.5em; width: 9em; height: 2.1294em; ">
+<input type=button value="취소" onClick="self.close();" style="left: 16.54em; top: 4.5em; width: 9em; height: 2.1294em; ">
+</BODY>

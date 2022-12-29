@@ -1,0 +1,318 @@
+@import '_variables';
+
+/*
+ * list style
+ */
+
+
+$list-accent: (
+	normal-00: #000000,
+	normal-01: #1d1d1d,
+	normal-02: #3a3a3a,
+	normal-03: #656565,
+	normal-04: #a3a3a3,
+	normal-05: #909090,
+	normal-06: #c7c7c7,
+	normal-07: #e3e3e3,
+	normal-08: #f4f4f4,
+	normal-09: #fbfbfb,
+	normal-10: #ffffff,
+	accent-01: #EE2C49,
+	accent-02: #313851,
+);
+
+$list-outline: (
+	xx-large:	'xxxx-large',
+	x-large:	'xxx-large',
+	large:		'xx-large',
+	medium:		'x-large',
+	small:		'large',
+	x-small:	'medium',
+	xx-small:	'small',
+);
+
+p.data-list {
+	margin: 0;
+}
+
+ul.data-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+p.data-item {
+	margin: 0;
+}
+
+/* data-list */
+.data-list {
+	>li.data-item {
+		a.em {
+			text-decoration: underline;
+		}
+	}
+}
+
+.data-list.module-a {
+	.data-item {
+		position: relative;
+		color: color(base, 000);
+		padding-left: 1.5em;
+
+		&::before {
+			content: '';
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1.5em;
+			min-width: 1.5em;
+			height: 1.5em;
+			min-height: 1.5em;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			text-align: center;
+		}
+	}
+
+	// accent
+	@each $name, $color in $list-accent {
+		&.#{$name} {
+			.data-item {
+				color: $color;
+			}
+		}
+		&.style-a.#{$name} {.data-item::before {background-image: icon(bullet-dash, $color)}}
+		&.style-b.#{$name} {.data-item::before {background-image: icon(bullet-square, $color)}}
+		&.style-c.#{$name} {.data-item::before {background-image: icon(bullet-dot, $color)}}
+		&.style-d.#{$name} {.data-item::before {background-image: icon(bullet-star, $color)}}
+	}
+
+	// outline
+	@each $name, $size in $list-outline {
+		&.#{$name} {
+			.data-item {
+				@include font((outline: body, size: $name)...);
+
+				// laptop
+				@include respond-above(x-large) {
+					@include font((outline: body, size: $size)...);
+				}
+			}
+		}
+	}
+}
+
+
+
+/**
+ * @type module
+ * @name data-display
+ */
+
+/*
+ * module outline
+ *
+ * @ $line-height-head
+ * @ $line-height-body
+ * @ $font-size
+ * @ $font-weight
+ * @ $margin = $line-height - 4
+ */
+ $data-display-module-outline: (
+	'x-small'		18rem  16rem  1.50 400 14rem,
+	'small'			20rem  18rem  1.50 400 16rem,
+	'medium'		24rem  20rem  1.50 400 20rem,
+	'large'			28rem  24rem  1.50 400 24rem,
+	'x-large'		32rem  28rem  1.50 400 28rem,
+);
+
+/*
+* @ module accent
+*
+* @ $data-head: text-color
+* @ $data-head: icon-color
+* @ $data-body: text-color
+*/
+$data-display-module-accent: (
+	'normal-02' color(base, 080) color(base, 020) color(base, 020),
+	'normal-03' color(base, 080) color(base, 010) color(base, 020),
+	'normal-04' color(base, 040) color(base, 040) color(base, 040),
+);
+
+.data-display {
+	.data-list {
+		.data-item {
+			.data-wrap {
+				.data-head {
+					.data-name {
+						&[class*=symbol-ltr-]::before,
+						&[class*=symbol-rtl-]::after {
+							content: '';
+							display: block;
+							background-repeat: no-repeat;
+							background-size: cover;
+						}
+					}
+				}
+				.data-body {
+
+				}
+			}
+		}
+	}
+	// outline
+	@each $name, $line-height-head, $line-height-body, $font-size, $font-weight, $margin in $data-display-module-outline {
+		&.#{$name} {
+			.data-item {
+				.data-wrap {
+					.data-head {
+						font-weight: $font-weight;
+						.data-name {
+							line-height: $line-height-head;
+							font-size: calc($line-height-head / $font-size);
+						}
+					}
+					.data-body {
+					}
+				}
+			}
+			
+			&.style-a {
+				.data-item {
+					.data-wrap {
+						.data-head {
+							.data-name {
+		
+							}
+						}
+						.data-body {
+		
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// accent
+	@each $name, $head-color, $icon-color, $body-color in $data-display-module-accent {
+		&.#{$name} {
+			.data-head {
+				color: $head-color;
+				a.data-name {
+					@each $icon-name, $icon in $symbol-list {
+						&.symbol-ltr-#{$icon-name}::before {background-image: icon($icon-name, $icon-color);}
+						&.symbol-rtl-#{$icon-name}::after {background-image: icon($icon-name, $icon-color);}
+					}
+				}
+			}
+		}
+	}
+}
+
+// module-a
+.data-display.module-a {
+	.data-list {
+		.data-item {
+			.data-wrap {
+				display: flex;
+				// align-items: center;
+				.data-head {
+					.data-name {
+						color: color(base, 040);
+					}
+				}
+				.data-body {
+					color: color(base, 070);
+				}
+			}
+			& + .data-item {
+				margin-top: 8rem;
+			}
+		}
+	}
+	// outline module-a
+	@each $name, $line-height-head, $line-height-body, $font-size, $font-weight, $margin in $data-display-module-outline {
+		&.#{$name} {
+			.data-item {
+				.data-wrap {
+					.data-head {
+						flex-basis: calc($line-height-head/$font-size) * 5;
+						flex-shrink: 0;
+					}
+					.data-body {
+						flex: 1 1 100%;
+						// width:100% //pc ex 경우
+						line-height: $line-height-head;
+						font-size: calc($line-height-head / $font-size);
+					}
+				}
+				// & + .data-item {
+				// 	margin-top: 8rem;
+				// }
+			}
+		}
+	}
+}
+
+// module-b
+.data-display.module-b {
+	.data-list {
+		display: flex;
+		flex-wrap: wrap;
+		.data-item {
+			.data-wrap {
+				.data-head {
+					display: flex;
+
+					.data-name {
+						flex-shrink: 0;
+						display: flex;
+						color: color(base, 070);
+						text-decoration: none;
+					}
+				}
+				.data-body {
+					color: color(base, 040);
+				}
+			}
+		}
+	}
+
+	// outline module-b
+	@each $name, $line-height-head, $line-height-body, $font-size, $font-weight, $margin in $data-display-module-outline {
+		&.#{$name} {
+			.data-item {
+				@include display-column(2, $margin, $margin - 4);
+				.data-wrap {
+					.data-head {
+						.data-name {
+							&[class*=symbol-ltr-]::before,
+							&[class*=symbol-rtl-]::after {
+								width: $line-height-head;
+								min-width: $line-height-head;
+								height: $line-height-head;
+							}
+						}
+					}
+					.data-body {
+						line-height: $line-height-body;
+						font-size: calc($line-height-body / $font-size);
+					}
+				}
+			}
+			// icon
+			&[class*=symbol-ltr-] .data-name::before,
+			&[class*=symbol-rtl-] .data-name::after {
+				width: $line-height-head;
+				min-width: $line-height-head;
+				height: $line-height-head;
+			}
+		}
+	}	
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-title" id="localTitle"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<h3 class="content-title" id="contentTitle"><span class="content-name">icon</span></h3>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'SVG icon'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"&gt;
+	&lt;title&gt;Text alternatives for non-text content&lt;/title&gt;
+	&lt;path d="..."&gt;&lt;/path&gt;
+&lt;/svg&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'SCSS'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js"><code class="scss">background-image: icon($name, $color);</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'example'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js"><code class="scss">background-image: icon(info, color(base, 00));</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'menu'}) %></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">line-calendar-today</span></li>
+												<li class="data-item"><span class="data-name">line-description</span></li>
+												<li class="data-item"><span class="data-name">line-home</span></li>
+												<li class="data-item"><span class="data-name">line-notice</span></li>
+												<li class="data-item"><span class="data-name">line-profile</span></li>
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'action'}) %></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">fill-arrow-back</span></li>
+												<li class="data-item"><span class="data-name">fill-camera</span></li>
+												<li class="data-item"><span class="data-name">fill-caret-down</span></li>
+												<li class="data-item"><span class="data-name">fill-caret-up</span></li>
+												<li class="data-item"><span class="data-name">fill-check</span></li>
+												<li class="data-item"><span class="data-name">fill-chevron-down</span></li>
+												<li class="data-item"><span class="data-name">fill-chevron-left</span></li>
+												<li class="data-item"><span class="data-name">fill-chevron-right</span></li>
+												<li class="data-item"><span class="data-name">fill-chevron-up</span></li>
+												<li class="data-item"><span class="data-name">fill-circle-caution</span></li>
+												<li class="data-item"><span class="data-name">fill-circle-delete</span></li>
+												<li class="data-item"><span class="data-name">fill-circle-information</span></li>
+												<li class="data-item"><span class="data-name">fill-circle-more</span></li>
+												<li class="data-item"><span class="data-name">fill-close</span></li>
+												<li class="data-item"><span class="data-name">fill-download</span></li>
+												<li class="data-item"><span class="data-name">fill-notice</span></li>
+												<li class="data-item"><span class="data-name">fill-plus</span></li>
+												<li class="data-item"><span class="data-name">fill-search</span></li>
+												<li class="data-item"><span class="data-name">fill-write</span></li>
+												<li class="data-item"><span class="data-name">line-time</span></li>
+												<li class="data-item"><span class="data-name">line-bag</span></li>
+												
+
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'social'}) %></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">line-comment</span></li>
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'bullet'}) %></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">bullet-dash</span></li>
+												<li class="data-item"><span class="data-name">bullet-dot</span></li>
+												<li class="data-item"><span class="data-name">bullet-square</span></li>
+												<li class="data-item"><span class="data-name">bullet-star</span></li>
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'lamp'}) %></div>
+										<div class="subsubsection-body">
+											<ul class="data-list svg-icon">
+												<li class="data-item"><span class="data-name">lamp-dot</span></li>
+											</ul>
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var svgIcons = document.querySelectorAll('.svg-icon .data-name');
+		Array.prototype.forEach.call(svgIcons, function(icon) {
+			icon.parentElement.classList.add(icon.textContent);
+		});
+	});
+</script>
+</body>
+</html>

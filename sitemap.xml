@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	  	  
+<!-- www.check-domains.com sitemap generator -->
+
+<url>
+   <loc>http://ucomp.co.kr/</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>http://ucomp.co.kr/about</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://ucomp.co.kr/list_thumb</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://ucomp.co.kr/request</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://ucomp.co.kr/contact</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://ucomp.co.kr/list_text</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://ucomp.co.kr/read?p_no=252</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://www.ucomp.co.kr/</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>http://www.ucomp.co.kr/about</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://www.ucomp.co.kr/list_thumb</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://www.ucomp.co.kr/request</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://www.ucomp.co.kr/contact</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://www.ucomp.co.kr/list_text</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>http://www.ucomp.co.kr/read?p_no=252</loc>
+   <lastmod>2022-06-30T03:04:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+</urlset>

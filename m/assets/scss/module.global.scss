@@ -1,0 +1,20 @@
+// 모듈 및 컴퍼넌트의 분류는 웹에 반드시 존재해야 하는 UIO 기준
+@import 'partials/_variables';
+@import 'partials/_mixin';
+@import 'partials/_fonts';
+@import 'partials/_typography';
+@import 'partials/_icons';
+@import 'partials/_button';
+@import 'partials/_mark';
+@import 'partials/_form';
+@import 'partials/_fieldset';
+@import 'partials/_list';
+@import 'partials/_board';
+@import 'partials/_table';
+@import 'partials/_tab';
+@import 'partials/_tooltip';
+@import 'partials/_post';
+@import 'partials/_goods';
+@import 'partials/_vendor'; // 외부 컴퍼넌트 CSS
+@import 'partials/_temp';
+//@import 'partials/_migration'; 기존 운영 CSS 재설정 관련

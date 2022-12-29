@@ -1,0 +1,38 @@
+<HTML>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<TITLE>미리보기</TITLE>
+<style>
+body,p,br,table,tr,td,input,pre
+{
+	font-family:굴림;font-size:9pt;line-height:130%;
+}
+</style>
+<BODY STYLE='overflow:auto;'>
+
+<script language=javascript>
+
+var flag = opener.document.getElementById('Elay_CodingType');
+var src = opener.document.getElementById('Elay_Srcview');
+var AreaSrc = opener.frames.EditArea;
+var TextObj = opener.document.getElementById('Elay_Content');
+
+if (flag.value == "HTML")
+{
+	if (src.checked)
+	{
+		document.write(TextObj.innerText);
+	}
+	else {
+		document.write(AreaSrc.document.body.innerHTML);
+	}
+}
+else {
+	var ReplaceText = TextObj.innerText.replace('<', '&lt;').replace('>' , '&gt;').replace('"' , '&quot;');
+	document.write("<PRE>" + ReplaceText + "</PRE>");
+}
+
+</script>
+</BODY>
+</HTML>
+
+

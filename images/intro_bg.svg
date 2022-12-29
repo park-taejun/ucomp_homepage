@@ -1,0 +1,28 @@
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 79 128.5">
+  <defs>
+    <style>
+      .ci21, .ci23 {
+        fill: none;
+      }
+
+      .ci22 {
+        clip-path: url(#clip-path);
+      }
+
+      .ci23 {
+        stroke: #dddddd;
+        stroke-miterlimit: 10;
+        stroke-width: 27px;
+      }
+      
+    </style>
+    <clipPath id="clip-path" transform="translate(0 4.5)">
+      <path id="path" class="ci21" d="M39,99.7c9.5,0,14.3-4.9,14.3-14.5V.8H77.2V85.2c0,11.4-3.5,20.4-10.6,27s-16.2,10-27.6,10-20.8-3.4-27.7-10S.8,96.6.8,85.2V.8H24.7V85.2C24.7,94.8,29.5,99.7,39,99.7Z"/>
+    </clipPath>
+  </defs>
+  <g id="clipping_mask">
+    <g class="ci22">
+      <path id="U" class="ci23" d="M13.5-4.5v96s0,19,25,19c0,0,27,0,27-19v-96" transform="translate(0 4.5)"/>
+    </g>
+  </g>
+</svg>

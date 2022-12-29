@@ -1,0 +1,65 @@
+@import '_variables';
+/*
+ * @ text accent
+ * @ $text-color
+ */
+$text-accent: (
+	normal-00: color(base, 100),
+	normal-01: color(base, 080),
+	normal-02: color(base, 060),
+	normal-03: color(base, 040),
+	normal-10: color(base, 000),
+	
+	accent-01: color(primary, 050),
+	accent-02: color(base, 080),
+	accent-03: color(secondary, 010),
+	accent-04: color(secondary, 020),
+);
+
+.em svg {
+	display: block;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+em.em {
+	font-style: normal;
+}
+
+a.em {
+	&:not([class*=normal-]):not([class*=accent-]) {
+		color: inherit;
+	}
+}
+
+strong.em,
+span.em {
+	display: inline-block;
+}
+
+.para,
+.em {
+	&.type-a {
+	}
+
+	&.type-b {
+		text-align: right;
+	}
+	&.type-c {
+		text-align: center;
+	}
+
+	// accent
+	@each $name, $font-color in $text-accent {
+		&.#{$name} {
+			color: $font-color;
+		}
+	}
+
+	&.large {@include font((outline: body, size: large)...)}
+	&.medium {@include font((outline: body, size: medium)...)}
+	&.small {@include font((outline: body, size: small)...)}
+	&.x-small {@include font((outline: body, size: x-small)...)}
+	&.xx-small {@include font((outline: body, size: xx-small)...)}
+}

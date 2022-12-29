@@ -1,0 +1,268 @@
+@import 'partials/_variables';
+@import 'partials/_mixin';
+
+#wrap {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+}
+
+#page {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+.content-body {
+	// section
+	.section.module-a {
+		position: relative;
+		margin: 24rem 0;
+
+		.section-head {
+			margin-bottom: 16rem;
+			.section-title {
+				margin: 0;
+				color: color(base, 090);
+				@include font((outline: body, size: medium)...);
+	
+				.section-name {
+					display: block;
+				}
+			}
+		}
+
+		&:not([class*=type-]) {
+			.section-head {
+				@include hidden;
+			}
+		}
+
+		&.section.module-a.style-a {
+			padding-top: 24rem;
+			border-top: 4rem solid color(base, 010);
+		
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				left: calc(50% - 50vw);
+				top: -4rem;
+				width: 100vw;
+				height: 4rem;
+				background-color: color(base, 010);
+			}
+
+			.section-func {
+				position: absolute;
+				top: 24rem;
+				right: 0;
+
+				.button-area {
+					display: flex;
+					column-gap: 4rem;
+
+					.btn.delete {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						width: 24rem;
+						height: 24rem;
+						box-sizing: border-box;
+						border: 1rem solid color(base, 010);
+						border-radius: 4rem;
+						background-color: color(base, 000);
+
+						svg {
+							height: 16rem;
+							width: 16rem;
+							fill: color(base, 040);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// nodata
+	.info-board.module-c.attr-nodata {
+		margin: 96rem 0;
+	}
+
+	// datepicker
+	>.datepicker-inline.style-a {
+		margin: 24rem 0;
+	}
+
+	>.goods-display.module-a {
+		margin: 32rem 0 16rem 0;
+	}
+
+	// post-display
+	>.post-display.module-a {
+		margin: 32rem 0 16rem 0;
+	}
+	
+	// submit-form
+	>.submit-form.module-a {
+		margin: 24rem 0 ;
+	}
+
+	// post-display
+	>.post-display.module-b {
+		margin: 24rem 0;
+	}
+
+	// info-board
+	>.info-board.module-a {
+		// margin: 32rem 0;;
+		margin: 24rem 0 32rem 0;
+	}
+
+	// noti-board
+	>.noti-board.module-a {
+		margin: 24rem 0 ;
+	}
+}
+
+.content-side {
+	// info-board
+	.info-board.module-b {
+		margin: 32rem 0;
+	}
+
+	// noti-board
+	.noti-board.module-a {
+		margin: 32rem 0;
+	}
+}
+
+/**
+ * @type front
+ * @name page-notice
+ */
+.page-body.page-notice {
+	.content-body {
+		background-color: color(base, 005);
+	}
+}
+
+/**
+ * @type front
+ * @name page-member
+ */
+.page-body.page-member {
+	.content-body {
+		.section.module-a {
+			.section-head {
+				display: flex;
+				justify-content: space-between;
+				
+				.section-control {
+					display: flex;
+					align-items: center;
+					height: 24rem;
+				}
+			}
+		}
+
+
+		// 표시 설명
+		.lamp-info {
+			.info-wrap {
+				.info-head {
+					@include hidden;
+				}
+
+				.info-body {
+					.data-list {
+						display: flex;
+						li {
+							display: flex;
+							@include font((outline: body, size: small, weight: light)...);
+							color: color(base, 050);
+							
+							&::before {
+								content: '';
+								flex-shrink: 0;
+								display: block;
+								width: 20rem;
+								height: 20rem;
+								background-repeat: no-repeat;
+								background-position: center;
+								background-size: cover;
+							}
+
+							&:nth-child(1) {
+								@include hidden;
+							}
+
+							&:nth-child(2) {
+								&::before {
+									background-image: icon(lamp-dot, color(secondary, 040));
+								}
+							}
+
+							&:nth-child(3) {
+								margin-left: 8rem;
+
+								&::before {
+									background-image: icon(lamp-dot, color(base, 030));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/**
+ * @type front
+ * @name page-approval
+ */
+.page-body.page-intro.page-approval,
+.page-body.page-intro-tab.page-approval {
+	.local-body {
+		background-color: color(base, 005);
+	}
+}
+
+
+/**
+ * @type front
+ * @name page-holiday
+ */
+.page-body.page-holiday {
+	.data-display.module-b {
+		.data-body {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+
+	.section.module-a.type-a {
+		&+.section.module-a.type-a {
+			padding-top: 24rem;
+			border-top: 4rem solid color(base, 010);
+		
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				left: calc(50% - 50vw);
+				top: -4rem;
+				width: 100vw;
+				height: 4rem;
+				background-color: color(base, 010);
+			}
+		}
+	}
+}
+.page-foot {
+	@include hidden;
+}
